@@ -8,6 +8,7 @@ Page({
     }),
 
     //如果以前获取过用户身份信息，从本地Storage直接赋值给全局变量
+    //用户在不删除小程序前，Storage理论上一直在
     getApp().globalData.userInfo = wx.getStorageSync('userInfo');
     console.log(getApp().globalData.userInfo);  //调试用
 
@@ -19,7 +20,7 @@ Page({
     
     setTimeout(function() {
       wx.hideLoading()
-    }, 2000)
+    }, 500)
   },
 
   //获取用户身份信息
