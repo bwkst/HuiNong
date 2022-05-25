@@ -1,0 +1,12 @@
+<view wx:if="{{canIUse}}" class='authorize'>
+  <button class='authorizeButton' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+  
+  <view class='line'>————— · —————</view>
+
+  <view class='reminder'>欢迎使用惠农！</view>
+  <view class='reminder'>我们需要一些您的公开信息</view>
+  <view class='reminder'>包括微信昵称、头像等</view>
+  <view class='reminder'>请放心，我们会妥善保管您的信息!</view>
+
+</view>
+<view wx:else>请升级微信版本</view>

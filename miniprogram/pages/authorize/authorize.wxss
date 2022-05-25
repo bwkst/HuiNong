@@ -1,1 +1,38 @@
-/* pages/authorize/authorize.wxss */
+.authorize{
+  width: 70%;
+  height: 300rpx;
+  margin-top: 350rpx;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.authorizeButton{
+  width: 70%;
+  height: fit-content;
+  background-color: #FFD32F;
+  border-radius: 15rpx;
+  align-content: center;
+  text-align: center;
+  margin-left: 15%;
+  margin-right: 15%;
+  color: black;
+  font-size: 37rpx;
+  font-weight: bold;
+}
+
+.line{
+  color: #999999;
+  font-size: 40rpx;
+  text-align:center;
+  margin-top: 20rpx;
+}
+
+.reminder{
+  width: 92%;
+  color: #999999;
+  font-size: 32rpx;
+  font-weight: 10rpx;
+  margin-top: 10rpx;
+  margin: auto;
+  text-align: center;
+}
