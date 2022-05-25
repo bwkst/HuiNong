@@ -1,5 +1,6 @@
-<view wx:if="{{canIUse}}" class='authorize'>
-  <button class='authorizeButton' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+<view class='authorize'>
+
+  <button class='authorizeButton' bindtap="getUserProfile" open-type="getUserProfile">授权登录</button>
   
   <view class='line'>————— · —————</view>
 
@@ -9,4 +10,3 @@
   <view class='reminder'>请放心，我们会妥善保管您的信息!</view>
 
 </view>
-<view wx:else>请升级微信版本</view>

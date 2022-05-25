@@ -1,57 +1,57 @@
 Page({
   data: {
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
-  },
-
-  next: function(e) {
-    console.log("userInfo", getApp().globalData.userInfo)
-    wx.redirectTo({
-      url: '/pages/login/login'
-    })
   },
 
   onLoad: function(options) {
-    var that = this
-
     wx.showLoading({
       title: '加载中',
-    })
+    }),
 
-    wx.login({
-      success(res) {
-        if (res.code) {
-        
-          // 查看是否授权
-          wx.getSetting({
-            success(res) {
-              if (res.authSetting['scope.userInfo']) {
-                // 已经授权，可以直接调用 getUserInfo 获取头像昵称
-                wx.getUserInfo({
-                  success: function(res) {
-                    getApp().globalData.userInfo = res.userInfo
-                    that.next();
-                  }
-                })
-              }
-            }
-          })
+    //如果以前获取过用户身份信息，从本地Storage直接赋值给全局变量
+    getApp().globalData.userInfo = wx.getStorageSync('userInfo');
+    console.log(getApp().globalData.userInfo);  //调试用
 
-        } else {
-          console.log('登录失败！' + res.errMsg)
-        }
-      }
-    })
-
-
+    //如果以前获取过权限，就跳转页面
+    //如果本地Storage没有则不跳转
+    if (getApp().globalData.userInfo) {
+      this.next();
+    };
+    
     setTimeout(function() {
       wx.hideLoading()
     }, 2000)
   },
 
-  bindGetUserInfo(e) {
-    getApp().globalData.userInfo = e.detail.userInfo
+  //获取用户身份信息
+  getUserProfile() {
+    wx.getUserProfile({
+      desc: '用于完善会员资料', //声明获取用户个人信息后的用途，后续会展示在弹窗中
+      success: (res) => {
+        //将用户身份信息存储到本地，以防关掉小程序后全局变量重置
+        wx.setStorageSync('userInfo', res.userInfo);
+
+        //将用户身份信息存储到全局变量，供后续页面使用
+        getApp().globalData.userInfo = res.userInfo;
+
+        //跳转页面
+        this.next();
+      },
+      fail: (res) => {
+        console.log(res);
+        wx.redirectTo({
+          url: '/pages/authorize/authorize'
+        })
+      }
+    })
+  },
+
+  next: function(e) {
+    //看存储的全局变量是否正确
+    console.log("userInfo", getApp().globalData.userInfo)
+
+    //跳转页面
     wx.redirectTo({
-      url: '/pages/authorize/authorize'
+      url: '/pages/login/login'
     })
   }
 })
