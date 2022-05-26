@@ -5,7 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    shouji1:0,
+    shenfen1:0,
+    mima11:0,
+    mima21:0,
+    judge1:false,
+    judge2:false,
+    judge3:true,
   },
 
   /**
@@ -28,6 +34,34 @@ Page({
   onShow() {
 
   },
+shouji(e){
+  console.log(e.detail);
+  this.data.shouji1=e.detail
+},
+
+shenfen(e){
+  console.log(e.detail);
+  this.data.shenfen1=e.detail
+},
+mima1(e){
+  var that=this;
+  this.data.mima11=e.detail;
+  console.log(this.data.mima11);
+  if(this.data.mima21==this.data.mima11){
+    that.setData({judge1:false})}
+    else{that.setData({judge1:true})}
+},
+mima2(e){
+  var that=this;
+  console.log(e.detail);
+  this.data.mima21=e.detail;
+  if(this.data.mima21==this.data.mima11){
+  that.setData({judge1:false})}
+  else{that.setData({judge1:true})}
+},
+sendpasswords(){
+
+},
 
   /**
    * 生命周期函数--监听页面隐藏
