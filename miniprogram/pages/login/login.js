@@ -1,66 +1,65 @@
 // pages/login/login.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
+    haoma:"",
+    password:"",
 
+
+    start: "身份",
+    slist: [
+    { id: 1, name: "农产品买家" },
+    { id: 1, name: "农产品卖家" }
+   ],
+   isstart: false,
+   openimg: "/images/list/list.png",
+   offimg: "/images/list/list1.png"
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
+  haomainput:function(e){
+    this.data.haoma=e.detail.value
 
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
+  passwordinput:function(e){
+    this.data.password=e.detail.value
 
   },
+  
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
 
+
+
+
+
+
+
+
+
+  opens: function (e) {
+   switch (e.currentTarget.dataset.item) {
+    case "1":
+     if (this.data.isstart) {
+      this.setData({
+       isstart: false,
+      });
+     }
+     else {
+      this.setData({
+       isstart: true,
+      });
+     }
+     break;
+   }
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+  onclicks1: function (e) {
+   var index = e.currentTarget.dataset.index;
+   let name = this.data.slist[index].name;
+   this.setData({
+    isstart: false,
+    isfinish: false,
+    isdates: false,
+    start: this.data.slist[index].name,
+    finish: "身份"
+   })
   }
-})
+
+ })
