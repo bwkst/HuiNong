@@ -1,2 +1,36 @@
 <!--pages/register/register.wxml-->
 <text>pages/register/register.wxml</text>
+<view class="aa">
+  <text class="aaa">欢迎选择惠农</text>  
+</view>
+<view class="bb">
+  <text class="bbb">助力农人交流</text>  
+</view>
+
+<view class="select-box">
+    <text class="current-name">身份</text>
+</view>
+
+<view class="first">
+    <input placeholder='手机号码' placeholder-class="plas" class='inputs' type='number'></input>
+</view>
+<view class="second">
+    <input placeholder='昵称' placeholder-class="plas" class='inputs' type='text'></input>
+</view>
+<view class="thrid">
+    <input placeholder='输入您的密码' placeholder-class="plas" class='inputs' type='password'></input>
+</view>
+<view class="fourth">
+    <input placeholder='确认您的密码' placeholder-class="plas" class='inputs' type='password'></input>
+   </view>  
+   
+   <view class="cc">
+  <text class="ccc">保密问题：</text>  
+</view>
+<view class="fifth">
+    <input placeholder='输入身份证后四位' placeholder-class="plas" class='inputs' type='number'></input>
+</view>
+<view class="click">注册</view>
+<view class="dd">
+  <text class="ddd">已有账户？立即登录</text>  
+</view>

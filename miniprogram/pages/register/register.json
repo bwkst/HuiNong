@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {},
+  "navigationBarBackgroundColor": "#FFD32F",
+  "navigationBarTitleText": "注册惠农账户",
+  "navigationBarTextStyle":"black"
 }
