@@ -1,5 +1,4 @@
 <!--pages/register/register.wxml-->
-<text>pages/register/register.wxml</text>
 <view class="aa">
   <text class="aaa">欢迎选择惠农</text>  
 </view>
