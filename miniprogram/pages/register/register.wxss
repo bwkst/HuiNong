@@ -38,6 +38,7 @@ page{
   justify-content: flex-start;
   background-color:white;
   border-radius: 10px 10px 10px 10px;
+  border: 1rpx solid rgba(187, 187, 187, 100);
 }
 .current-name{
   font-size: 30rpx;
@@ -56,6 +57,7 @@ page{
   justify-content: flex-start;
   background-color:white;
   border-radius: 10px 10px 10px 10px;
+  border: 1rpx solid rgba(187, 187, 187, 100);
 }
 .plas{
   font-size: 30rpx;
@@ -81,6 +83,7 @@ page{
   justify-content: flex-start;
   background-color: white;
   border-radius: 10px 10px 10px 10px;
+  border: 1rpx solid rgba(187, 187, 187, 100);
 }
 .thrid{
   width: 80%;
@@ -94,6 +97,7 @@ page{
   justify-content: flex-start;
   background-color: white;
   border-radius: 10px 10px 10px 10px;
+  border: 1rpx solid rgba(187, 187, 187, 100);
 }
 .fourth{
   width: 80%;
@@ -107,6 +111,7 @@ page{
   justify-content: flex-start;
   background-color: white;
   border-radius: 10px 10px 10px 10px;
+  border: 1rpx solid rgba(187, 187, 187, 100);
 }
 .cc{
   width :90%;
@@ -131,6 +136,7 @@ page{
   justify-content: flex-start;
   background-color: white;
   border-radius: 10px 10px 10px 10px;
+  border: 1rpx solid rgba(187, 187, 187, 100);
 }
 .click{
   whith: 50%;
