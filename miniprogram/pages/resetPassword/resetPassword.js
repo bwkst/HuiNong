@@ -87,7 +87,7 @@ Page({
     if (judge1&&judge2&&judge3){
       //把重设的密码发送到云端
       wx.redirectTo({
-        url: 'pages/register/register',//跳转到登录界面
+        url: '/pages/login/login'//跳转到登录界面
       })
     }
 },
