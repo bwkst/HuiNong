@@ -9,9 +9,9 @@ Page({
     shenfen1: 0,//存放身份证后四位
     mima11: 0,//存放一号密码框
     mima21: 0,//存放二号密码框
-    judge1: true,//表示手机号码是否就绪
-    judge2: true,//判断身份证号码是否正确
-    judge3: true,//判断两次密码是否相同
+    judge1: false,//表示手机号码是否就绪
+    judge2: false,//判断身份证号码是否正确
+    judge3: false,//判断两次密码是否相同
     jingao1: '',//密码不同的警告文字
     tishiyu1: '',//提示身份证号码输入错误
   },
