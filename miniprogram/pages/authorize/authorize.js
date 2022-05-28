@@ -2,14 +2,14 @@ Page({
   data: {
   },
 
-  onLoad: function(options) {
+  onLoad: function (options) {
     wx.showLoading({
       title: '加载中',
     }),
 
-    //如果以前获取过用户身份信息，从本地Storage直接赋值给全局变量
-    //用户在不删除小程序前，Storage理论上一直在
-    getApp().globalData.userInfo = wx.getStorageSync('userInfo');
+      //如果以前获取过用户身份信息，从本地Storage直接赋值给全局变量
+      //用户在不删除小程序前，Storage理论上一直在
+      getApp().globalData.userInfo = wx.getStorageSync('userInfo');
     console.log(getApp().globalData.userInfo);  //调试用
 
     //如果以前获取过权限，就跳转页面
@@ -17,8 +17,8 @@ Page({
     if (getApp().globalData.userInfo) {
       this.next();
     };
-    
-    setTimeout(function() {
+
+    setTimeout(function () {
       wx.hideLoading()
     }, 500)
   },
@@ -46,7 +46,7 @@ Page({
     })
   },
 
-  next: function(e) {
+  next: function (e) {
     //看存储的全局变量是否正确
     console.log("userInfo", getApp().globalData.userInfo)
 

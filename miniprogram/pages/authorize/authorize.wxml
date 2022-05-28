@@ -1,7 +1,7 @@
 <view class='authorize'>
 
   <button class='authorizeButton' bindtap="getUserProfile" open-type="getUserProfile">授权登录</button>
-  
+
   <view class='line'>————— · —————</view>
 
   <view class='reminder'>欢迎使用惠农！</view>

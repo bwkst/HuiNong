@@ -1,3 +1,60 @@
 Page{
   background-color: #FFFBED;
 }
+
+.title {
+  margin: 90rpx 0rpx 0rpx 70rpx;
+  font-size: 1.65rem;
+}
+
+.subtitle {
+  width: 75%;
+  height: 100rpx;
+  margin: 30rpx 0rpx 30rpx 70rpx;
+  font-size: 0.95rem;
+}
+
+/*输入框的格式*/
+.inputForm {
+  width: 80%;
+  height: fit-content;
+  margin: 50rpx 75rpx 0rpx 75rpx;
+  border: 1rpx solid #BBBBBB;
+  border-radius: 7rpx 7rpx 7rpx 7rpx;
+  background-color: #FFFFFF;
+}
+
+.inputContent {
+  margin: 12rpx 0rpx 12rpx;
+  padding: 5rpx 0rpx 5rpx 20rpx;
+  font-size: 1rem;
+  color: black;
+}
+
+.placeholderClass {
+  font-size: 1rem;
+  color: #888888;
+}
+
+/*按钮的样式*/
+.submitButton {
+  width: 50%;
+  height: 100rpx;
+  margin: 80rpx 25% 20rpx 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.1rem;
+  border-radius: 10rpx;
+  background-color: #FFD32F;
+  color: black;
+}
+
+/*提示语的样式*/
+.check {
+  height: 30rpx;
+  margin: 10rpx 0rpx 0rpx 80rpx;
+  font-size: 0.9rem;
+  color: red;
+}
