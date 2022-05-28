@@ -7,8 +7,8 @@ Page({
     judge1: false,  //表示手机号码是否就绪
     judge2: false,  //判断身份证号码是否正确
     judge3: false,  //判断两次密码是否相同
-    jingao1: '111',    //密码不同的警告文字
-    tishiyu1: '111',   //提示身份证号码输入错误
+    jingao1: ' ',    //密码不同的警告文字
+    tishiyu1: ' ',   //提示身份证号码输入错误
   },
 
   //录入手机号的函数
@@ -16,12 +16,13 @@ Page({
     this.data.shouji1 = e.detail.value;
     if (e.detail.cursor == 11) {
       this.setData({
+        jingao1: " ",
         judge1: true
       })
       //上传手机号到云端
     } else {
       this.setData({
-        jingao1: "请输入正确的手机号",
+        jingao1: "请输入正确的手机号；",
         judge1: false
       })
     }
@@ -40,8 +41,8 @@ Page({
       //this.setData({tishiyu1:'身份号码错误'})
     } else {
       this.setData({
-        judge2: true,   //暂时
-        tishiyu1: ' '
+        tishiyu1: ' ',
+        judge2: true   //暂时
       })
     }
   },
@@ -52,12 +53,13 @@ Page({
     this.data.mima11 = e.detail.value;
     if (this.data.mima21 == this.data.mima11) {
       that.setData({
-        judge3: true,
-        jingao1: ' '
+        jingao1: ' ',
+        judge3: true
       })
     } else {
       that.setData({
-        jingao1: '两次输入的密码不同'
+        jingao1: '两次输入的密码不同；',
+        judge3: false
       })
     }
   },
@@ -68,12 +70,13 @@ Page({
     this.data.mima21 = e.detail.value;
     if (this.data.mima21 == this.data.mima11) {
       that.setData({
-        judge3: true,
-        jingao1: ' '
+        jingao1: ' ',
+        judge3: true
       })
     } else {
       that.setData({
-        jingao1: '两次输入的密码不同'
+        jingao1: '两次输入的密码不同；',
+        judge3: false
       })
     }
   },
