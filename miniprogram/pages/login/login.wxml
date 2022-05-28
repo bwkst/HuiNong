@@ -1,5 +1,5 @@
 <view class="background">
-
+  <image class="icon-chioce" src="/image/list.png"></image>
 <view class="cha">
 <text class="one">你好，</text>
 </view>
@@ -8,33 +8,30 @@
 <text class="two">欢迎来到邮惠农</text>
 </view>
 
-
 <view class="product-list">
-<view class="choice-bar">
- <view bindtap="opens" data-item="1" class="chioce-item" hover-class="click-once-opaque">{{start}}
-  <image class="icon-chioce" src="{{!isstart?openimg: offimg}}"></image>
- </view>
- <view class="sorting-list{{!isstart?' chioce-list-hide':' chioce-list-show'}}">
-  <view wx:for="{{slist}}" catchtap="onclicks1" data-index="{{index}}" class="sorting-item" hover-class="click-once" wx:key="userInfoListId" >{{item.name}}</view>
- </view>
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <view class="picker">
+      身份：{{array[index]}}
+    </view>
+  </picker>
 </view>
+
+
+<view class="second">
+<input id='phonenumber' placeholder="手机号码" placeholder-class="plas" class="inputs" type="number" bindinput="haomainput"></input>
 </view>
 
 <view class="second">
-<input placeholder="手机号码" placeholder-class="plas" class="inputs" type="number" bindinput="haomainput"></input>
+<input id='psw' placeholder="密码" placeholder-class="plas" class="inputs" type="password" bindinput="passwordinput"></input>
 </view>
 
-<view class="second">
-<input placeholder="密码" placeholder-class="plas" class="inputs" type="password" bindinput="passwordinput"></input>
-</view>
-
-<view class="click">登录</view>
+<view id='btn' class="click" bindtap="login">登录</view>
 
 <view class="cha">
-<text class="no" bindtap="signin">立即注册</text>
+<text class="no" bindtap="register">立即注册</text>
 </view>
 
-<view class="ru">
+<view class="ru" bindtap="resetpassword">
 <text class="no">忘记密码？</text>
 </view>
 
