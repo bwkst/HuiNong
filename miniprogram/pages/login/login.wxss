@@ -45,8 +45,18 @@ page {
 .plas {
   font-size: 30rpx;
   color: #888888;
+  margin-left: 0rpx;
+  padding-left: 0rpx;
   
 }
+
+.picker {
+  font-size: 30rpx;
+  color: #888888;
+  align-items: baseline;
+
+}
+
 
 .inputs{
   line-height: 100rpx;
@@ -142,13 +152,14 @@ page {
   border-bottom: 1rpx solid #ddd;
   border-left: 1rpx solid #ddd;
   font-size: 30rpx;
-  color: #070707;
+  color: #888888;
   /*border-right: 1rpx solid #ddd;*/
  }
    
  .icon-chioce {
   height: 30rpx;
   width: 30rpx;
+ 
  }
  .district-list,.sorting-list,.filter-list {
   margin-top: 2rpx;
@@ -175,3 +186,79 @@ page {
   padding: 0 40rpx;
   border-bottom: 1rpx solid #ddd;
  }
+
+
+
+
+
+
+
+ .mask {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  background-color: rgba(0,0,0,0.7);
+  z-index: 9999;
+  flex-direction: column;
+  justify-content: flex-end;
+ }
+
+ .content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: white;
+  border-top-right-radius: 20rpx;
+  border-top-left-radius: 20rpx;
+}
+
+.top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100rpx;
+  border-bottom: 1rpx solid #d3cfcf;
+}
+
+.top-text {
+  font-size: 30rpx;
+  width: 150rpx;
+  height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-left-color {
+  color: #878787;
+}
+
+.top-left-color-hover {
+  color: #f1eaea;
+}
+
+.top-right-color {
+  color: #1296DB;
+}
+
+.top-right-color-hover {
+  color: #82ccf3;
+}
+
+.item {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  font-size: 35rpx;
+}
+
+
