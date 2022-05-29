@@ -11,25 +11,25 @@
 </view>
 
 <view class="first">
-    <input placeholder='手机号码' placeholder-class="plas" class='inputs' type='number'></input>
+    <input id="phonenumber" placeholder='手机号码' placeholder-class="plas" class='inputs' type='number' bindinput="phonenumberInput"></input>
 </view>
 <view class="second">
-    <input placeholder='昵称' placeholder-class="plas" class='inputs' type='text'></input>
+    <input id="name" placeholder='昵称' placeholder-class="plas" class='inputs' type='text' bindinput="usernameInput"></input>
 </view>
 <view class="thrid">
-    <input placeholder='输入您的密码' placeholder-class="plas" class='inputs' type='password'></input>
+    <input id="psw" placeholder='输入您的密码' placeholder-class="plas" class='inputs' type='password' bindinput="passwordInput"></input>
 </view>
 <view class="fourth">
-    <input placeholder='确认您的密码' placeholder-class="plas" class='inputs' type='password'></input>
+    <input id="pswack" placeholder='确认您的密码' placeholder-class="plas" class='inputs' type='password' bindinput="passwordInputACK"></input>
    </view>  
    
    <view class="cc">
   <text class="ccc">保密问题：</text>  
 </view>
 <view class="fifth">
-    <input placeholder='输入身份证后四位' placeholder-class="plas" class='inputs' type='number'></input>
+    <input id="IDnumber" placeholder='输入身份证后四位' placeholder-class="plas" class='inputs' type='number'bindinput="IDnumberInput" ></input>
 </view>
-<view class="click">注册</view>
-<view class="dd">
+<view id="btn" class="click" bindtap="regist">注册</view>
+<view class="dd" bindtap="login">
   <text class="ddd">已有账户？立即登录</text>  
 </view>
