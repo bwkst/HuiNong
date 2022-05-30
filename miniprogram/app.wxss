@@ -9,7 +9,7 @@ Page{
 
 .subtitle {
   width: 75%;
-  height: 100rpx;
+  height: fit-content;
   margin: 30rpx 0rpx 30rpx 70rpx;
   font-size: 0.95rem;
 }
@@ -53,8 +53,8 @@ Page{
 
 /*提示语的样式*/
 .check {
-  height: 30rpx;
-  margin: 10rpx 0rpx 0rpx 80rpx;
+  height: fit-content;
+  margin: 10rpx 80rpx 0rpx 80rpx;
   font-size: 0.9rem;
   color: red;
 }

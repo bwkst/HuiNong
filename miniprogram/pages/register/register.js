@@ -1,215 +1,124 @@
-// pages/register/register.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    phonenumber:"",
-    username:"",
-    password:"",
-    passwordACK:"",
-    IDnumber:"",
+    identity: "",
+    array: ['农产品买家', '农产品卖家'],
+    phoneNumber: 0,      //存放手机号码
+    passwordSet: 0,     //存放一号密码框
+    passowordConfirm: 0,    //存放二号密码框
+    IDNumber: 0,         //存放身份证后四位
+    judge1: false,
+    judge2: false,    //表示手机号码是否就绪
+    judge3: false,    //判断两次密码是否相同
+    judge4: false,    //判断身份证号码是否正确
+    warning1: '请选择身份；',
+    warning2: ' ',    //手机号输入错误警告
+    warning3: ' ',    //密码不同的警告文字
+    warning4: ' ',    //提示身份证号码输入错误
   },
-  login:function(e){
-    wx.navigateBack({
-      delta: 1,
+
+  identityRegist: function (e) {
+    this.data.identity = this.data.array[e.detail.value];
+    if (this.data.array[e.detail.value]) {
+      this.setData({
+        identity: this.data.array[e.detail.value],
+        warning1: " ",
+        judge1: true
+      })
+    } else {
+      this.setData({
+        identity: "",
+        warning1: "请选择身份；",
+        judge1: false
+      })
+    }
+  },
+
+  //录入手机号的函数
+  phoneNumberRegist(e) {
+    this.data.phoneNumber = e.detail.value;
+    var checkPhoneNumber = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
+    if (e.detail.value.length != 11) {
+      this.setData({
+        warning2: "请输入手机号；",
+        judge2: false
+      })
+    } else if (e.detail.value.length == 11 && !checkPhoneNumber.test(e.detail.value)) {
+      this.setData({
+        warning2: "请输入正确的手机号；",
+        judge2: false
+      })
+    } else {
+      this.setData({
+        warning2: " ",
+        judge2: true
+      })
+    }
+  },
+
+  //录入密码的函数
+  passwordSetRegist(e) {
+    var that = this;
+    this.data.passwordSet = e.detail.value;
+    if (this.data.passwordSet == this.data.passwordConfirm) {
+      that.setData({
+        warning3: ' ',
+        judge3: true
+      })
+    } else {
+      that.setData({
+        warning3: '两次输入的密码不同；',
+        judge3: false
+      })
+    }
+  },
+
+  //确认密码的函数
+  passwordComfirmRegist(e) {
+    var that = this;
+    this.data.passwordConfirm = e.detail.value;
+    if (this.data.passwordConfirm == this.data.passwordSet) {
+      that.setData({
+        warning3: ' ',
+        judge3: true
+      })
+    } else {
+      that.setData({
+        warning3: '两次输入的密码不同；',
+        judge3: false
+      })
+    }
+  },
+
+  //判断身份证号码的函数
+  IDNumberRegist(e) {
+    this.data.IDNumber = e.detail.value;
+    if (e.detail.value.length == 4) {
+      this.setData({
+        warning4: " ",
+        judge4: true
+      })
+      //上传后四位到云端
+    } else {
+      this.setData({
+        warning4: "请输入正确的身份信息；",
+        judge4: false
+      })
+    }
+  },
+
+  //确认修改之后的函数
+  regist() {
+    if (this.data.judge1 && this.data.judge2 && this.data.judge3 && this.data.judge4) {
+      //把重设的密码发送到云端
+      wx.redirectTo({
+        url: '/pages/login/login'     //跳转到登录界面
+      })
+    }
+  },
+
+  loginPage: function (e) {
+    wx.navigateTo({
+      url: '/pages/login/login',
     })
-  },
-  regist:function(e){
-    var that=this
-    var myreg = /^ (0|86|17951)? (13 [0-9]|15 |17 |18 [0-9]|14) [0-9] {8}$/;
-    if(that.data.phonenumber == ''){
-      wx.showModal({
-        title: '提示!',
-        content: '请输入手机号码！',
-        success (res) {
-        if (res.confirm) {
-        console.log('用户点击确定')
-        } else if (res.cancel) {
-        console.log('用户点击取消')
-        }
-        }
-        })
-      }
-      else if(that.data.phonenumber.length != 11){
-        wx.showModal({
-          title: '提示!',
-          content: '手机号长度有误，请重新输入！',
-          success (res) {
-          if (res.confirm) {
-          console.log('用户点击确定')
-          } else if (res.cancel) {
-          console.log('用户点击取消')
-          }
-          }
-          })
-        }
-        else if(!myreg.test(that.data.phonenumber)){
-          wx.showModal({
-            title: '提示!',
-            content: '请输入正确的手机号码！',
-            success (res) {
-            if (res.confirm) {
-            console.log('用户点击确定')
-            } else if (res.cancel) {
-            console.log('用户点击取消')
-            }
-            }
-            })
-          }
-      else if(that.data.username == ''){
-        wx.showModal({
-          title: '提示!',
-          content: '请输入昵称!',
-          success (res) {
-          if (res.confirm) {
-          console.log('用户点击确定')
-          } else if (res.cancel) {
-          console.log('用户点击取消')
-          }
-          }
-          })
-        }
-      else if(that.data.password == ''){
-        wx.showModal({
-          title: '提示!',
-          content: '请输入密码！',
-          success (res) {
-          if (res.confirm) {
-          console.log('用户点击确定')
-          } else if (res.cancel) {
-          console.log('用户点击取消')
-          }
-          }
-          })
-        }
-        else if(that.data.passwordACK == ''){
-          wx.showModal({
-            title: '提示!',
-            content: '请再次输入密码！',
-            success (res) {
-            if (res.confirm) {
-            console.log('用户点击确定')
-            } else if (res.cancel) {
-            console.log('用户点击取消')
-            }
-            }
-            })
-          }
-          else if(that.data.passwordACK != that.data.password){
-            wx.showModal({
-              title: '提示!',
-              content: '两次输入密码不一致！',
-              success (res) {
-              if (res.confirm) {
-              console.log('用户点击确定')
-              } else if (res.cancel) {
-              console.log('用户点击取消')
-              }
-              }
-              })
-            }
-          else if(that.data.IDnumber == ''){
-            wx.showModal({
-              title: '提示!',
-              content: '请输入身份证后四位！',
-              success (res) {
-              if (res.confirm) {
-              console.log('用户点击确定')
-              } else if (res.cancel) {
-              console.log('用户点击取消')
-              }
-              }
-              })
-            }
-           else if(that.data.IDnumber.length== 4){
-              wx.showModal({
-                title: '提示!',
-                content: '身份证后四位输入长度有误！',
-                success (res) {
-                if (res.confirm) {
-                console.log('用户点击确定')
-                } else if (res.cancel) {
-                console.log('用户点击取消')
-                }
-                }
-                })
-              }
-  },
-  phonenumberInput:function(e){
-
-    this.data.phonenumber = e.detail.value
-  },
-  usernameInput:function(e){
-
-    this.data.username = e.detail.value
-  },
-  passwordInput:function(e){
-
-    this.data.password = e.detail.value
-  },
-  passwordInputACK:function(e){
-
-    this.data.passwordACK = e.detail.value
-  },
-  IDnumberInput:function(e){
-
-    this.data.IDnumber = e.detail.value
-  },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
   }
 })

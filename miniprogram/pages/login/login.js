@@ -23,15 +23,15 @@ Page({
     } else {
       this.setData({
         identity: "",
-        warning2: "请选择身份；",
-        judge2: false
+        warning1: "请选择身份；",
+        judge1: false
       })
     }
   },
 
   phoneNoInput: function (e) {
     this.data.phoneNo = e.detail.value;
-    if (e.detail.cursor == 11 && e.detail.value) {
+    if (e.detail.value.length == 11 && e.detail.value) {
       this.setData({
         warning2: " ",
         judge2: true

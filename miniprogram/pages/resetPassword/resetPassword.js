@@ -15,7 +15,7 @@ Page({
   //录入手机号的函数
   phoneNumberCheck(e) {
     this.data.phoneNum = e.detail.value;
-    if (e.detail.cursor == 11) {
+    if (e.detail.value.length == 11) {
       this.setData({
         warning1: " ",
         judge1: true
@@ -32,7 +32,7 @@ Page({
   //判断身份证号码的函数
   IDNumberCheck(e) {
     this.data.IDNum = e.detail.value;
-    if (this.data.judge1 && e.detail.cursor == 4) {
+    if (this.data.judge1 && e.detail.value.length == 4) {
       //从云端获取正确的身份证号码并比对
       //if(输入的身份证号和云端相同)
       //this.judge2=true;

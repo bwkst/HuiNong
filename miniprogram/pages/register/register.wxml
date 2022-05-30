@@ -1,35 +1,35 @@
-<!--pages/register/register.wxml-->
-<view class="aa">
-  <text class="aaa">欢迎选择惠农</text>  
-</view>
-<view class="bb">
-  <text class="bbb">助力农人交流</text>  
-</view>
+<scroll-view scroll-y="true">
+  <view class='title'>欢迎选择惠农</view>
+  <view class='subtitle'>助力农人交流</view>
 
-<view class="select-box">
-    <text class="current-name">身份</text>
-</view>
+  <view class='check'>
+    {{warning1}}{{warning2}}{{warning3}}{{warning4}}
+  </view>
 
-<view class="first">
-    <input id="phonenumber" placeholder='手机号码' placeholder-class="plas" class='inputs' type='number' bindinput="phonenumberInput"></input>
-</view>
-<view class="second">
-    <input id="name" placeholder='昵称' placeholder-class="plas" class='inputs' type='text' bindinput="usernameInput"></input>
-</view>
-<view class="thrid">
-    <input id="psw" placeholder='输入您的密码' placeholder-class="plas" class='inputs' type='password' bindinput="passwordInput"></input>
-</view>
-<view class="fourth">
-    <input id="pswack" placeholder='确认您的密码' placeholder-class="plas" class='inputs' type='password' bindinput="passwordInputACK"></input>
-   </view>  
-   
-   <view class="cc">
-  <text class="ccc">保密问题：</text>  
-</view>
-<view class="fifth">
-    <input id="IDnumber" placeholder='输入身份证后四位' placeholder-class="plas" class='inputs' type='number'bindinput="IDnumberInput" ></input>
-</view>
-<view id="btn" class="click" bindtap="regist">注册</view>
-<view class="dd" bindtap="login">
-  <text class="ddd">已有账户？立即登录</text>  
-</view>
+  <view class="inputForm">
+    <picker class="inputContent" bindchange="identityRegist" value="{{index}}" range="{{array}}">身份：{{identity}}</picker>
+  </view>
+
+  <view class='inputForm'>
+    <input type="number" bindinput='phoneNumberRegist' placeholder='请输入您的手机号码' placeholder-class="placeholderClass" maxlength='11' confirm-type='done' class='inputContent'></input>
+  </view>
+
+  <view class='inputForm'>
+    <input type="safe-password" bindinput='passwordSetRegist' placeholder='请设置您的密码' placeholder-class="placeholderClass" maxlength='16' confirm-type='done' class='inputContent' password='true'></input>
+  </view>
+
+  <view class='inputForm'>
+    <input type="safe-password" bindinput='passwordComfirmRegist' placeholder='请确认您的密码' placeholder-class="placeholderClass" maxlength='16' confirm-type='done' class='inputContent' password='true'></input>
+  </view>
+
+  <view class='subtitle' style="margin-top: 60rpx;">保密问题</view>
+
+  <view class='inputForm'>
+    <input type="number" bindinput='IDNumberRegist' placeholder='输入身份证后四位' placeholder-class="placeholderClass" maxlength='4' confirm-type='done' class='inputContent'></input>
+  </view>
+
+  <button wx:if='{{judge1 == true && judge2 == true && judge3 == true && judge4 == true}}' class='submitButton' bindtap="regist">注册</button>
+  <button wx:else class='submitButton' style="background-color: #DFDFDF; color: white;">注册</button>
+
+  <view class="bottom" bindtap="loginPage">已有账户？立即登录！</view>
+</scroll-view>

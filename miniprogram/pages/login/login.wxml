@@ -1,24 +1,26 @@
-<view class="title">你好，</view>
-<view class="subtitle" style="font-size: 1.65rem;">欢迎来到邮惠农</view>
+<scroll-view scroll-y="true">
+  <view class="title">你好，</view>
+  <view class="subtitle" style="font-size: 1.65rem;">欢迎来到邮惠农</view>
 
-<view class='check'>{{warning1}}{{warning2}}{{warning3}}</view>
+  <view class='check'>{{warning1}}{{warning2}}{{warning3}}</view>
 
-<view class="inputForm">
-  <picker class="inputContent" bindchange="identityInput" value="{{index}}" range="{{array}}">身份：{{identity}}</picker>
-</view>
+  <view class="inputForm">
+    <picker class="inputContent" bindchange="identityInput" value="{{index}}" range="{{array}}">身份：{{identity}}</picker>
+  </view>
 
-<view class='inputForm'>
-  <input type="number" bindinput='phoneNoInput' placeholder='手机号码' placeholder-class="placeholderClass" maxlength='11' confirm-type='done' class='inputContent'></input>
-</view>
+  <view class='inputForm'>
+    <input type="number" bindinput='phoneNoInput' placeholder='手机号码' placeholder-class="placeholderClass" maxlength='11' confirm-type='done' class='inputContent'></input>
+  </view>
 
-<view class='inputForm'>
-  <input type="safe-password" bindinput='passwordInput' placeholder='密码' placeholder-class="placeholderClass" maxlength='16' confirm-type='done' class='inputContent' password='true'></input>
-</view>
+  <view class='inputForm'>
+    <input type="safe-password" bindinput='passwordInput' placeholder='密码' placeholder-class="placeholderClass" maxlength='16' confirm-type='done' class='inputContent' password='true'></input>
+  </view>
 
-<button wx:if='{{judge1 == true && judge2 == true && judge3 == true}}' class='submitButton' bindtap="login">登陆</button>
-<button wx:else class='submitButton' style="background-color: #DFDFDF; color: white;">登陆</button>
+  <button wx:if='{{judge1 == true && judge2 == true && judge3 == true}}' class='submitButton' bindtap="login">登陆</button>
+  <button wx:else class='submitButton' style="background-color: #DFDFDF; color: white;">登陆</button>
 
-<view class="bottom">
-  <text class="clickHere" bindtap="registerPage">立即注册</text>
-  <text class="clickHere2" bindtap="resetpasswordPage">忘记密码？</text>
-</view>
+  <view class="bottom">
+    <text class="clickHere" bindtap="registerPage">立即注册</text>
+    <text class="clickHere2" bindtap="resetpasswordPage">忘记密码？</text>
+  </view>
+</scroll-view>
