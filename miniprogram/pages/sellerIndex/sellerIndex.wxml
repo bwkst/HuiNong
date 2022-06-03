@@ -1,4 +1,5 @@
 <!--pages/sellerIndex/sellerIndex.wxml-->
+<scroll-view class="mainpart" scroll-y="ture">
 <view class="buyerindex" wx:for="{{List}}">
   <view class="beyond">
     <view class="wenben">
@@ -12,4 +13,14 @@
     <button wx:if='{{zhuangtai!="weijichu"}}' class="button" bindtap="xiadan" style="width: 100%;">（快递状态）{{zhuangtai1}}</button>
     <input wx:if="{{zhuangtai=='weijichu'}}" class="danhao" placeholder='未寄出（点击填写快递单号)' placeholder-class="placeholderss" bindinput="kuaididanhao"></input>
   </view>
+</view>
+</scroll-view>
+<view class="tabbar">
+<view class="gerenzhongx">
+<image src="/img/主页.png" class="tubiao"></image>
+主页
+</view>
+<view class="gerenzhongx" bindtap="TosellerCenter">
+  <image src="/img/个人中心 (1).png" class="tubiao"></image>
+个人中心</view>
 </view>
