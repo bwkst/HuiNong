@@ -1,2 +1,15 @@
 <!--pages/sellerIndex/sellerIndex.wxml-->
-<text>pages/sellerIndex/sellerIndex.wxml</text>
+<view class="buyerindex">
+  <view class="beyond">
+    <view class="wenben">
+      <view class="jibenxinxi">产品： {{data}}</view>
+      <view class="jibenxinxi">数量： {{data}}</view>
+      <view class="jibenxinxi">付款金额： {{data}}</view>
+      <view class="jibenxinxi">快递单号:{{data}}</view>
+    </view>
+  </view>
+  <view class="buttombutton" bindtap="xiadan">
+    <button wx:if='{{zhuangtai!="weijichu"}}' class="button" bindtap="xiadan" style="width: 100%;">（快递状态）{{zhuangtai1}}</button>
+    <input wx:if="{{zhuangtai=='weijichu'}}" class="danhao" placeholder='未寄出（点击填写快递单号)' placeholder-class="placeholderss" bindinput="kuaididanhao"></input>
+  </view>
+</view>

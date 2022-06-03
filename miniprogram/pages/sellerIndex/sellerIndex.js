@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    zhuangtai:"weijichu"
   },
 
   /**
@@ -19,8 +19,9 @@ Page({
     }),
     wx.setTabBarItem({
       index: 1,
-      "pagePath": "pages/sellerCenter/sellerCenter"
+      "pagePath": "pages/sellerCenter/sellerCenter",
     })
+    console.log(1)
   },
 
   /**
