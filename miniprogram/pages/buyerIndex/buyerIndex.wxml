@@ -1,15 +1,14 @@
 <!--pages/buyerIndex/buyerIndex.wxml-->
-<view class="buyerindex">
-<view class="beyond">
-  <view class="wenben">
-    <view class="jibenxinxi">产品： {{data}}</view>
-    <view class="jibenxinxi">数量： {{data}}</view>
-    <view class="jibenxinxi">价格： {{data}}</view>
-    <view class="jibenxinxi">发货地址:{{data}}</view>
+<view class="buyerindex" wx:for="{{List}}">
+  <view class="beyond">
+    <view class="wenben">
+      <view class="jibenxinxi">产品： {{data}}</view>
+      <view class="jibenxinxi">数量： {{data}}</view>
+      <view class="jibenxinxi">价格： {{data}}</view>
+      <view class="jibenxinxi">发货地址:{{data}}</view>
+    </view>
+    <image src="https://tse1-mm.cn.bing.net/th/id/R-C.391d80113376bc65391460b7db8b904e?rik=D7fvc2IuFBGN%2fQ&riu=http%3a%2f%2fbpic.588ku.com%2felement_origin_min_pic%2f17%2f07%2f21%2f4b7563da458e031e923608ba39c04670.jpg!r650&ehk=7XPMN%2bvPIeVDKjimDEq0KHbwevMwNFJ6Jj3oRDOywV4%3d&risl=&pid=ImgRaw&r=0" class="tupian" lazy-load="ture" mode="aspectFill"></image>
   </view>
-  <image src="https://tse1-mm.cn.bing.net/th/id/R-C.391d80113376bc65391460b7db8b904e?rik=D7fvc2IuFBGN%2fQ&riu=http%3a%2f%2fbpic.588ku.com%2felement_origin_min_pic%2f17%2f07%2f21%2f4b7563da458e031e923608ba39c04670.jpg!r650&ehk=7XPMN%2bvPIeVDKjimDEq0KHbwevMwNFJ6Jj3oRDOywV4%3d&risl=&pid=ImgRaw&r=0" class="tupian"
-  lazy-load="ture" mode="aspectFill"></image>
-</view>
   <view class="buttombutton">
     <button class="leftbutton" bindtap="huoqu">获取卖家联系方式</button>
     <button class="rightbutton" bindtap="xiadan">立即下单</button>

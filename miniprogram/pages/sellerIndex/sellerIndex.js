@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    zhuangtai:"weijichu"
+    zhuangtai:"weijichu",
+    List:5,//示例展示
   },
 
   /**
@@ -21,7 +22,7 @@ Page({
       index: 1,
       "pagePath": "pages/sellerCenter/sellerCenter",
     })
-    console.log(1)
+    console.log()
   },
 
   /**

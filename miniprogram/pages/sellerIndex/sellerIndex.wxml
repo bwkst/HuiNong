@@ -1,5 +1,5 @@
 <!--pages/sellerIndex/sellerIndex.wxml-->
-<view class="buyerindex">
+<view class="buyerindex" wx:for="{{List}}">
   <view class="beyond">
     <view class="wenben">
       <view class="jibenxinxi">产品： {{data}}</view>
