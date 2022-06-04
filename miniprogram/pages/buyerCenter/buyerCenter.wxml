@@ -1,2 +1,14 @@
 <!--pages/buyerCenter/buyerCenter.wxml-->
-<text>pages/buyerCenter/buyerCenter.wxml</text>
+<view class="buyerindex">
+<view class="beyond">
+  <view class="wenben">
+    <view class="jibenxinxi">产品： {{data}}</view>
+    <view class="jibenxinxi">数量： {{data}}</view>
+    <view class="jibenxinxi">付款金额： {{data}}</view>
+    <view class="jibenxinxi">快递单号:{{data}}</view>
+  </view>
+</view>
+  <view class="buttombutton">
+    <button class="leftbutton" bindtap="huoqu">获取卖家联系方式</button>
+  </view>
+</view>

@@ -15,8 +15,7 @@ Page({
     //设定导航栏的地址
     wx.setTabBarItem({
       index: 0,
-      "pagePath": "pages/buyerIndex/buyerIndex",
-
+      "pagePath": "pages/buyerIndex/buyerIndex"
     }),
     wx.setTabBarItem({
       index: 1,
