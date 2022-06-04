@@ -1,14 +1,15 @@
 {
   "pages": [
-    "pages/buyerIndex/buyerIndex",
+    "pages/sellerCenter/sellerCenter",
     "pages/authorize/authorize",
+    "pages/buyerIndex/buyerIndex",
     "pages/buyerAddress/buyerAddress",
     "pages/buyerCenter/buyerCenter",
     "pages/buyerOrder/buyerOrder",
     "pages/login/login",
     "pages/register/register",
     "pages/resetPassword/resetPassword",
-    "pages/sellerCenter/sellerCenter",
+
     "pages/sellerIndex/sellerIndex"
   ],
   "window": {
