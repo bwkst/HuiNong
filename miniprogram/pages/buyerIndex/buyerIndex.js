@@ -1,77 +1,35 @@
 // pages/buyerIndex/buyerIndex.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-  List:5,//实例展示
+    List: 7,//实例展示
   },
-  //下单的函数
-  
-  //获取卖家联系方式的函数
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
+  //下单的函数
+  clickToOrder: function(){
+    wx.navigateTo({
+      url: "../buyerOrder/buyerOrder",
+    })
+  },
+
+  //获取卖家联系方式的函数
+  clickToGetContact: function(){
+    wx.showModal({
+      title: '卖家的联系方式',
+      content: '暂无',
+      showCancel:false,
+    })
+  },
+
+
   onLoad(options) {
     //设定导航栏的地址
-wx.setTabBarItem({
-  index: 0,
-  "pagePath": "pages/buyerIndex/buyerIndex"
-}),
-wx.setTabBarItem({
-  index: 1,
-  "pagePath": "pages/buyerCenter/buyerCenter"
-})
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+    wx.setTabBarItem({
+      index: 0,
+      "pagePath": "pages/buyerIndex/buyerIndex"
+    }),
+    wx.setTabBarItem({
+      index: 1,
+      "pagePath": "pages/buyerCenter/buyerCenter"
+    })
   }
 })
