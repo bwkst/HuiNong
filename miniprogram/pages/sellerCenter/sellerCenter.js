@@ -5,24 +5,32 @@ Page({
    * 页面的初始数据
    */
   data: {
+    tabs:[
+      {
+        id:0,
+        value:"我的发布",
+        isActive:true
+      },
+      {
+        id:1,
+        value:"关于惠农",
+        isActive:false
+      },
+    ]
 
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
-  //设定导航栏的地址
-wx.setTabBarItem({
-  index: 0,
-  "pagePath": "pages/sellerIndex/sellerIndex"
-}),
-wx.setTabBarItem({
-  index: 1,
-  "pagePath": "pages/sellerCenter/sellerCenter"
-})
+  onLoad: function (options) {
+    console.log(options);//options可以直接获取页面参数
   },
 
+handleTabsItemChange(e){
+    const {index}=e.detail;
+    let {tabs}=this.data;
+    tabs.forEach((v,i)=>i===index?v.isActive=true:v.isActive=false)
+    this.setData({
+      tabs
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -71,4 +79,5 @@ wx.setTabBarItem({
   onShareAppMessage() {
 
   }
+  
 })
