@@ -61,13 +61,13 @@ Page({
 
   login: function () {
     if (this.data.judge1 && this.data.judge2 && this.data.judge3) {
-      if (this.data.array.value == "农产品买家"){
+      if (this.data.identity == "农产品买家"){
         wx.redirectTo({
-          url: '/pages/buyerCenter/buyerCenter'     //跳转到买家主页
+          url: '/pages/buyerIndex/buyerIndex'     //跳转到买家主页
         })
       } else{
         wx.redirectTo({
-          url: '/pages/sellerCenter/sellerCenter'     //跳转到卖家主页
+          url: '/pages/sellerIndex/sellerIndex'     //跳转到卖家主页
         })
       }
     }

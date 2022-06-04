@@ -1,74 +1,44 @@
-// pages/buyerCenter/buyerCenter.js
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    nickName: "微信昵称",
+    phoneNo: "11111111111",
+    address: "北京市昌平区",
+    status: "我的订单",
+    List: 7,//实例展示
+    zhuangtai: "weijichu",
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
-    //设定导航栏的地址
-    wx.setTabBarItem({
-      index: 0,
-      "pagePath": "pages/buyerIndex/buyerIndex"
-    }),
-    wx.setTabBarItem({
-      index: 1,
-      "pagePath": "pages/buyerCenter/buyerCenter"
+  changeStatusAboutHuiNong: function(){
+    this.setData({
+      status: "关于惠农"
     })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
+  changeStatusMine: function(){
+    this.setData({
+      status: "我的订单"
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
+  loginPage: function (e) {
+    wx.redirectTo({
+      url: '/pages/login/login',
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
+  onLoad: function () {
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
+  buyerIndexPage: function(){
+    wx.redirectTo({
+      url: '../buyerIndex/buyerIndex',
+    })
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+  buyerAddressPage: function(){
+    wx.navigateTo({
+      url: '../buyerAddress/buyerAddress',
+    })
   }
 })

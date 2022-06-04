@@ -37,10 +37,10 @@
 
 /*每一行文本的样式*/
 .jibenxinxi {
-  height: 60rpx;
-  margin-top: 10rpx;
-  margin-left: 20rpx;
-  font-size: 0.9rem;
+  height: 40rpx;
+  margin-top: 25rpx;
+  margin-left: 40rpx;
+  font-size: 0.8rem;
 }
 
 /*双按钮样式*/
@@ -66,10 +66,10 @@
 
 /*图片样式*/
 .tupian {
-  height: 240rpx;
-  width: 240rpx;
+  height: 180rpx;
+  width: 180rpx;
   position: relative;
   left: 10%;
-  top: 6%;
+  top: 15%;
   border-radius: 10rpx 10rpx 10rpx 10rpx;
 }

@@ -20,16 +20,12 @@ Page({
     })
   },
 
+  onLoad() {
+  },
 
-  onLoad(options) {
-    //设定导航栏的地址
-    wx.setTabBarItem({
-      index: 0,
-      "pagePath": "pages/buyerIndex/buyerIndex"
-    }),
-    wx.setTabBarItem({
-      index: 1,
-      "pagePath": "pages/buyerCenter/buyerCenter"
+  buyerCenterPage: function(){
+    wx.redirectTo({
+      url: '../buyerCenter/buyerCenter',
     })
   }
 })

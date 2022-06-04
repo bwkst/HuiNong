@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/sellerCenter/sellerCenter",
     "pages/authorize/authorize",
     "pages/buyerIndex/buyerIndex",
     "pages/buyerAddress/buyerAddress",
@@ -9,7 +8,7 @@
     "pages/login/login",
     "pages/register/register",
     "pages/resetPassword/resetPassword",
-
+    "pages/sellerCenter/sellerCenter",
     "pages/sellerIndex/sellerIndex"
   ],
   "window": {
@@ -20,21 +19,5 @@
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",
-  "style": "v2",
-  "tabBar": {
-    "list": [
-      {
-        "pagePath": "pages/buyerIndex/buyerIndex",
-        "text": "主页",
-        "iconPath": "/img/主页 (1).png",
-        "selectedIconPath": "/img/主页.png"
-      },
-      {
-        "pagePath": "pages/buyerCenter/buyerCenter",
-        "text": "个人中心",
-        "iconPath": "/img/个人中心 (1).png",
-        "selectedIconPath": "/img/个人中心.png"
-      }
-    ]
-  }
+  "style": "v2"
 }
