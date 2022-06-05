@@ -1,9 +1,8 @@
 {
   "pages": [
-    "pages/buyerAddress/buyerAddress",
     "pages/authorize/authorize",
     "pages/buyerIndex/buyerIndex",
-    
+    "pages/buyerAddress/buyerAddress",
     "pages/buyerCenter/buyerCenter",
     "pages/buyerOrder/buyerOrder",
     "pages/login/login",
