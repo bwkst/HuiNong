@@ -15,7 +15,7 @@
 
 <!--选择“我的发布”-->
 <view class="centerStatusChange" wx:if='{{status=="我的订单"}}'>
-  <button class="centerStatusChoose">我的发布</button>
+  <button class="centerStatusChoose">我的订单</button>
   <button class="centerStatusNotChoose" bindtap="changeStatusAboutHuiNong">关于惠农</button>
 </view>
 
