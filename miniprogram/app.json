@@ -1,16 +1,16 @@
 {
   "pages": [
-    
     "pages/buyerIndex/buyerIndex",
     "pages/authorize/authorize",
     "pages/buyerAddress/buyerAddress",
     "pages/buyerCenter/buyerCenter",
-    "pages/sellerIndex/sellerIndex",
+
     "pages/buyerOrder/buyerOrder",
     "pages/login/login",
     "pages/register/register",
     "pages/resetPassword/resetPassword",
-    "pages/sellerCenter/sellerCenter"
+    "pages/sellerCenter/sellerCenter",
+    "pages/sellerIndex/sellerIndex"
   ],
   "window": {
     "backgroundColor": "#FFD32F",
@@ -22,8 +22,6 @@
   "sitemapLocation": "sitemap.json",
   "style": "v2",
 "tabBar": {
-  "backgroundColor": "#FFF2C2",
-  
   "list": [
     {
     "pagePath": "pages/buyerIndex/buyerIndex",
