@@ -1,6 +1,5 @@
-/* pages/sellerIndex/sellerIndex.wxss */
 /*买家主页和卖家个人中心的样式*/
-.buyerindex {
+.sellerIndex {
   background-color: rgba(255, 255, 255, 100);
   width: 86%;
   align-items: center;
@@ -61,40 +60,4 @@
   width: 100%;
   height: 100%;
   border-radius: 0rpx 0rpx 10rpx 10rpx;
-}
-
-.placeholderss {
-  font-size: 0.9rem;
-  color: black;
-  display: flex;
-  justify-content: center;
-}
-
-.mainpart {
-  height: 1280rpx;
-}
-
-/*底部导航栏的样式*/
-.tabbar {
-  height: 150rpx;
-  background-color: #FFF2C2;
-  display: flex;
-  position: absolute;
-  bottom: 0rpx;
-  width: 100%;
-  padding-top: 20rpx;
-}
-
-.gerenzhongx {
-  background-color: #FFF2C2;
-  width: 50%;
-  display: flex;
-  flex-direction:column;
-  align-items:center;
-  height: 400rpx;
-}
-
-.tubiao {
-  width: 10%;
-  height: 10%;
 }

@@ -1,6 +1,5 @@
 {
   "usingComponents": {},
-    "navigationBarBackgroundColor": "#FFD32F",
-    "navigationBarTitleText": "邮惠农———登陆",
-    "navigationBarTextStyle": "black"
+  "navigationBarTitleText": "邮惠农———登陆",
+  "navigationBarTextStyle":"black"
 }

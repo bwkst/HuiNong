@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {},
+  "navigationBarTitleText": "邮惠农———买家地址管理",
+  "navigationBarTextStyle":"black"
 }

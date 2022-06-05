@@ -58,3 +58,180 @@ Page{
   font-size: 0.9rem;
   color: red;
 }
+
+/*上述为登陆、注册、修改密码页面*/
+/*下述为导航栏样式*/
+
+.navigationBar {
+  z-index: 1;
+  height: fit-content;
+  background-color: #FFF2C2;
+  display: flex;
+  position: fixed;
+  bottom: 0rpx;
+  width: 100%;
+  padding: 5rpx;
+}
+
+.navigationButton {
+  background-color: #FFF2C2;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: fit-content;
+}
+
+.navigate_buttontext {
+  margin: 5rpx;
+  font-size: 0.9rem;
+  color: black;
+}
+
+.navigationImage {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+/*下述为个人中心页面*/
+
+
+/*个人信息框*/
+.centerPersonalInfo {
+  background-color: rgba(255, 255, 255, 100);
+  width: 86%;
+  margin-left: 7%;
+  margin-right: 7%;
+  height: 200rpx;
+  margin-top: 60rpx;
+  display: flex;
+  border-radius: 20rpx 20rpx 20rpx 20rpx;
+  border: 6rpx dashed #FFD32F;
+}
+
+/* 头像 */
+.centerIcon {
+  height: 80%;
+  width: 150rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 10% 10rpx 10% 40rpx;
+}
+
+.centerMiddlePart {
+  display: flex;
+  flex-direction: column;
+  margin: 20rpx;
+  width: 150rpx;
+}
+
+.centerNickName {
+  word-break: keep-all;
+  font-size: 1rem;
+  margin: 20rpx 20rpx 10rpx 20rpx;
+  font-weight: bold;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+.centerIdentityText {
+  word-break: keep-all;
+  font-size: 0.8rem;
+  width: 100%;
+  align-items: center;
+  height: fit-content;
+  padding: 5rpx 0rpx 5rpx 0rpx;
+  margin: 20rpx;
+  border: 2rpx solid #E29836;
+  border-radius: 10rpx 10rpx 10rpx 10rpx;
+  text-align: center;
+  background-color: #FDF5E9;
+}
+
+.centerLastPart {
+  display: flex;
+  flex-direction: column;
+  margin: 32rpx 50rpx 40rpx 50rpx;
+  width: 150rpx;
+}
+
+.centerPhoneNoText {
+  margin: 20rpx;
+  height: fit-content;
+  font-size: 0.65rem;
+  word-break: keep-all;
+  color: gray;
+}
+
+.centerAddressText {
+  margin: 20rpx;
+  height: fit-content;
+  font-size: 0.65rem;
+  word-break: keep-all;
+  color: gray;
+}
+
+.editAddress{
+  font-size: 0.8rem;
+  width: fit-content;
+  align-items: center;
+  height: fit-content;
+  padding: 10rpx;
+  border: 2rpx solid #E29836;
+  border-radius: 10rpx 10rpx 10rpx 10rpx;
+  text-align: center;
+  background-color: #FFD32F;
+  color: black;
+}
+
+/* 个人中心选择器 */
+.centerStatusChange {
+  margin: 30rpx 7% 30rpx 7%;
+  width: 86%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.centerStatusChoose {
+  width: 43%;
+  height: fit-content;
+  border-radius: 11px 11px 0px 0px;
+  background-color: rgba(255, 211, 47, 100);
+  text-align: center;
+  border: 1px solid rgba(255, 211, 47, 100);
+}
+
+.centerStatusNotChoose {
+  width: 43%;
+  height: fit-content;
+  border-radius: 11px 11px 0px 0px;
+  background-color: rgba(255, 255, 255, 100);
+  text-align: center;
+  border: 1px solid rgba(255, 211, 47, 100);
+}
+
+/* 关于惠农框 */
+.aboutHuiNong {
+  background-color: rgba(255, 255, 255, 100);
+  width: 86%;
+  border: 6rpx solid #FFD32F;
+  margin: 60rpx 7% 60rpx 7%;
+  height: fit-content;
+  border-radius: 10rpx 10rpx 10rpx 10rpx;
+  align-items: center;
+  text-align: center;
+}
+
+.HuiNongContent {
+  height: fit-content;
+  font-size: 0.9rem;
+  margin: 30rpx 20rpx 30rpx 20rpx;
+}
+
+/* 滑动 */
+.mainpart {
+  height: 1280rpx;
+}

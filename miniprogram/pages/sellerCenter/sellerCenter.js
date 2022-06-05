@@ -1,74 +1,38 @@
 // pages/sellerCenter/sellerCenter.js
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    nickName: "微信昵称",
+    phoneNo: "11111111111",
+    address: "北京市昌平区",
+    status: "我的发布",
+    List: 7,//实例展示
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
-  //设定导航栏的地址
-wx.setTabBarItem({
-  index: 0,
-  "pagePath": "pages/sellerIndex/sellerIndex"
-}),
-wx.setTabBarItem({
-  index: 1,
-  "pagePath": "pages/sellerCenter/sellerCenter"
-})
+  changeStatusAboutHuiNong: function(){
+    this.setData({
+      status: "关于惠农"
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
+  changeStatusMine: function(){
+    this.setData({
+      status: "我的发布"
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
+  loginPage: function (e) {
+    wx.redirectTo({
+      url: '/pages/login/login',
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
+  onLoad: function () {
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+  sellerIndexPage: function(){
+    wx.redirectTo({
+      url: '../sellerIndex/sellerIndex',
+    })
   }
 })

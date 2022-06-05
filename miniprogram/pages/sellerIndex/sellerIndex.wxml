@@ -1,26 +1,28 @@
-<!--pages/sellerIndex/sellerIndex.wxml-->
-<scroll-view class="mainpart" scroll-y="ture">
-<view class="buyerindex" wx:for="{{List}}">
-  <view class="beyond">
-    <view class="wenben">
-      <view class="jibenxinxi">产品： {{data}}</view>
-      <view class="jibenxinxi">数量： {{data}}</view>
-      <view class="jibenxinxi">付款金额： {{data}}</view>
-      <view class="jibenxinxi">快递单号:{{data}}</view>
+<scroll-view scroll-y="true">
+  <view class="sellerIndex" wx:for="{{List}}">
+    <view class="beyond">
+      <view class="wenben">
+        <view class="jibenxinxi">产品： {{data}}</view>
+        <view class="jibenxinxi">数量： {{data}}</view>
+        <view class="jibenxinxi">付款金额： {{data}}</view>
+        <view class="jibenxinxi">快递单号:{{data}}</view>
+      </view>
+    </view>
+    <view class="buttombutton" bindtap="xiadan">
+      <button wx:if='{{zhuangtai!="weijichu"}}' class="button" bindtap="xiadan" style="width: 100%;">（快递状态）{{zhuangtai1}}</button>
+      <input wx:if="{{zhuangtai=='weijichu'}}" class="danhao" placeholder='未寄出（点击填写快递单号）' placeholder-class="placeholderClass" placeholder-style="text-align: center;" bindinput="kuaididanhao"></input>
     </view>
   </view>
-  <view class="buttombutton" bindtap="xiadan">
-    <button wx:if='{{zhuangtai!="weijichu"}}' class="button" bindtap="xiadan" style="width: 100%;">（快递状态）{{zhuangtai1}}</button>
-    <input wx:if="{{zhuangtai=='weijichu'}}" class="danhao" placeholder='未寄出（点击填写快递单号)' placeholder-class="placeholderss" bindinput="kuaididanhao"></input>
-  </view>
-</view>
 </scroll-view>
-<view class="tabbar">
-<view class="gerenzhongx">
-<image src="/img/主页.png" class="tubiao"></image>
-主页
-</view>
-<view class="gerenzhongx" bindtap="TosellerCenter">
-  <image src="/img/个人中心 (1).png" class="tubiao"></image>
-个人中心</view>
+
+<view style="height: 200rpx"></view>
+<view class="navigationBar">
+  <button class="navigationButton" style="width: 375rpx;">
+    <image src="../../img/indexC.png" class="navigationImage"></image>
+    <text class="navigate_buttontext">主页</text>
+  </button>
+  <button class="navigationButton" style="width: 375rpx;" bindtap="sellerCenterPage">
+    <image src="../../img/centerNC.png" class="navigationImage"></image>
+    <text class="navigate_buttontext">个人中心</text>
+  </button>
 </view>

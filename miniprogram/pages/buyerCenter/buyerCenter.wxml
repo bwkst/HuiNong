@@ -1,2 +1,70 @@
-<!--pages/buyerCenter/buyerCenter.wxml-->
-<text>pages/buyerCenter/buyerCenter.wxml</text>
+<view class="centerPersonalInfo">
+  <view>
+    <image src="../../img/icon.png" class="centerIcon"></image>
+  </view>
+
+  <view class="centerMiddlePart">
+    <view class="centerNickName">{{nickName}}</view>
+    <view class="centerIdentityText">买方</view>
+  </view>
+
+  <view class="centerLastPart" style="margin: 70rpx 10rpx 70rpx 130rpx;" bindtap="buyerAddressPage">
+    <view class="editAddress">编辑</view>
+  </view>
+</view>
+
+<!--选择“我的发布”-->
+<view class="centerStatusChange" wx:if='{{status=="我的订单"}}'>
+  <button class="centerStatusChoose">我的发布</button>
+  <button class="centerStatusNotChoose" bindtap="changeStatusAboutHuiNong">关于惠农</button>
+</view>
+
+<!-- 我的 -->
+<scroll-view scroll-y="true" wx:if='{{status=="我的订单"}}'>
+  <view class="sellerIndex" wx:for="{{List}}">
+    <view class="beyond">
+      <view class="wenben">
+        <view class="jibenxinxi">产品： {{data}}</view>
+        <view class="jibenxinxi">数量： {{data}}</view>
+        <view class="jibenxinxi">付款金额： {{data}}</view>
+        <view class="jibenxinxi">快递单号:{{data}}</view>
+      </view>
+    </view>
+    <view class="buttombutton" bindtap="xiadan">
+      <button wx:if='{{zhuangtai!="weijichu"}}' class="button" bindtap="xiadan" style="width: 100%;">（快递状态）{{zhuangtai1}}</button>
+      <input wx:if="{{zhuangtai=='weijichu'}}" class="danhao" placeholder='未寄出（点击填写快递单号）' placeholder-class="placeholderClass" placeholder-style="text-align: center;" bindinput="kuaididanhao"></input>
+    </view>
+    
+  </view>
+  <view style="height: 200rpx"></view>
+</scroll-view>
+
+<!--选择“关于惠农”-->
+<view class="centerStatusChange" wx:if='{{status=="关于惠农"}}'>
+  <button class="centerStatusNotChoose" bindtap="changeStatusMine">我的发布</button>
+  <button class="centerStatusChoose">关于惠农</button>
+</view>
+
+<!-- 关于惠农 -->
+<view class="aboutHuiNong" wx:if='{{status=="关于惠农"}}'>
+  <view class="HuiNongContent">关于惠农</view>
+  <view class="HuiNongContent">近年疫情反复，部分批发市场关闭/限制人流</view>
+  <view class="HuiNongContent">餐厅不知从何处拿货；农民也无法销售</view>
+  <view class="HuiNongContent">农产品市场价格在上涨；同时也有滞销产品</view>
+  <view class="HuiNongContent" style="font-weight: bold;">本平台将根据您所在的地区</view>
+  <view class="HuiNongContent" style="font-weight: bold;">将距离最近的农产品推送给您</view>
+</view>
+
+<button class="submitButton" wx:if='{{status=="关于惠农"}}' open-type="feedback">点我反馈</button>
+<button class="submitButton" wx:if='{{status=="关于惠农"}}' style="margin-top: 50rpx;" bindtap="loginPage">退出登录</button>
+
+<view class="navigationBar">
+  <button class="navigationButton" style="width: 375rpx;" bindtap="buyerIndexPage">
+    <image src="../../img/indexNC.png" class="navigationImage"></image>
+    <text class="navigate_buttontext">主页</text>
+  </button>
+  <button class="navigationButton" style="width: 375rpx;">
+    <image src="../../img/centerC.png" class="navigationImage"></image>
+    <text class="navigate_buttontext">个人中心</text>
+  </button>
+</view>
