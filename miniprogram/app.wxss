@@ -153,7 +153,7 @@ Page{
 .centerLastPart {
   display: flex;
   flex-direction: column;
-  margin: 32rpx 50rpx 40rpx 50rpx;
+  margin: 65rpx 50rpx 40rpx 50rpx;
   width: 150rpx;
 }
 
