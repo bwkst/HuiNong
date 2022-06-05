@@ -16,7 +16,7 @@ Page({
     wx.showModal({
       title: '卖家的联系方式',
       content: '暂无',
-      showCancel: false,
+      showCancel: true,
       success(res) {
         if (res.confirm) {
           console.log('用户点击确定')
