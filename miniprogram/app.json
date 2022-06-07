@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/authorize/authorize",
+    "pages/authorize/authoriz",
     "pages/buyerIndex/buyerIndex",
     "pages/buyerAddress/buyerAddress",
     "pages/buyerCenter/buyerCenter",
