@@ -6,6 +6,7 @@ Page({
     phoneNo: "11111111111",
     status: "我的发布",
     List: 7,//实例展示
+    iconURL: "",
   },
 
   changeStatusAboutHuiNong: function(){
@@ -27,6 +28,10 @@ Page({
   },
 
   onLoad: function () {
+    this.setData({
+      nickName: getApp().globalData.userInfo.nickName,
+      iconURL: getApp().globalData.userInfo.avatarUrl,
+    })
   },
 
   sellerIndexPage: function(){

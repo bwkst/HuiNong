@@ -1,9 +1,13 @@
+var No;
+var NowphoneNo;
+var Nowpassword = 0;
+var id;
 Page({
   data: {
     phoneNum: 0,      //存放手机号码
     IDNum: 0,         //存放身份证后四位
     password1: 0,     //存放一号密码框
-    passoword2: 0,    //存放二号密码框
+    password2: 0,    //存放二号密码框
     judge1: false,    //表示手机号码是否就绪
     judge2: false,    //判断身份证号码是否正确
     judge3: false,    //判断两次密码是否相同
@@ -16,10 +20,29 @@ Page({
   phoneNumberCheck(e) {
     this.data.phoneNum = e.detail.value;
     if (e.detail.value.length == 11) {
-      this.setData({
-        warning1: " ",
-        judge1: true
+      wx.cloud.database().collection('user')
+      .get()
+      .then(res=>{
+        for (let index = 0; index < res.data.length; index++) {
+          if(this.data.phoneNum == res.data[index].phoneNumber){
+            No = index
+            NowphoneNo = res.data[No].phoneNumber
+            this.setData({
+              warning1: " ",
+              judge1: true
+            })
+          }
+          else{
+            if(this.data.judge1 == false){
+            this.setData({
+              warning1: "该手机号未注册；",
+              judge1: false
+            })
+          }
+          }
+        }
       })
+
       //上传手机号到云端
     } else {
       this.setData({
@@ -40,6 +63,22 @@ Page({
       //else
       //this.judge2=false;
       //this.setData({warning2:'身份号码错误'})
+      wx.cloud.database().collection('user')
+      .get()
+      .then(res=>{
+        if(this.data.IDNum == res.data[No].IDNumber){
+          this.setData({
+            warning2: ' ',
+            judge2: true 
+          })
+        }
+        else{
+          this.setData({
+            warning2: '身份证后四位输入错误',
+            judge2: false 
+          })
+        }
+      })
     } else {
       this.setData({
         warning2: ' ',
@@ -74,6 +113,13 @@ Page({
         warning3: ' ',
         judge3: true
       })
+      wx.cloud.database().collection('user')
+      .get()
+      .then(res=>{
+        id = res.data[No]._id
+      })
+      Nowpassword = this.data.password2
+      console.log(Nowpassword)
     } else {
       that.setData({
         warning3: '两次输入的密码不同；',
@@ -86,9 +132,27 @@ Page({
   sendPassword() {
     if (this.data.judge1 && this.data.judge2 && this.data.judge3) {
       //把重设的密码发送到云端
+      wx.showModal({
+        content: '确定修改？',
+        showCancel: true,
+        cancelText: "否",
+        confirmText: "是",
+        confirmColor: 'skyblue',
+        success:  (res)=> {
+          wx.cloud.database().collection('user')
+      .doc(id)
+      .update({
+        data:{
+          passwordSet: Nowpassword
+        }
+      })
       wx.redirectTo({
         url: '/pages/login/login'     //跳转到登录界面
       })
+        }
+   
+      })
+      
     }
   }
 })

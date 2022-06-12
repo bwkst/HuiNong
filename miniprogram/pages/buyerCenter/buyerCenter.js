@@ -6,7 +6,8 @@ Page({
     address: "北京市昌平区",
     status: "我的订单",
     List: 7,//实例展示
-    zhuangtai: "weijichu",
+    zhuangtai: "未寄出",
+    iconURL: "",
   },
 
   changeStatusAboutHuiNong: function(){
@@ -28,6 +29,10 @@ Page({
   },
 
   onLoad: function () {
+    this.setData({
+      nickName: getApp().globalData.userInfo.nickName,
+      iconURL: getApp().globalData.userInfo.avatarUrl
+    })
   },
 
   buyerIndexPage: function(){

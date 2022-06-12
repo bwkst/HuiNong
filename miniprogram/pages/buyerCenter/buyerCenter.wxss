@@ -15,12 +15,14 @@
 }
 
 /*底部按钮的样式*/
-.button {
+.statusShown {
   font-size: 0.8rem;
   margin-top: 0%;
   margin-bottom: 0%;
   background-color: #FFE996;
   border-radius: 0rpx 0rpx 10rpx 10rpx;
+  text-align: center;
+  padding: 18rpx;
 }
 
 /*每一行文本的样式*/

@@ -28,5 +28,5 @@
   </view>
 </view>
 <view class="buttombutton2">
-    <button class="button2" bindtap="buyerindex">提交订单</button>
+    <button class="button2" bindtap="buyerindex" bindtap="centerPage">提交订单</button>
   </view>

@@ -1,6 +1,6 @@
 <view class="centerPersonalInfo">
   <view>
-    <image src="../../img/icon.png" class="centerIcon"></image>
+    <image src="{{iconURL}}" class="centerIcon"></image>
   </view>
 
   <view class="centerMiddlePart">
@@ -31,8 +31,7 @@
       </view>
     </view>
     <view class="buttombutton" bindtap="xiadan">
-      <button wx:if='{{zhuangtai!="weijichu"}}' class="button" bindtap="xiadan" style="width: 100%;">（快递状态）{{zhuangtai1}}</button>
-      <input wx:if="{{zhuangtai=='weijichu'}}" class="danhao" placeholder='未寄出（点击填写快递单号）' placeholder-class="placeholderClass" placeholder-style="text-align: center;" bindinput="kuaididanhao"></input>
+      <view class="statusShown" bindtap="xiadan" style="width: 100%;">订单状态：{{zhuangtai}}</view>
     </view>
     
   </view>
