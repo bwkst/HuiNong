@@ -1,6 +1,7 @@
 var NowphoneNo;
 var Nowidentity;
 var id;
+var globalphone;
 Page({
   data: {
     identity: "",
@@ -81,7 +82,8 @@ Page({
               warning3: '',
               judge3: true
             })
-            id = res.data[NowphoneNo]._id
+            id = res.data[NowphoneNo]._id;
+            globalphone = res.data[NowphoneNo].phoneNumber;
           }
           else {
             this.setData({
@@ -113,6 +115,7 @@ Page({
         }
       });
       getApp().globalData.userCloudId = id;
+      getApp().globalData.phonenumber = globalphone;
       if (this.data.identity == "农产品买家") {
         wx.redirectTo({
           url: '/pages/buyerIndex/buyerIndex'     //跳转到买家主页

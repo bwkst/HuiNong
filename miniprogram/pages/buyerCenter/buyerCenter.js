@@ -31,7 +31,8 @@ Page({
   onLoad: function () {
     this.setData({
       nickName: getApp().globalData.userInfo.nickName,
-      iconURL: getApp().globalData.userInfo.avatarUrl
+      iconURL: getApp().globalData.userInfo.avatarUrl,
+      phoneNo: getApp().globalData.userInfo.phonenumber
     })
   },
 
