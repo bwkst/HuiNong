@@ -44,6 +44,12 @@ Page({
         number:res.data.phoneNumber
       })
       this.judge1();
+      wx.showModal({
+        content: '已获取您的号码',
+        showCancel:false,
+        success (res) {
+        }
+      })
     })
   },
 
