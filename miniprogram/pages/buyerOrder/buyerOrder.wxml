@@ -1,6 +1,6 @@
 <view class="address">
   <text class="wenzi" style="width: 400rpx;">收货地址</text>
-  <button class="changeAddressButton" style="width: 210rpx;" bindtap="buyerAddress">修改地址</button>
+  <button class="changeAddressButton" style="width: 220rpx;" bindtap="buyerAddress">修改地址</button>
 </view>
 
 <view class="buyerAddress">
