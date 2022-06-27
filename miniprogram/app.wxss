@@ -1,4 +1,4 @@
-Page{
+Page {
   background-color: #FFFBED;
 }
 
@@ -51,7 +51,7 @@ Page{
   color: black;
 }
 
-.submitButton_row{
+.submitButton_row {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -180,7 +180,7 @@ Page{
   color: gray;
 }
 
-.editAddress{
+.editAddress {
   font-size: 0.8rem;
   width: fit-content;
   align-items: center;
@@ -243,30 +243,30 @@ Page{
   height: 1280rpx;
 }
 
-.changeInfo{
+.changeInfo {
   height: 50rpx;
-  margin: 20rpx;
-  font-size: 1rem;  
+  margin: 20rpx 10rpx 20rpx 10rpx;
+  font-size: 1rem;
   display: flex;
   flex-direction: row;
 }
 
-.changeInfoTitle{
+.changeInfoTitle {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
 }
 
-.changeInfoInput{
+.changeInfoInput {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
 }
 
-.changeRegion{
+.changeRegion {
   height: 50rpx;
   margin: 20rpx;
-  font-size: 1rem;  
+  font-size: 1rem;
   font-weight: bold;
   text-align: center;
 }

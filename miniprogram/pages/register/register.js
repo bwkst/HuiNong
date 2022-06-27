@@ -153,8 +153,8 @@ Page({
                         deliverySheng:'',
                         deliveryShi:'',
                         deliveryQu:'',
-                        deliverPhoneNo:'',
-                        deliverRegion:''
+                        deliveryPhoneNo:'',
+                        deliveryRegion:''
                       }
                     })
                     .then(res0=>{

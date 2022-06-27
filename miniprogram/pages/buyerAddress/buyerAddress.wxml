@@ -6,12 +6,12 @@
   <view class="buyerAddress">
     <view class="beyond">
       <view class="wenben">
-        <view class="xinxi">收货人： {{deliveryName}}</view>
-        <view class="xinxi">手机号： {{deliveryPhoneNo}}</view>
-        <view class="xinxi">所在省： {{deliverySheng}}</view>
-        <view class="xinxi">所在市：{{deliveryShi}}</view>
-        <view class="xinxi">所在区： {{deliveryQu}}</view>
-        <view class="xinxi">详细地址： {{deliveryAddress}}</view>
+        <view class="xinxi">收货人： {{showDeliveryName}}</view>
+        <view class="xinxi">手机号： {{showDeliveryPhoneNo}}</view>
+        <view class="xinxi">所在省： {{showDeliverySheng}}</view>
+        <view class="xinxi">所在市：{{showDeliveryShi}}</view>
+        <view class="xinxi">所在区： {{showDeliveryQu}}</view>
+        <view class="xinxi">详细地址： {{showDeliveryAddress}}</view>
       </view>
     </view>
   </view>
@@ -29,27 +29,27 @@
       <view class="wenben">
         <view class="changeInfo">
           <text class="changeInfoTitle">收货人：</text>
-          <input class="changeInfoInput" placeholder="{{deliveryName}}" placeholder-class="placeholderClass" bindinput="haveChangename"></input>
+          <input class="changeInfoInput" value="{{newDeliveryName}}" bindinput="haveChangeName" bindfocus="haveFocusName"></input>
         </view>
         <view class="changeInfo">
           <text class="changeInfoTitle">手机号：</text>
-          <input type="number" class="changeInfoInput" placeholder='{{deliveryPhoneNo}}' placeholder-class="placeholderClass" bindinput="haveChangephone" maxlength="11"></input>
+          <input type="number" class="changeInfoInput" value='{{newDeliveryPhoneNo}}' bindinput="haveChangePhoneNo" bindfocus="haveFocusPhoneNo" maxlength="11"></input>
         </view>
-        <picker mode="region" bindchange="bindRegionChange" value="{{deliveryRegion}}" custom-item="{{customItem}}">
+        <picker mode="region" bindchange="haveChangeRegion" value="{{newDeliveryRegion}}" custom-item="{{customItem}}">
           <view class="changeRegion">点此选取所在位置</view>
         </picker>
         <view class=" changeInfo">
-          <text class="changeInfoTitle">所在省：{{deliverySheng}}</text>
+          <text class="changeInfoTitle">所在省：{{newDeliverySheng}}</text>
         </view>
         <view class="changeInfo">
-          <text class="changeInfoTitle">所在市：{{deliveryShi}}</text>
+          <text class="changeInfoTitle">所在市：{{newDeliveryShi}}</text>
         </view>
         <view class="changeInfo">
-          <text class="changeInfoTitle">所在区：{{deliveryQu}}</text>
+          <text class="changeInfoTitle">所在区：{{newDeliveryQu}}</text>
         </view>
         <view class="changeInfo">
           <text class="changeInfoTitle">详细地址：</text>
-          <input class="changeInfoInput" placeholder='{{deliveryAddress}}' placeholder-class="placeholderClass" bindinput="haveChangeaddress"></input>
+          <input class="changeInfoInput" value='{{newDeliveryAddress}}' bindfocus="haveFocusAddress" bindinput="haveChangeAddress"></input>
         </view>
       </view>
     </view>

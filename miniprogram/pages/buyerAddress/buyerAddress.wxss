@@ -24,7 +24,7 @@
 
 .xinxi {
   height: 50rpx;
-  margin: 20rpx;
+  margin: 20rpx 10rpx 20rpx 10rpx;
   font-size: 1rem;
 }
 
