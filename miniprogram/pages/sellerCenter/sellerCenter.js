@@ -8,6 +8,26 @@ Page({
     List: 7,//实例展示
     iconURL: "",
   },
+  onLoad: function () {
+    this.setData({
+      nickName: getApp().globalData.userInfo.nickName,
+      iconURL: getApp().globalData.userInfo.avatarUrl,
+    })
+  },
+
+  getData(){
+    wx.cloud.callFunction({
+      name:"demogetlist"
+    }).then(res=>{
+      console.log(res.result.data)
+      this.setData({
+        datalist:res.result.data
+      })
+    })
+  },
+  onLoad:function(options){
+    this.getData()
+  },
 
   //点击发布商品按钮
   postgoods: function (e) {
@@ -37,13 +57,6 @@ Page({
   loginPage: function (e) {
     wx.redirectTo({
       url: '/pages/login/login',
-    })
-  },
-
-  onLoad: function () {
-    this.setData({
-      nickName: getApp().globalData.userInfo.nickName,
-      iconURL: getApp().globalData.userInfo.avatarUrl,
     })
   },
 

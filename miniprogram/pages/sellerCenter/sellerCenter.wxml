@@ -26,13 +26,13 @@
 
 <!-- 我的 -->
 <scroll-view scroll-y="true" wx:if='{{status=="我的发布"}}'>
-  <view class="buyerIndex" wx:for="{{List}}">
+  <view class="buyerIndex" wx:for="{{datalist}}" wx:key="index">
     <view class="beyond">
       <view class="wenben">
-        <view class="jibenxinxi">产品： {{data}}</view>
-        <view class="jibenxinxi">数量： {{data}}</view>
-        <view class="jibenxinxi">价格： {{data}}</view>
-        <view class="jibenxinxi">发货地址:{{data}}</view>
+        <view class="jibenxinxi">产品： {{item.goodsname}}</view>
+        <view class="jibenxinxi">数量： {{item.amount}}</view>
+        <view class="jibenxinxi">价格： {{item.price}}</view>
+        <view class="jibenxinxi">发货地址:{{item.address}}</view>
       </view>
       <image src="../../img/loading.png" class="tupian" lazy-load="true" mode="aspectFill"></image>
     </view>

@@ -2,8 +2,6 @@
 
 Page({
   data: {
-    list:[],
-    // 创建一个空数组
     List: [
       {
         id: 0,
@@ -55,7 +53,7 @@ Page({
       },
     ],//模拟云函数的数据
   },
-  getData(){
+   getData(){
   wx.cloud.callFunction({
     name:"demogetlist"
   }).then(res=>{

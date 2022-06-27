@@ -1,4 +1,3 @@
-<!--pages/fabushangpin/fabushangpin.wxml-->
 <view class="subtitle" style="font-size: 1.65rem;">请修改您的商品信息</view>
 
 <view class='inputForm'>
@@ -25,5 +24,7 @@
     <input type="number" bindinput='lianxidianhua' placeholder='联系电话' maxlength='11' placeholder-class="placeholderClass" confirm-type='done' class='inputContent'></input>
   </view>
 
-  <button wx:if='{{judge == true}}' class='submitButton' bindtap="post">保存修改</button>
-  <button wx:else class='submitButton' style="background-color: #DFDFDF; color: white;">保存修改</button>
+  <button  class='submitButton' bindtap="picture1">上传照片</button>
+
+  <button wx:if='{{judge == true}}' class='submitButton' bindtap="post">确认发布</button>
+  <button wx:else class='submitButton' style="background-color: #DFDFDF; color: white;">确认修改</button>
