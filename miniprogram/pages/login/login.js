@@ -1,5 +1,6 @@
 var NowphoneNo;
 var Nowidentity;
+var id;
 Page({
   data: {
     identity: "",
@@ -80,6 +81,7 @@ Page({
               warning3: '',
               judge3: true
             })
+            id = res.data[NowphoneNo]._id
           }
           else {
             this.setData({
@@ -102,6 +104,14 @@ Page({
 
   login: function () {
     if (this.data.judge1 && this.data.judge2 && this.data.judge3) {
+      wx.cloud.database().collection('user')
+      .doc(id)
+      .update({
+        data: {
+          nickName: getApp().globalData.userInfo.nickName,
+          iconURL: getApp().globalData.userInfo.avatarUrl
+        }
+      })
       if (this.data.identity == "农产品买家") {
         wx.redirectTo({
           url: '/pages/buyerIndex/buyerIndex'     //跳转到买家主页

@@ -21,27 +21,27 @@ Page({
     this.data.phoneNum = e.detail.value;
     if (e.detail.value.length == 11) {
       wx.cloud.database().collection('user')
-      .get()
-      .then(res=>{
-        for (let index = 0; index < res.data.length; index++) {
-          if(this.data.phoneNum == res.data[index].phoneNumber){
-            No = index
-            NowphoneNo = res.data[No].phoneNumber
-            this.setData({
-              warning1: " ",
-              judge1: true
-            })
+        .get()
+        .then(res => {
+          for (let index = 0; index < res.data.length; index++) {
+            if (this.data.phoneNum == res.data[index].phoneNumber) {
+              No = index
+              NowphoneNo = res.data[No].phoneNumber
+              this.setData({
+                warning1: " ",
+                judge1: true
+              })
+            }
+            else {
+              if (this.data.judge1 == false) {
+                this.setData({
+                  warning1: "该手机号未注册；",
+                  judge1: false
+                })
+              }
+            }
           }
-          else{
-            if(this.data.judge1 == false){
-            this.setData({
-              warning1: "该手机号未注册；",
-              judge1: false
-            })
-          }
-          }
-        }
-      })
+        })
 
       //上传手机号到云端
     } else {
@@ -64,21 +64,21 @@ Page({
       //this.judge2=false;
       //this.setData({warning2:'身份号码错误'})
       wx.cloud.database().collection('user')
-      .get()
-      .then(res=>{
-        if(this.data.IDNum == res.data[No].IDNumber){
-          this.setData({
-            warning2: ' ',
-            judge2: true 
-          })
-        }
-        else{
-          this.setData({
-            warning2: '身份证后四位输入错误',
-            judge2: false 
-          })
-        }
-      })
+        .get()
+        .then(res => {
+          if (this.data.IDNum == res.data[No].IDNumber) {
+            this.setData({
+              warning2: ' ',
+              judge2: true
+            })
+          }
+          else {
+            this.setData({
+              warning2: '身份证后四位输入错误',
+              judge2: false
+            })
+          }
+        })
     } else {
       this.setData({
         warning2: ' ',
@@ -114,10 +114,10 @@ Page({
         judge3: true
       })
       wx.cloud.database().collection('user')
-      .get()
-      .then(res=>{
-        id = res.data[No]._id
-      })
+        .get()
+        .then(res => {
+          id = res.data[No]._id
+        })
       Nowpassword = this.data.password2
       console.log(Nowpassword)
     } else {
@@ -138,21 +138,19 @@ Page({
         cancelText: "否",
         confirmText: "是",
         confirmColor: 'skyblue',
-        success:  (res)=> {
+        success: (res) => {
           wx.cloud.database().collection('user')
-      .doc(id)
-      .update({
-        data:{
-          passwordSet: Nowpassword
+            .doc(id)
+            .update({
+              data: {
+                passwordSet: Nowpassword
+              }
+            })
+          wx.redirectTo({
+            url: '/pages/login/login'     //跳转到登录界面
+          })
         }
       })
-      wx.redirectTo({
-        url: '/pages/login/login'     //跳转到登录界面
-      })
-        }
-   
-      })
-      
     }
   }
 })
