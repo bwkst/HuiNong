@@ -9,7 +9,8 @@
     "pages/register/register",
     "pages/resetPassword/resetPassword",
     "pages/sellerCenter/sellerCenter",
-    "pages/sellerIndex/sellerIndex"
+    "pages/sellerIndex/sellerIndex",
+    "pages/fabushangpin/fabushangpin"
   ],
   "window": {
     "backgroundColor": "#FFD32F",
