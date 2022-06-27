@@ -37,7 +37,8 @@
     "minifyWXML": true,
     "showES6CompileOption": false,
     "useCompilerPlugins": false,
-    "ignoreUploadUnusedFiles": true
+    "ignoreUploadUnusedFiles": true,
+    "useStaticServer": true
   },
   "appid": "wxda0dd0f9a0347313",
   "projectname": "HuiNongTest",

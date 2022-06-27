@@ -1,6 +1,6 @@
 .bottom {
   width: 50%;
-  margin: 70rpx 25% 140rpx 25%;
+  margin: 70rpx 25% 70rpx 25%;
   font-size: 1.1rem;
   color: black;
   text-align: center;

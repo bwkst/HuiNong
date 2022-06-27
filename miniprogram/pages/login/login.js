@@ -111,7 +111,8 @@ Page({
           nickName: getApp().globalData.userInfo.nickName,
           iconURL: getApp().globalData.userInfo.avatarUrl
         }
-      })
+      });
+      getApp().globalData.userCloudId = id;
       if (this.data.identity == "农产品买家") {
         wx.redirectTo({
           url: '/pages/buyerIndex/buyerIndex'     //跳转到买家主页
