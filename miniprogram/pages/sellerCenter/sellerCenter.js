@@ -1,18 +1,20 @@
 var id;
 Page({
-
   data: {
     nickName: "微信昵称",
     phoneNo: "11111111111",
     status: "我的发布",
     List: 7,//实例展示
     iconURL: "",
+    datalist: "",
   },
+  
   onLoad: function () {
     this.setData({
       nickName: getApp().globalData.userInfo.nickName,
-      iconURL: getApp().globalData.userInfo.avatarUrl,
-    })
+      iconURL: getApp().globalData.userInfo.avatarUrl
+    });
+    this.getData();
   },
 
   getData(){
@@ -24,9 +26,6 @@ Page({
         datalist:res.result.data
       })
     })
-  },
-  onLoad:function(options){
-    this.getData()
   },
 
   //点击发布商品按钮
