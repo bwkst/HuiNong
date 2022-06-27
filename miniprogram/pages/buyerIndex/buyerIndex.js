@@ -21,8 +21,8 @@ Page({
   //下单的函数
   clickToOrder: function (e) {
     var orderId = e.currentTarget.id;
-    getApp().globalData.userInfo = orderId;
-    console.log(getApp().globalData.userInfo);
+    getApp().globalData.orderCloudId = orderId;
+    console.log(getApp().globalData.orderCloudId);
     wx.navigateTo({
       url: "../buyerOrder/buyerOrder",
     })

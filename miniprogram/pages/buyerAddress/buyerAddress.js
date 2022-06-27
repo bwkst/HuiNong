@@ -36,10 +36,8 @@ Page({
     wx.cloud.database().collection('buyerAddress')
       .get()
       .then(res => {
-        console.log("Test1", res.data.length);
         for (let index = 0; index < res.data.length; index++) {
           if (res.data[index].identifyPhoneNo == getApp().globalData.phonenumber) {
-            console.log("Test2")
             num = index;
             this.setData({
               deliveryName: res.data[index].deliveryName,
@@ -50,7 +48,6 @@ Page({
               deliveryQu: res.data[index].deliveryQu,
               deliveryAddress: res.data[index].deliveryAddress,
             })
-            console.log(this.data);
             this.newDelivery();
           }
         }
@@ -158,7 +155,7 @@ Page({
 
   haveFocusName: function (e) {
     this.setData({
-      newDeliveryName: " "
+      newDeliveryName: ""
     })
   },
 
@@ -171,7 +168,7 @@ Page({
 
   haveFocusPhoneNo: function (e) {
     this.setData({
-      newDeliveryPhoneNo: " "
+      newDeliveryPhoneNo: ""
     })
   },
 
@@ -194,11 +191,12 @@ Page({
 
   haveFocusAddress: function (e) {
     this.setData({
-      newDeliveryAddress: " "
+      newDeliveryAddress: ""
     })
   },
 
   submitChange: function () {
+    var that = this;
     wx.cloud.database().collection('buyerAddress')
       .where({
         identifyPhoneNo: getApp().globalData.phonenumber
@@ -224,6 +222,10 @@ Page({
         this.setData({
           status: "显示"
         })
+        setTimeout(function(){
+          that.onLoad();
+        }, 2000);
+        clearTimeout();
       });
   },
 

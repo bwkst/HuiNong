@@ -1,6 +1,6 @@
 <view class="address">
   <text class="wenzi" style="width: 400rpx;">收货地址</text>
-  <button class="changeAddressButton" style="width: 220rpx;" bindtap="buyerAddress">修改地址</button>
+  <button class="changeAddressButton" style="width: 215rpx;" bindtap="buyerAddress">修改地址</button>
 </view>
 
 <view class="buyerAddress">
@@ -9,7 +9,7 @@
       <view class="xinxi">收货人： {{deliveryName}}</view>
       <view class="xinxi">手机号： {{deliveryPhoneNo}}</view>
       <view class="xinxi">所在省： {{deliverySheng}}</view>
-      <view class="xinxi">所在市: {{deliveryShi}}</view>
+      <view class="xinxi">所在市：{{deliveryShi}}</view>
       <view class="xinxi">所在区： {{deliveryQu}}</view>
       <view class="xinxi">详细地址： {{deliveryAddress}}</view>
     </view>
