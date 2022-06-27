@@ -1,11 +1,11 @@
 <scroll-view scroll-y="true">
-  <view class="buyerIndex" wx:for="{{List}}" wx:for-item="item">
+  <view class="buyerIndex" wx:for="{{datalist}}"wx:key="index">
     <view class="beyond">
       <view class="wenben">
-        <view class="jibenxinxi">产品： {{item.chanpin}}</view>
-        <view class="jibenxinxi">数量： {{item.shuliang}}</view>
-        <view class="jibenxinxi">价格： {{item.jiage}}</view>
-        <view class="jibenxinxi">发货地址： {{item.fahuodizhi}}</view>
+        <view class="jibenxinxi">产品： {{item.goodsname}}</view>
+        <view class="jibenxinxi">数量： {{item.amount}}</view>
+        <view class="jibenxinxi">价格： {{item.price}}</view>
+        <view class="jibenxinxi">发货地址： {{item.address}}</view>
       </view>
       <image src="../../img/loading.png" class="tupian" lazy-load="true" mode="aspectFill"></image>
     </view>

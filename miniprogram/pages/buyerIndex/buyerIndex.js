@@ -1,9 +1,8 @@
 // pages/buyerIndex/buyerIndex.js
 
-
 Page({
   data: {
-    ne:[],
+    list:[],
     // 创建一个空数组
     List: [
       {
@@ -56,7 +55,20 @@ Page({
       },
     ],//模拟云函数的数据
   },
-
+  getData(){
+  wx.cloud.callFunction({
+    name:"demogetlist"
+  }).then(res=>{
+    console.log(res.result.data)
+    this.setData({
+      datalist:res.result.data
+    })
+  })
+},
+onLoad:function(options){
+  this.getData()
+},
+ 
   //下单的函数
   clickToOrder: function () {
     wx.navigateTo({
@@ -90,25 +102,6 @@ Page({
     })
   },
   
-// 数据库的调用部分
-  onLoad: function (options) {
-    var _this = this;
-    //1、引用数据库
-    const db = wx.cloud.database({
-    env: 'cloud1-5g5pke1n3f2b893c'
-    })
-    //2、开始查询数据了 news对应的是集合的名称
-    db.collection('orderform').get({
-    //如果查询成功的话
-    success: res => {
-    console.log(res.data)
-    //这一步很重要，给ne赋值，没有这一步的话，前台就不会显示值
-    this.setData({
-    ne: res.data
-    })
-    }
-    })
-    },
 
   buyerCenterPage: function () {
     wx.redirectTo({
