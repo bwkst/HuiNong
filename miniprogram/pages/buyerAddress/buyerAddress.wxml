@@ -29,11 +29,11 @@
       <view class="wenben">
         <view class="changeInfo">
           <text class="changeInfoTitle">收货人：</text>
-          <input class="changeInfoInput" placeholder="{{deliveryName}}" placeholder-class="placeholderClass" bindconfirm="haveChange"></input>
+          <input class="changeInfoInput" placeholder="{{deliveryName}}" placeholder-class="placeholderClass" bindinput="haveChangename"></input>
         </view>
         <view class="changeInfo">
           <text class="changeInfoTitle">手机号：</text>
-          <input type="number" class="changeInfoInput" placeholder='{{deliveryPhoneNo}}' placeholder-class="placeholderClass" bindconfirm="haveChange" maxlength="11"></input>
+          <input type="number" class="changeInfoInput" placeholder='{{deliveryPhoneNo}}' placeholder-class="placeholderClass" bindinput="haveChangephone" maxlength="11"></input>
         </view>
         <picker mode="region" bindchange="bindRegionChange" value="{{deliveryRegion}}" custom-item="{{customItem}}">
           <view class="changeRegion">点此选取所在位置</view>
@@ -49,7 +49,7 @@
         </view>
         <view class="changeInfo">
           <text class="changeInfoTitle">详细地址：</text>
-          <input class="changeInfoInput" placeholder='{{deliveryAddress}}' placeholder-class="placeholderClass" bindconfirm="haveChange"></input>
+          <input class="changeInfoInput" placeholder='{{deliveryAddress}}' placeholder-class="placeholderClass" bindinput="haveChangeaddress"></input>
         </view>
       </view>
     </view>

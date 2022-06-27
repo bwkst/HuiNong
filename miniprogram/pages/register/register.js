@@ -144,10 +144,27 @@ Page({
                   })
                   .then(res=>{ 
                     console.log('添加成功')
+                    wx.cloud.database().collection('buyerAddress')
+                    .add({
+                      data:{
+                        identifyPhoneNo:this.data.phoneNumber,
+                        deliveryName:'',
+                        deliveryAddress:'',
+                        deliverySheng:'',
+                        deliveryShi:'',
+                        deliveryQu:'',
+                        deliverPhoneNo:'',
+                        deliverRegion:''
+                      }
+                    })
+                    .then(res0=>{
+                      console.log('添加成功')
+                    })
                   })
                   .catch(err=>{
                     console.log('添加失败',err)
                   })
+
                   wx.redirectTo({
                     url: '/pages/login/login'     //跳转到登录界面
                   })
