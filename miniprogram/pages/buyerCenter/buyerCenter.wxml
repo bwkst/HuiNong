@@ -8,9 +8,11 @@
     <view class="centerIdentityText">买方</view>
   </view>
 
-  <view class="centerLastPart" style="margin: 70rpx 10rpx 70rpx 130rpx;" bindtap="buyerAddressPage">
-    <view class="editAddress">编辑</view>
+  <view class="centerLastPart" style="margin: 30rpx 50rpx 40rpx 50rpx;">
+    <view class="centerPhoneNoText">{{phoneNo}}</view>
+    <view class="editAddress" style="margin: 5rpx 0rpx 0rpx 50rpx;" bindtap="buyerAddressPage">编辑</view>
   </view>
+
 </view>
 
 <!--选择“我的订单”-->

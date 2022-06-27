@@ -1,6 +1,5 @@
 var id;
 Page({
-
   data: {
     nickName: "微信昵称",
     phoneNo: "11111111111",
@@ -63,10 +62,11 @@ Page({
               iconURL: getApp().globalData.userInfo.avatarUrl
             }
           });
+        this.onLoad();
       },
       fail: (res) => {
         console.log(res);
       }
-    })
+    });
   }
 })

@@ -1,4 +1,4 @@
-// pages/sellerCenter/sellerCenter.js
+var id;
 Page({
 
   data: {
@@ -68,10 +68,11 @@ Page({
               iconURL: getApp().globalData.userInfo.avatarUrl
             }
           });
+        this.onLoad();
       },
       fail: (res) => {
         console.log(res);
       }
-    })
+    });
   }
 })
