@@ -13,7 +13,7 @@
   </view>
 
   <view class='inputForm'>
-    <input type="safe-password" bindinput='passwordInput' placeholder='密码' placeholder-class="placeholderClass" confirm-type='done' class='inputContent' password='true'></input>
+    <input password="true" bindinput='passwordInput' placeholder='密码' placeholder-class="placeholderClass" maxlength="16" confirm-type='done' class='inputContent' password='true'></input>
   </view>
 
   <button wx:if='{{judge1 == true && judge2 == true && judge3 == true}}' class='submitButton' bindtap="login">登陆</button>

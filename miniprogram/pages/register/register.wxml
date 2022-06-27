@@ -15,11 +15,11 @@
   </view>
 
   <view class='inputForm'>
-    <input type="safe-password" bindinput='passwordSetRegist' placeholder='请设置您的密码' placeholder-class="placeholderClass" maxlength='16' confirm-type='done' class='inputContent' password='true'></input>
+    <input password="true" bindinput='passwordSetRegist' placeholder='请设置您的密码' placeholder-class="placeholderClass" maxlength='16' confirm-type='done' class='inputContent' password='true'></input>
   </view>
 
   <view class='inputForm'>
-    <input type="safe-password" bindinput='passwordComfirmRegist' placeholder='请确认您的密码' placeholder-class="placeholderClass" maxlength='16' confirm-type='done' class='inputContent' password='true'></input>
+    <input password="true" bindinput='passwordComfirmRegist' placeholder='请确认您的密码' placeholder-class="placeholderClass" maxlength="16" confirm-type='done' class='inputContent' password='true'></input>
   </view>
 
   <view class='subtitle' style="margin-top: 60rpx;">保密问题</view>
