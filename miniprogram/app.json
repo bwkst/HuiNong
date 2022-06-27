@@ -10,6 +10,7 @@
     "pages/resetPassword/resetPassword",
     "pages/sellerCenter/sellerCenter",
     "pages/sellerIndex/sellerIndex",
+    "pages/dingdanxiugai/dingdanxiugai",
     "pages/fabushangpin/fabushangpin"
   ],
   "window": {

@@ -19,6 +19,7 @@
     "checkSiteMap": true,
     "uploadWithSourceMap": true,
     "compileHotReLoad": false,
+    "lazyloadPlaceholderEnable": false,
     "useMultiFrameRuntime": true,
     "useApiHook": true,
     "useApiHostProcess": true,
@@ -27,22 +28,16 @@
       "disablePlugins": [],
       "outputPath": ""
     },
-    "enableEngineNative": false,
-    "bundle": false,
-    "useIsolateContext": false,
-    "useCompilerModule": true,
-    "userConfirmedUseCompilerModuleSwitch": false,
+    "useIsolateContext": true,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
     "minifyWXSS": true,
-    "lazyloadPlaceholderEnable": false,
-    "useStaticServer": true,
-    "showES6CompileOption": false,
     "disableUseStrict": false,
+    "minifyWXML": true,
+    "showES6CompileOption": false,
     "useCompilerPlugins": false,
-    "ignoreUploadUnusedFiles": true,
-    "minifyWXML": true
+    "ignoreUploadUnusedFiles": true
   },
   "appid": "wxda0dd0f9a0347313",
   "projectname": "HuiNongTest",
@@ -58,6 +53,6 @@
     "ignore": [],
     "include": []
   },
-  "condition": {},
-  "cloudfunctionTemplateRoot": "cloudfunctionTemplate/"
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",
+  "condition": {}
 }

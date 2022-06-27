@@ -37,7 +37,7 @@
       <image src="../../img/loading.png" class="tupian" lazy-load="true" mode="aspectFill"></image>
     </view>
     <view class="buttombutton">
-      <button class="leftbutton">修改信息</button>
+      <button class="leftbutton"bindtap="change">修改信息</button>
       <button class="rightbutton">删除</button>
     </view>
   </view>

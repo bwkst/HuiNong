@@ -28,6 +28,12 @@ Page({
     })
   },
 
+  change: function(){
+    wx.navigateTo({
+      url: '../dingdanxiugai/dingdanxiugai',
+    })
+  },
+
   loginPage: function (e) {
     wx.redirectTo({
       url: '/pages/login/login',
