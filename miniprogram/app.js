@@ -26,5 +26,6 @@ App({
     user: {}, //后台返回用户全部信息
     userInfo: {}, //微信获取用户信息
     userCloudId: {},  //识别用户身份，数据库中的ID
+    orderCloudId: {},   //识别订单
   }
 })
