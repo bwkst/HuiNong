@@ -8,9 +8,11 @@
     <view class="centerIdentityText">买方</view>
   </view>
 
-  <view class="centerLastPart" style="margin: 70rpx 10rpx 70rpx 130rpx;" bindtap="buyerAddressPage">
-    <view class="editAddress">编辑</view>
+  <view class="centerLastPart" style="margin: 30rpx 50rpx 40rpx 50rpx;">
+    <view class="centerPhoneNoText">{{phoneNo}}</view>
+    <view class="editAddress" style="margin: 5rpx 0rpx 0rpx 50rpx;" bindtap="buyerAddressPage">编辑</view>
   </view>
+
 </view>
 
 <!--选择“我的订单”-->
@@ -33,7 +35,7 @@
     <view class="buttombutton" bindtap="xiadan">
       <view class="statusShown" bindtap="xiadan" style="width: 100%;">订单状态：{{zhuangtai}}</view>
     </view>
-    
+
   </view>
   <view style="height: 200rpx"></view>
 </scroll-view>
@@ -54,8 +56,11 @@
   <view class="HuiNongContent" style="font-weight: bold;">将距离最近的农产品推送给您</view>
 </view>
 
-<button class="submitButton" wx:if='{{status=="关于惠农"}}' open-type="feedback">点我反馈</button>
-<button class="submitButton" wx:if='{{status=="关于惠农"}}' style="margin-top: 50rpx;" bindtap="loginPage">退出登录</button>
+<view class="submitButton_row" wx:if='{{status=="关于惠农"}}'>
+  <button class="submitButton" style="width: 250rpx;" open-type="feedback">点我反馈</button>
+  <button class="submitButton" style="width: 250rpx;" bindtap="updateUserInfo">更新授权</button>
+</view>
+<button class="submitButton" wx:if='{{status=="关于惠农"}}' style="margin-top: 20rpx;" bindtap="loginPage">退出登录</button>
 
 <view class="navigationBar">
   <button class="navigationButton" style="width: 375rpx;" bindtap="buyerIndexPage">

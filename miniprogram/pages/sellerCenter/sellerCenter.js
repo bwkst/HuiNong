@@ -1,4 +1,4 @@
-// pages/sellerCenter/sellerCenter.js
+var id;
 Page({
 
   data: {
@@ -51,5 +51,28 @@ Page({
     wx.redirectTo({
       url: '../sellerIndex/sellerIndex',
     })
+  },
+  
+  updateUserInfo: function () {
+    wx.getUserProfile({
+      desc: '用于完善会员资料', //声明获取用户个人信息后的用途，后续会展示在弹窗中
+      success: (res) => {
+        wx.setStorageSync('userInfo', res.userInfo);
+        getApp().globalData.userInfo = res.userInfo;
+        id = getApp().globalData.userCloudId;
+        wx.cloud.database().collection('user')
+          .doc(id)
+          .update({
+            data: {
+              nickName: getApp().globalData.userInfo.nickName,
+              iconURL: getApp().globalData.userInfo.avatarUrl
+            }
+          });
+        this.onLoad();
+      },
+      fail: (res) => {
+        console.log(res);
+      }
+    });
   }
 })
