@@ -1,23 +1,66 @@
 <view class="address">
   <text class="wenzi">我的收货地址</text>
 </view>
-<view class="buyerAddress">
-  <view class="beyond">
-    <view class="wenben">
-      <view class="xinxi">收货人： {{data}}</view>
-      <view class="xinxi">手机号： {{data}}</view>
-      <view class="xinxi">所在省： {{data}}</view>
-      <view class="xinxi">所在市: {{data}}</view>
-      <view class="xinxi">所在区： {{data}}</view>
-      <view class="xinxi">详细地址： {{data}}</view>
+
+<view wx:if='{{status=="显示"}}'>
+  <view class="buyerAddress">
+    <view class="beyond">
+      <view class="wenben">
+        <view class="xinxi">收货人： {{deliveryName}}</view>
+        <view class="xinxi">手机号： {{deliveryPhoneNo}}</view>
+        <view class="xinxi">所在省： {{deliverySheng}}</view>
+        <view class="xinxi">所在市：{{deliveryShi}}</view>
+        <view class="xinxi">所在区： {{deliveryQu}}</view>
+        <view class="xinxi">详细地址： {{deliveryAddress}}</view>
+      </view>
     </view>
+  </view>
+  <view class="buttombutton2">
+    <button class="button2" bindtap="changeInfo">修改信息</button>
+  </view>
+  <view class="buttombutton2">
+    <button bindtap="return" class="button2">返回</button>
   </view>
 </view>
 
-<view class="buttombutton2">
-  <button class="button2" bindtap="buyerindex">修改信息</button>
-</view>
-
-<view class="buttombutton2">
-  <button bindtap="return" class="button2">返回</button>
+<view wx:if='{{status=="修改中" || status=="修改完成"}}'>
+  <view class="buyerAddress">
+    <view class="beyond">
+      <view class="wenben">
+        <view class="changeInfo">
+          <text class="changeInfoTitle">收货人：</text>
+          <input class="changeInfoInput" placeholder="{{deliveryName}}" placeholder-class="placeholderClass" bindconfirm="haveChange"></input>
+        </view>
+        <view class="changeInfo">
+          <text class="changeInfoTitle">手机号：</text>
+          <input type="number" class="changeInfoInput" placeholder='{{deliveryPhoneNo}}' placeholder-class="placeholderClass" bindconfirm="haveChange" maxlength="11"></input>
+        </view>
+        <picker mode="region" bindchange="bindRegionChange" value="{{deliveryRegion}}" custom-item="{{customItem}}">
+          <view class="changeRegion">点此选取所在位置</view>
+        </picker>
+        <view class=" changeInfo">
+          <text class="changeInfoTitle">所在省：{{deliverySheng}}</text>
+        </view>
+        <view class="changeInfo">
+          <text class="changeInfoTitle">所在市：{{deliveryShi}}</text>
+        </view>
+        <view class="changeInfo">
+          <text class="changeInfoTitle">所在区：{{deliveryQu}}</text>
+        </view>
+        <view class="changeInfo">
+          <text class="changeInfoTitle">详细地址：</text>
+          <input class="changeInfoInput" placeholder='{{deliveryAddress}}' placeholder-class="placeholderClass" bindconfirm="haveChange"></input>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="buttombutton2" wx:if='{{status=="修改中"}}'>
+    <button class="button2" style="background-color: #DFDFDF; color: white;">完成修改</button>
+  </view>
+  <view class="buttombutton2" wx:elif='{{status=="修改完成"}}'>
+    <button class="button2" bindtap="submitChange">完成修改</button>
+  </view>
+  <view class="buttombutton2">
+    <button bindtap="cancelChange" class="button2">取消修改</button>
+  </view>
 </view>

@@ -235,3 +235,31 @@ Page{
 .mainpart {
   height: 1280rpx;
 }
+
+.changeInfo{
+  height: 50rpx;
+  margin: 20rpx;
+  font-size: 1rem;  
+  display: flex;
+  flex-direction: row;
+}
+
+.changeInfoTitle{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.changeInfoInput{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.changeRegion{
+  height: 50rpx;
+  margin: 20rpx;
+  font-size: 1rem;  
+  font-weight: bold;
+  text-align: center;
+}

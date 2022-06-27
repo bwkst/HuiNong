@@ -1,61 +1,31 @@
 .address {
   width: 90%;
   height: 50rpx;
-  margin: auto;
-  margin-top: 50rpx;
-  margin-left: 7%;
+  margin: 60rpx 7% 60rpx 7%;
 }
 
 .wenzi {
-  font-size: 40rpx;
+  font-size: 1.3rem;
 }
 
 /*收货地址框*/
 .buyerAddress {
   background-color: rgba(255, 255, 255, 100);
-  width: 86%;
   align-items: center;
   border: 5rpx solid #FFD32F;
-  margin-left: 7%;
-  margin-right: 7%;
-  height: 450rpx;
-  margin-top: 40rpx;
+  margin: 8%;
+  padding: 5% 2% 5% 2%;
+  height: fit-content;
   display: flex;
-  border-radius: 10rpx 10rpx 10rpx 10rpx;
+  border-radius: 10rpx;
   flex-direction: column;
   justify-content: flex-end;
 }
 
 .xinxi {
-  height: 40rpx;
-  margin-top: 25rpx;
-  margin-left: 20rpx;
-  font-size: 0.8rem;
-}
-
-/*下单框*/
-.buyerOrder {
-  background-color: rgba(255, 255, 255, 100);
-  width: 86%;
-  align-items: center;
-  border: 5rpx solid #FFD32F;
-  margin-left: 7%;
-  margin-right: 7%;
-  height: 347rpx;
-  margin-top: 60rpx;
-  display: flex;
-  border-radius: 10rpx 10rpx 10rpx 10rpx;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-
-/*底部按钮的样式*/
-.button {
-  font-size: 0.8rem;
-  margin-top: 0%;
-  margin-bottom: 0%;
-  background-color: #FFE996;
-  border-radius: 0rpx 0rpx 10rpx 10rpx;
+  height: 50rpx;
+  margin: 20rpx;
+  font-size: 1rem;
 }
 
 /*每一行文本的样式*/
@@ -78,7 +48,7 @@
 .wenben {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 100%;
 }
 
 /*文本组合样式*/
@@ -88,8 +58,6 @@
   width: 90%;
   height: 95%;
 }
-
-
 
 /*按钮的样式*/
 .button2 {
@@ -105,6 +73,6 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-size: 33rp;
-  border-radius: 7px 7px 7px 7px;
+  font-size: 1.1rem;
+  border-radius: 7rpx;
 }

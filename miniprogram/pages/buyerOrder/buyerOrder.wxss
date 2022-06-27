@@ -1,14 +1,20 @@
 /*收货地址*/
 .address {
-  width: 90%;
-  height: 50rpx;
-  margin: auto;
-  margin-top: 50rpx;
-  margin-left: 7%;
+  width: 86%;
+  height: 80rpx;
+  margin: 60rpx 7% 30rpx 7%;
+  display: flex;
+  flex-direction: row;
 }
 
 .wenzi {
-  font-size: 40rpx;
+  font-size: 1.4rem;
+  height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  text-align: center;
+  align-items: center;
 }
 
 /*收货地址框*/
@@ -110,6 +116,20 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-size: 33rp;
-  border-radius: 7px 7px 7px 7px;
+  font-size: 1.1rem;
+  border-radius: 7rpx;
+}
+
+.changeAddressButton{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center;
+  background-color: #FFE996;
+  margin: 5rpx;
+  height: 70rpx;
+  font-size: 0.9rem;
+  border-radius: 7rpx;
+  padding: auto;
 }
