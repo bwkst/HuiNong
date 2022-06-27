@@ -1,4 +1,6 @@
 // pages/fabushangpin/fabushangpin.js
+const db = wx.cloud.database()
+const todos = db.collection('orderform')
 Page({
 
   /**
@@ -10,8 +12,9 @@ Page({
     price:0,
     address:['','',''],
     time:'',
-    number:0,
-    photopath:'',
+    number:'',
+    photopath:'../../img/loading.png',
+    cloudphotopath:'',
     photo1:false,//判断是否上传图片
     judge:false//判断信息是否填写完整
   },
@@ -19,7 +22,7 @@ Page({
     //判断信息是否输入完毕
     judge1:function(){
       console.log('judge函数运行');
-      if(this.data.goodsname!=''&&this.data.amount!=0&&this.data.price!=0&&this.data.address[2]!=''&&this.data.time!=''&&this.data.number>=10000000000)
+      if(this.data.goodsname!=''&&this.data.amount!=0&&this.data.price!=0&&this.data.address[2]!=''&&this.data.time!=''&&this.data.number!='')
       this.setData({
         judge:true
       })
@@ -29,6 +32,37 @@ Page({
       })
       console.log(this.data.judge)
     },
+
+  //获取用户手机号
+  getnumber:function(){
+    console.log('获取电话函数运行中');
+    console.log(getApp().globalData.userCloudId);
+    db.collection('user').doc(getApp().globalData.userCloudId).get().then(res => {
+      // res.data 包含该记录的数据
+      console.log(res.data)
+      this.setData({
+        number:res.data.phoneNumber
+      })
+      this.judge1();
+    })
+  },
+
+ //获取照片本地地址
+ picture1:function(){
+   wx.chooseImage({
+     count:1,
+     success:res=>{
+       this.setData({
+         photopath:res.tempFilePaths[0]
+       })
+       console.log(this.data.photopath);
+     }
+   })
+   this.data.photo1=true;
+   console.log('上传照片函数');
+   console.log(this.data.photopath);
+   console.log(this.data.photo1);
+ },
 
   //输入产品名称
   chanpinmingcheng:function(e){
@@ -69,28 +103,6 @@ Page({
     })
     this.judge1();
     console.log('名称');
-  },
-
-  //输入联系电话
-  lianxidianhua:function(e){
-    this.data.number = e.detail.value;
-    this.judge1();
-    console.log('联系电话正常');
-  },
-
-  //获取照片本地地址
-  picture1:function(){
-    wx.chooseImage({
-      count:1,
-      success:res=>{
-        this.data.photopath=res.tempFilePaths[0];
-        console.log(this.data.photopath);
-      }
-    })
-    this.data.photo1=true;
-    console.log('上传照片函数');
-    console.log(this.data.photopath);
-    console.log(this.data.photo1);
   },
 
     //确认发布的函数

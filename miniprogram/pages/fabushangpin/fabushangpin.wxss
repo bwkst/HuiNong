@@ -1,1 +1,37 @@
 /* pages/fabushangpin/fabushangpin.wxss */
+/*两个按钮和图片的组合形式*/
+.class1{
+  margin-bottom: 70rpx;
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  height: 220rpx;
+  margin-left: 75rpx;
+  margin-right: 75rpx;
+  justify-content:space-between;
+}
+
+/*图片样式*/
+.tupian {
+  height: 220rpx;
+  width: 220rpx;
+  position: relative;
+  top: 15%;
+  border-radius: 10rpx 10rpx 10rpx 10rpx;
+  border: 2rpx solid #BBBBBB;
+}
+
+/*小按钮的样式*/
+.smallButton {
+  height: 80rpx;
+  margin-top: 40rpx;
+  padding-top: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.9rem;
+  border-radius: 10rpx;
+  background-color: #ffe173;
+  color: black;
+}

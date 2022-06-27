@@ -1,31 +1,33 @@
 <!--pages/fabushangpin/fabushangpin.wxml-->
 <view class="subtitle" style="font-size: 1.65rem;">请填写您的商品信息</view>
 
+<view class="class1">
+  <view>
+    <button  class='smallButton' bindtap="getnumber" style="width: 350rpx;">点击获取手机号</button>
+    <button  class='smallButton' bindtap="picture1" style="width: 350rpx;">点击上传照片</button>
+  </view>
+  <image src="{{photopath}}" class="tupian" lazy-load="true" mode="aspectFill"></image>
+</view>
+
 <view class='inputForm'>
-    <input type="text" bindinput='chanpinmingcheng' placeholder='产品名称' placeholder-class="placeholderClass" confirm-type='done' class='inputContent'></input>
-  </view>
+  <input type="text" bindinput='chanpinmingcheng' placeholder='产品名称' placeholder-class="placeholderClass" confirm-type='done' class='inputContent'></input>
+</view>
 
-  <view class='inputForm'>
-    <input type="number" bindinput='chanpinshuliang' placeholder='产品数量（斤）' placeholder-class="placeholderClass" confirm-type='done' class='inputContent'></input>
-  </view>
+<view class='inputForm'>
+  <input type="number" bindinput='chanpinshuliang' placeholder='产品数量（斤）' placeholder-class="placeholderClass" confirm-type='done' class='inputContent'></input>
+</view>
 
-  <view class='inputForm'>
-    <input type="number" bindinput='chanpinjiage' placeholder='产品价格（元/斤）' placeholder-class="placeholderClass" confirm-type='done' class='inputContent'></input>
-  </view>
+<view class='inputForm'>
+  <input type="number" bindinput='chanpinjiage' placeholder='产品价格（元/斤）' placeholder-class="placeholderClass" confirm-type='done' class='inputContent'></input>
+</view>
 
-  <view class="inputForm">
-    <picker class="inputContent" bindchange="addressinput" style="font-size: 0.9rem;" mode="region">地址： {{address[0]}} {{address[1]}} {{address[2]}}</picker>
-  </view>
+<view class="inputForm">
+  <picker class="inputContent" bindchange="addressinput" style="font-size: 0.9rem;" mode="region">地址： {{address[0]}} {{address[1]}} {{address[2]}}</picker>
+</view>
 
-  <view class="inputForm">
-    <picker class="inputContent" bindchange="timeinput" style="font-size: 0.9rem;" mode="date">时间：{{time}}</picker>
-  </view>
-
-  <view class='inputForm'>
-    <input type="number" bindinput='lianxidianhua' placeholder='联系电话' maxlength='11' placeholder-class="placeholderClass" confirm-type='done' class='inputContent'></input>
-  </view>
-
-  <button  class='submitButton' bindtap="picture1">上传照片</button>
+<view class="inputForm">
+  <picker class="inputContent" bindchange="timeinput" style="font-size: 0.9rem;" mode="date">时间：{{time}}</picker>
+</view>
 
   <button wx:if='{{judge == true}}' class='submitButton' bindtap="post">确认发布</button>
   <button wx:else class='submitButton' style="background-color: #DFDFDF; color: white;">确认发布</button>
