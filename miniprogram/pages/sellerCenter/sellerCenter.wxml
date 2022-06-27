@@ -21,7 +21,7 @@
 </view>
 
 <view class="buttonRow" wx:if='{{status=="我的发布"}}'>
-  <button class="buttonForNew" style="width: 100%; margin: 0rpx">发布商品</button>
+  <button class="buttonForNew" style="width: 100%; margin: 0rpx" bindtap="postgoods">发布商品</button>
 </view>
 
 <!-- 我的 -->

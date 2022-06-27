@@ -9,6 +9,13 @@ Page({
     iconURL: "",
   },
 
+  //点击发布商品按钮
+  postgoods: function (e) {
+    wx.navigateTo({
+      url: '/pages/fabushangpin/fabushangpin',
+    })
+  },
+
   changeStatusAboutHuiNong: function(){
     this.setData({
       status: "关于惠农"
