@@ -1,4 +1,5 @@
 var id;
+const db = wx.cloud.database()
 Page({
   data: {
     nickName: "微信昵称",
@@ -32,7 +33,31 @@ Page({
     this.setData({
       nickName: getApp().globalData.userInfo.nickName,
       iconURL: getApp().globalData.userInfo.avatarUrl,
-      phoneNo: getApp().globalData.userInfo.phonenumber
+    });
+      //获取用户手机号
+      console.log('获取电话函数运行中');
+      var that=this
+      db.collection('user').doc(getApp().globalData.userCloudId).get().then(res => {
+        // res.data 包含该记录的数据
+        that.setData({
+          phoneNo:res.data.phoneNumber,
+        })
+        that.getData();
+      })
+  },
+
+  getData(){
+    var that=this;
+    console.log(this.data.phoneNo);
+    db.collection('orderform').where({
+      number:that.data.phoneNo
+    })
+    .get({
+      success: function(res) {
+        that.setData({
+          datalist:res.data,
+        })
+      }
     })
   },
 
