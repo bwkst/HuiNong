@@ -53,7 +53,6 @@
 .wenben {
   display: flex;
   flex-direction: column;
-  width: 50%;
 }
 
 /*图片和文本组合样式*/
@@ -66,10 +65,10 @@
 
 /*图片样式*/
 .tupian {
-  height: 180rpx;
-  width: 180rpx;
+  height: 160rpx;
+  width: 160rpx;
   position: relative;
-  left: 10%;
+  left: 8%;
   top: 15%;
   border-radius: 10rpx 10rpx 10rpx 10rpx;
 }

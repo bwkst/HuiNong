@@ -2,6 +2,7 @@ var id;
 const db = wx.cloud.database()
 Page({
   data: {
+    datalist:'',
     nickName: "微信昵称",
     phoneNo: "",
     status: "我的发布",
@@ -39,6 +40,14 @@ Page({
           datalist:res.data,
         })
       }
+    })
+    wx.cloud.callFunction({
+      name: "demogetlist"
+    }).then(res => {
+      console.log(res.result.data)
+      this.setData({
+        datalist: res.result.data
+      })
     })
   },
 
