@@ -1,11 +1,11 @@
 <scroll-view scroll-y="true">
-  <view class="sellerIndex" wx:for="{{List}}">
+  <view class="sellerIndex" wx:for="{{datalist}}">
     <view class="beyond">
       <view class="wenben">
-        <view class="jibenxinxi">产品： {{data}}</view>
-        <view class="jibenxinxi">数量： {{data}}</view>
-        <view class="jibenxinxi">付款金额： {{data}}</view>
-        <view class="jibenxinxi">快递单号:{{data}}</view>
+        <view class="jibenxinxi">产品： {{item.goodsname2}}</view>
+        <view class="jibenxinxi">数量： {{item.amount2}}</view>
+        <view class="jibenxinxi">付款金额： {{item.payment}}</view>
+        <view class="jibenxinxi">快递单号:{{item.trackingnumber}}</view>
       </view>
     </view>
     <view class="buttombutton" bindtap="xiadan">
