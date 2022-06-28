@@ -42,9 +42,10 @@ Page({
   //获取卖家联系方式的函数
   clickToGetContact: function (e) {
     var sellPhoneNum = e.currentTarget.id;
+    console.log(e.currentTarget)
     wx.showModal({
       title: '卖家的联系方式',
-      content: '暂无',
+      content: sellPhoneNum,
       showCancel: true,
       success(res) {
         if (res.confirm) {
