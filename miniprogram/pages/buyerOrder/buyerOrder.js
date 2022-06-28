@@ -34,6 +34,9 @@ Page({
   },
 
   onLoad: function () {
+    wx.showLoading({
+      title: '创建订单中',
+    });
     console.log(getApp().globalData.phonenumber);
     wx.cloud.database().collection('buyerAddress')
       .get()
@@ -73,7 +76,11 @@ Page({
       })
     var that = this;
     setTimeout(function () {
-      that.createOrder();
+      wx.hideLoading({
+        success: () => {
+          that.createOrder();
+        },
+      })
     }, 2000);
     clearTimeout();
   },
@@ -178,15 +185,25 @@ Page({
   },
 
   getTime: function () {
-    oTime = String(new Date().getFullYear()) + " " + String(new Date().getMonth() + 1) + " " + String(new Date().getDate()) + " - " + String(new Date().getHours()) + ":" + String(new Date().getMinutes()) + ":" + String(new Date().getSeconds())
+    console.log(new Date().toLocaleDateString());
+    console.log(new Date().toLocaleTimeString());
+    oTime = new Date().toLocaleDateString()+new Date().toLocaleTimeString()
   },
 
   submitOrder: function () {
     var that = this;
+    that.getTime();
+    wx.showLoading({
+      title: '下单中',
+    });
     setTimeout(function () {
-      that.getTime();
+      that.addOrder();
     }, 2000);
     clearTimeout();
+  },
+
+  addOrder: function(){
+    var that = this;
     console.log(that.data.orderSellerPhoneNo);
     console.log(that.data.orderGoodsName);
     console.log(that.data.orderAmount);
@@ -214,11 +231,15 @@ Page({
       })
       .then(res => {
         console.log('添加成功')
-        that.updateAmount();
         setTimeout(function () {
-          that.centerPage();
+          that.updateAmount();
         }, 2000);
         clearTimeout();
+        wx.hideLoading({
+          success: () => {
+            that.centerPage();
+          },
+        })
       })
       .catch(err => {
         console.log('添加失败', err)
