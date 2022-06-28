@@ -17,7 +17,6 @@ Page({
     photoID:'',//图片的唯一标识符
     photo1:false,//判断是否上传图片
     judge:false,//判断信息是否填写完整
-    numbertext:'点击获取手机号',//按钮一的文字
     phototext:'点击上传图片',//按钮二的文字
   },
 
@@ -62,13 +61,9 @@ Page({
          photopath:res.tempFilePaths[0],
          phototext:'点击重新上传',
        })
-       console.log(this.data.photopath);
      }
    })
    this.data.photo1=true;
-   console.log('上传照片函数');
-   console.log(this.data.photopath);
-   console.log(this.data.photo1);
    this.judge1();
  },
 
@@ -76,21 +71,18 @@ Page({
   chanpinmingcheng:function(e){
     this.data.goodsname = e.detail.value;
     this.judge1();
-    console.log('名称');
   },
 
   //输入产品数量
   chanpinshuliang:function(e){
    this.data.amount = e.detail.value;
    this.judge1();
-   console.log('名称');
  },
 
   //输入产品价格
   chanpinjiage:function(e){
     this.data.price = e.detail.value;
     this.judge1();
-    console.log('名称');
   },
 
   //选择地址
@@ -101,7 +93,6 @@ Page({
       ['address[2]']:e.detail.value[2],
     })
     this.judge1();
-    console.log('名称');
   },
 
     //确认发布的函数
@@ -113,12 +104,10 @@ Page({
           name: this.data.number+Date.now(),
           cloudPath:"orderform/photo/"+this.data.number+Date.now()+'.jpg',
           success:res=>{
-            console.log('下面是上传图片的id');
-            console.log(res.fileID);
+            console.log('图片上传成功');
             this.setData({
               photoID:res.fileID
             })
-            console.log(this.data.photoID)
             //上传其他信息到数据库
             wx.cloud.database().collection('orderform')
             .add({
@@ -132,9 +121,10 @@ Page({
                 photoID:this.data.photoID,
               },
               success:function(res){
+                console.log('其他信息上传成功')
                 //跳转到卖家个人中心
                 wx.redirectTo({
-                  url: '/pages/sellerCenter/sellerCenter'     //跳转到卖家个人中心界面
+                  url: '/pages/sellerCenter/sellerCenter'
                 })
               }
             })
