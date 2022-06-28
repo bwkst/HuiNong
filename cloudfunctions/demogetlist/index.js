@@ -7,5 +7,5 @@ const db = cloud.database();
 exports.main = async (event, context) => {
   var num=event.num;
   var page=event.page;
-  return await db.collection("orderform").skip(page).limit(num).orderBy('time','desc').get()
+  return await db.collection("orderform").skip(page).limit(num).orderBy('time','asc').get()
 }
