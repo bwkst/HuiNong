@@ -19,11 +19,31 @@ Page({
   identityInput: function (e) {
     this.data.identity = this.data.array[e.detail.value];
     if (this.data.array[e.detail.value]) {
+      var that=this;
       this.setData({
         identity: this.data.array[e.detail.value],
         warning1: " ",
         judge1: true
       })
+      if(this.data.judge1 && this.data.judge2 && this.data.judge3){
+        wx.cloud.database().collection('user')
+        .doc(id)
+        .get()
+        .then(res=>{
+          if(res.data.identity!=that.data.identity){
+            that.setData({
+              identity: that.data.array[e.detail.value],
+              warning2: "该手机号未注册；",
+              judge1: false
+            })
+            if(that.data.warning2!=''){
+              that.setData({
+                warning3:''
+              })
+            }
+          }
+        })
+      }
       Nowidentity = this.data.identity
     } else {
       this.setData({
@@ -44,6 +64,7 @@ Page({
           for (let index = 0; index < res.data.length; index++) {
             if (this.data.phoneNo == res.data[index].phoneNumber && res.data[index].identity == Nowidentity) {
               NowphoneNo = index
+            id = res.data[NowphoneNo]._id;
               this.setData({
                 warning2: '',
                 judge2: true
@@ -65,6 +86,7 @@ Page({
     } else {
       this.setData({
         warning2: "请输入正确的手机号；",
+        warning3:" ",
         judge2: false
       })
     }
