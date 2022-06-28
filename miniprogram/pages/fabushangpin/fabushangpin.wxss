@@ -35,3 +35,19 @@
   background-color: #ffe173;
   color: black;
 }
+/*小输入框的格式*/
+.sinputForm {
+  width: 350rpx;
+  height: 60rpx;
+  margin-top: 40rpx;
+  padding-top: 15rpx;
+  border: 1rpx solid #BBBBBB;
+  border-radius: 7rpx 7rpx 7rpx 7rpx;
+  background-color: #FFFFFF;
+}
+.sinputContent {
+  font-size: 1rem;
+  position: relative;
+  left: 15rpx;
+  color: black;
+}

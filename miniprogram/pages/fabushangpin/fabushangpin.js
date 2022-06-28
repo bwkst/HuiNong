@@ -12,7 +12,7 @@ Page({
     price:0,//价格
     address:['','',''],//产品发货地址
     time:'',//产品出产时间
-    number:'',//用户电话号码
+    number:getApp().globalData.userCloudId,//用户电话号码
     photopath:'../../img/loading.png',//小程序的临时文件路径
     photoID:'',//图片的唯一标识符
     photo1:false,//判断是否上传图片
@@ -24,7 +24,7 @@ Page({
     //判断信息是否输入完毕
     judge1:function(){
       console.log('judge函数运行');
-      if(this.data.goodsname!=''&&this.data.amount!=0&&this.data.price!=0&&this.data.address[2]!=''&&this.data.time!=''&&this.data.number!='')
+      if(this.data.goodsname!=''&&this.data.amount!=0&&this.data.price!=0&&this.data.address[2]!=''&&this.data.time!=''&&this.data.number!=''&&this.data.photopath!='../../img/loading.png')
       this.setData({
         judge:true
       })
@@ -35,26 +35,23 @@ Page({
       console.log(this.data.judge)
     },
 
-  //获取用户手机号
-  getnumber:function(){
-    console.log('获取电话函数运行中');
-    console.log(getApp().globalData.userCloudId);
-    db.collection('user').doc(getApp().globalData.userCloudId).get().then(res => {
-      // res.data 包含该记录的数据
-      console.log(res.data)
-      this.setData({
-        number:res.data.phoneNumber,
-        numbertext:'手机号已获取',
-      })
-      this.judge1();
-      wx.showModal({
-        content: '已获取您的号码',
-        showCancel:false,
-        success (res) {
-        }
-      })
-    })
-  },
+    onLoad: function () {
+        //获取用户手机号
+        console.log('获取电话函数运行中');
+        var that=this
+        db.collection('user').doc(getApp().globalData.userCloudId).get().then(res => {
+          // res.data 包含该记录的数据
+          that.setData({
+            number:res.data.phoneNumber,
+          })
+        })
+        //获取时间
+        console.log(new Date().toLocaleDateString())
+        console.log(new Date().toLocaleTimeString())
+        this.setData({
+          time:new Date().toLocaleDateString()+new Date().toLocaleTimeString()
+        })
+    },
 
  //获取照片本地地址
  picture1:function(){
@@ -72,6 +69,7 @@ Page({
    console.log('上传照片函数');
    console.log(this.data.photopath);
    console.log(this.data.photo1);
+   this.judge1();
  },
 
   //输入产品名称
@@ -101,15 +99,6 @@ Page({
       ['address[0]']:e.detail.value[0],
       ['address[1]']:e.detail.value[1],
       ['address[2]']:e.detail.value[2],
-    })
-    this.judge1();
-    console.log('名称');
-  },
-
-  //选择时间
-  timeinput:function(e){
-    this.setData({
-      time:e.detail.value
     })
     this.judge1();
     console.log('名称');
@@ -154,13 +143,6 @@ Page({
         })
       }
     },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
-
-  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -28,6 +28,7 @@ Page({
       })
   },
 
+  //获取数组信息
   getData(){
     var that=this;
     console.log(this.data.phoneNo);
@@ -89,7 +90,8 @@ Page({
     })
   },
 
-  change: function(){
+  //修改信息的页面，包括传参
+  change: function(e){
     wx.navigateTo({
       url: '../dingdanxiugai/dingdanxiugai',
     })
