@@ -1,30 +1,44 @@
 var id;
+const db = wx.cloud.database()
 Page({
   data: {
     nickName: "微信昵称",
-    phoneNo: "11111111111",
+    phoneNo: "",
     status: "我的发布",
     List: 7,//实例展示
     iconURL: "",
     datalist: "",
   },
-  
+
   onLoad: function () {
     this.setData({
       nickName: getApp().globalData.userInfo.nickName,
-      iconURL: getApp().globalData.userInfo.avatarUrl
+      iconURL: getApp().globalData.userInfo.avatarUrl,
     });
-    this.getData();
+      //获取用户手机号
+      console.log('获取电话函数运行中');
+      var that=this
+      db.collection('user').doc(getApp().globalData.userCloudId).get().then(res => {
+        // res.data 包含该记录的数据
+        that.setData({
+          phoneNo:res.data.phoneNumber,
+        })
+        that.getData();
+      })
   },
 
   getData(){
-    wx.cloud.callFunction({
-      name:"demogetlist"
-    }).then(res=>{
-      console.log(res.result.data)
-      this.setData({
-        datalist:res.result.data
-      })
+    var that=this;
+    console.log(this.data.phoneNo);
+    db.collection('orderform').where({
+      number:that.data.phoneNo
+    })
+    .get({
+      success: function(res) {
+        that.setData({
+          datalist:res.data,
+        })
+      }
     })
   },
 
@@ -32,6 +46,25 @@ Page({
   postgoods: function (e) {
     wx.navigateTo({
       url: '/pages/fabushangpin/fabushangpin',
+    })
+  },
+
+  //点击删除按钮
+  shanchu:function(e){
+      var that=this; 
+      db.collection('orderform').doc(e.currentTarget.dataset.index).remove({
+      success: function(res) {
+        wx.cloud.callFunction({
+          name:"demogetlist"
+        })
+        .then(res=>{
+          console.log('删除之后重新获取datalist');
+          console.log(res.result.data);
+          that.setData({
+            datalist:res.result.data
+          })
+        })
+      }
     })
   },
 

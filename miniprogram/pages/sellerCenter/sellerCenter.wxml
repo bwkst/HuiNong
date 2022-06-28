@@ -34,11 +34,11 @@
         <view class="jibenxinxi">价格:{{item.price}}</view>
         <view class="jibenxinxi">地址:{{item.address}}</view>
       </view>
-      <image src="../../img/loading.png" class="tupian" lazy-load="true" mode="aspectFill"></image>
+      <image src='{{item.photoID}}' class="tupian" lazy-load="true" mode="aspectFill"></image>
     </view>
     <view class="buttombutton">
       <button class="leftbutton"bindtap="change">修改信息</button>
-      <button class="rightbutton">删除</button>
+      <button class="rightbutton" bindtap="shanchu" data-index="{{item._id}}">删除</button>
     </view>
   </view>
   <view style="height: 200rpx"></view>

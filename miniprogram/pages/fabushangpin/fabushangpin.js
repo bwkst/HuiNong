@@ -143,18 +143,16 @@ Page({
                 photoID:this.data.photoID,
               },
               success:function(res){
-                console.log("下面是上传函数之后的云图片地址")
-                concole.log('1')
+                //跳转到卖家个人中心
+                wx.redirectTo({
+                  url: '/pages/sellerCenter/sellerCenter'     //跳转到卖家个人中心界面
+                })
               }
             })
             //上传信息完毕
           },
         })
       }
-      //跳转到卖家个人中心
-      wx.redirectTo({
-        url: '/pages/sellerCenter/sellerCenter'     //跳转到卖家个人中心界面
-      })
     },
 
   /**
