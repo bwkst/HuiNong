@@ -48,7 +48,7 @@ Page({
         console.log(new Date().toLocaleDateString())
         console.log(new Date().toLocaleTimeString())
         this.setData({
-          time:new Date().toLocaleDateString()+new Date().toLocaleTimeString()
+          time: new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString()
         })
     },
 

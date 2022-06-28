@@ -187,7 +187,7 @@ Page({
   getTime: function () {
     console.log(new Date().toLocaleDateString());
     console.log(new Date().toLocaleTimeString());
-    oTime = new Date().toLocaleDateString()+new Date().toLocaleTimeString()
+    oTime = new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString()
   },
 
   submitOrder: function () {
