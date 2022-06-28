@@ -5,26 +5,22 @@
   <view>
     <button  class='smallButton' bindtap="picture1" style="width: 350rpx;">{{phototext}}</button>
     <view class='sinputForm'>
-       <input type="text" bindinput='chanpinmingcheng' placeholder='产品名称' placeholder-class="placeholderClass" confirm-type='done'     class='sinputContent'></input>
+       <input type="text" bindinput='chanpinmingcheng' placeholder='产品名称' placeholder-class="placeholderClass" confirm-type='done'     class='sinputContent' value="{{goodsname}}"></input>
     </view>
   </view>
   <image src="{{photopath}}" class="tupian" lazy-load="true" mode="aspectFill"></image>
 </view>
 
 <view class='inputForm'>
-  <input type="number" bindinput='chanpinshuliang' placeholder='产品数量（斤）' placeholder-class="placeholderClass" confirm-type='done' class='inputContent'></input>
+  <input type="number" bindinput='chanpinshuliang' placeholder='产品数量（斤）' placeholder-class="placeholderClass" confirm-type='done' class='inputContent' value="{{amount}}"></input>
 </view>
 
 <view class='inputForm'>
-  <input type="number" bindinput='chanpinjiage' placeholder='产品价格（元/斤）' placeholder-class="placeholderClass" confirm-type='done' class='inputContent'></input>
+  <input type="number" bindinput='chanpinjiage' placeholder='产品价格（元/斤）' placeholder-class="placeholderClass" confirm-type='done' class='inputContent' value="{{price}}"></input>
 </view>
 
 <view class="inputForm">
   <picker class="inputContent" bindchange="addressinput" style="font-size: 0.9rem;" mode="region">地址： {{address[0]}} {{address[1]}} {{address[2]}}</picker>
-</view>
-
-<view class="inputForm">
-  <picker class="inputContent" bindchange="timeinput" style="font-size: 0.9rem;" mode="date">时间：{{time}}</picker>
 </view>
 
   <button wx:if='{{judge == true}}' class='submitButton' bindtap="post">确认发布</button>

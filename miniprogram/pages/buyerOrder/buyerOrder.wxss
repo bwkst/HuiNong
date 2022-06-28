@@ -40,22 +40,6 @@
   font-size: 0.8rem;
 }
 
-/*下单框*/
-.buyerOrder {
-  background-color: rgba(255, 255, 255, 100);
-  width: 86%;
-  align-items: center;
-  border: 5rpx solid #FFD32F;
-  margin-left: 7%;
-  margin-right: 7%;
-  height: 347rpx;
-  margin-top: 60rpx;
-  display: flex;
-  border-radius: 10rpx 10rpx 10rpx 10rpx;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-
 /*底部按钮的样式*/
 .button {
   font-size: 0.8rem;

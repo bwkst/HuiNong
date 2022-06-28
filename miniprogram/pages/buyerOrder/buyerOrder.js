@@ -1,7 +1,12 @@
-var no
+var oPrice;
+var oAddress;
+var oTime;
+var newAmount;
 
 Page({
   data: {
+    submitStatus: "不可提交",
+
     deliveryName: "",
     deliveryPhoneNo: "",
     deliveryRegion: "",
@@ -13,10 +18,19 @@ Page({
     address: "",
     amount: "",
     goodsname: "",
-    identify: "",
     number: "",
     price: "",
-    time: ""
+    time: "",
+
+    orderSellerPhoneNo: "",
+    orderGoodsName: "",
+    orderAmount: "",
+    orderPrice: "",
+    orderExpressNo: "",
+    orderStatus: "",
+    orderBuyerPhoneNo: "",
+    orderDeliveryPhoneNo: "",
+    orderTime: "",
   },
 
   onLoad: function () {
@@ -46,12 +60,10 @@ Page({
         for (let index = 0; index < res.data.length; index++) {
           if (res.data[index]._id == getApp().globalData.orderCloudId) {
             console.log("Test2")
-            no = index;
             this.setData({
               address: res.data[index].address,
               amount: res.data[index].amount,
               goodsname: res.data[index].goodsname,
-              identify: res.data[index].identify,
               number: res.data[index].number,
               price: res.data[index].price,
               time: res.data[index].time
@@ -59,19 +71,161 @@ Page({
           }
         }
       })
+    var that = this;
+    setTimeout(function () {
+      that.createOrder();
+    }, 2000);
+    clearTimeout();
   },
 
-  onShow(){
+  createOrder: function () {
+    this.setData({
+      orderSellerPhoneNo: this.data.number,
+      orderGoodsName: this.data.goodsname,
+      orderAmount: "请输入购买数量",
+      orderPrice: "",
+      orderExpressNo: "",
+      orderStatus: "未发货",
+      orderBuyerPhoneNo: getApp().globalData.phonenumber,
+      orderDeliveryAddress: "",
+      orderDeliveryPhoneNo: this.data.deliveryPhoneNo,
+      orderTime: "",
+    })
+    this.calPrice();
+    this.setAddress();
+  },
+
+  setAddress: function () {
+    oAddress = this.data.deliverySheng + this.data.deliveryShi + this.data.deliveryQu + this.data.deliveryAddress
+  },
+
+  calPrice: function () {
+    oPrice = this.data.orderAmount * this.data.price;
+    this.setData({
+      orderPrice: oPrice,
+    })
+  },
+
+  haveFocusNum: function () {
+    this.setData({
+      orderAmount: ""
+    })
+  },
+
+  changeAmount: function (e) {
+    var that = this;
+    if (Number(e.detail.value) <= Number(this.data.amount) && e.detail.value > 0 && !isNaN(e.detail.value)) {
+      that.setData({
+        orderAmount: e.detail.value,
+        submitStatus: "可提交"
+      })
+      that.calPrice();
+    } else if (e.detail.value == 0 || isNaN(e.detail.value)) {
+      wx.showModal({
+        title: '请输入有效数量',
+        content: '请重新输入',
+        showCancel: false,
+        success(res) {
+          if (res.confirm) {
+            that.setData({
+              orderAmount: "请输入购买数量",
+              submitStatus: "不可提交"
+            })
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
+    } else {
+      wx.showModal({
+        title: '卖家库存剩余' + this.data.amount,
+        content: '请重新输入',
+        showCancel: false,
+        success(res) {
+          if (res.confirm) {
+            that.setData({
+              orderAmount: "请输入购买数量",
+              submitStatus: "不可提交"
+            })
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
+    }
+  },
+
+  onShow() {
     this.onLoad();
   },
 
-  centerPage: function(){
+  centerPage: function () {
     wx.redirectTo({
       url: '../buyerCenter/buyerCenter',
     })
   },
 
-  buyerAddress: function(){
+  updateAmount: function () {
+    newAmount = this.data.amount - this.data.orderAmount;
+    wx.cloud.database().collection('orderform')
+      .doc(getApp().globalData.orderCloudId)
+      .update({
+        data: {
+          amount: newAmount,
+          time: oTime,
+        }
+      });
+  },
+
+  getTime: function () {
+    oTime = String(new Date().getFullYear()) + " " + String(new Date().getMonth() + 1) + " " + String(new Date().getDate()) + " - " + String(new Date().getHours()) + ":" + String(new Date().getMinutes()) + ":" + String(new Date().getSeconds())
+  },
+
+  submitOrder: function () {
+    var that = this;
+    setTimeout(function () {
+      that.getTime();
+    }, 2000);
+    clearTimeout();
+    console.log(that.data.orderSellerPhoneNo);
+    console.log(that.data.orderGoodsName);
+    console.log(that.data.orderAmount);
+    console.log(that.data.orderPrice);
+    console.log(that.data.orderExpressNo);
+    console.log(that.data.orderStatus);
+    console.log(that.data.orderBuyerPhoneNo);
+    console.log(oAddress);
+    console.log(that.data.orderDeliveryPhoneNo);
+    console.log(oTime);
+    wx.cloud.database().collection('buyerOrder')
+      .add({
+        data: {
+          orderSellerPhoneNo: that.data.orderSellerPhoneNo,
+          orderGoodsName: that.data.orderGoodsName,
+          orderAmount: that.data.orderAmount,
+          orderPrice: that.data.orderPrice,
+          orderExpressNo: that.data.orderExpressNo,
+          orderStatus: that.data.orderStatus,
+          orderBuyerPhoneNo: that.data.orderBuyerPhoneNo,
+          orderDeliveryAddress: oAddress,
+          orderDeliveryPhoneNo: that.data.orderDeliveryPhoneNo,
+          orderTime: oTime,
+        }
+      })
+      .then(res => {
+        console.log('添加成功')
+        that.updateAmount();
+        setTimeout(function () {
+          that.centerPage();
+        }, 2000);
+        clearTimeout();
+      })
+      .catch(err => {
+        console.log('添加失败', err)
+      })
+  },
+
+  buyerAddress: function () {
     wx.navigateTo({
       url: '../buyerAddress/buyerAddress',
     })

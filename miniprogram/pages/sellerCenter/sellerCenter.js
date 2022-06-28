@@ -2,7 +2,7 @@ var id;
 const db = wx.cloud.database()
 Page({
   data: {
-    datalist:'',
+    dyingphotopath:'',//删除图片时用到的路径索引
     nickName: "微信昵称",
     phoneNo: "",
     status: "我的发布",
@@ -53,19 +53,32 @@ Page({
 
   //点击删除按钮
   shanchu:function(e){
-      var that=this; 
-      db.collection('orderform').doc(e.currentTarget.dataset.index).remove({
+    console.log('删除函数运行')
+    console.log(e.currentTarget.dataset.index)
+    var that=this; 
+    //获取删除图片路径
+    db.collection('orderform').doc(e.currentTarget.dataset.index).get({
       success: function(res) {
-        wx.cloud.callFunction({
-          name:"demogetlist"
+        // res.data 包含该记录的数据
+        console.log(res.data)
+        that.setData({
+          dyingphotopath:res.data.photoID
         })
-        .then(res=>{
-          console.log('删除之后重新获取datalist');
-          console.log(res.result.data);
-          that.setData({
-            datalist:res.result.data
-          })
+        //删除云端图片
+          wx.cloud.deleteFile({
+          fileList: [that.data.dyingphotopath],
+          success: res => {
+            // handle success
+            console.log("删除照片函数已运行")
+          },
+          fail: console.error
         })
+      }
+    })
+    //删除云端记录
+    db.collection('orderform').doc(e.currentTarget.dataset.index).remove({
+      success: function(res) {
+        that.getData();
       }
     })
   },
@@ -84,8 +97,9 @@ Page({
 
   //修改信息的页面，包括传参
   change: function(e){
+    console.log(e);
     wx.navigateTo({
-      url: '../dingdanxiugai/dingdanxiugai？id=e.currentTarget.dataset.index',
+      url: '../dingdanxiugai/dingdanxiugai?id='+e.currentTarget.dataset.index,
     })
   },
 
