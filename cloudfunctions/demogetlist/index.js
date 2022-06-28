@@ -5,5 +5,7 @@ cloud.init()
 const db = cloud.database();
 // 云函数入口函数
 exports.main = async (event, context) => {
-  return await db.collection("orderform").get()
+  var num=event.num;
+  var page=event.page;
+  return await db.collection("orderform").skip(page).limit(num).get()
 }

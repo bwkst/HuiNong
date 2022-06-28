@@ -1,21 +1,32 @@
 Page({
   data: {
-    datalist: "",
+    datalist: [],
   },
 
-  getData() {
+  getData(num=5,page=0) {
     wx.cloud.callFunction({
-      name: "demogetlist"
+      name: "demogetlist",
+      data:{
+        num:num,
+        page:page
+      }
     }).then(res => {
+      var oldData=this.data.datalist
+      var newData=oldData.concat(res.result.data);
       console.log(res.result.data)
       this.setData({
-        datalist: res.result.data
+        datalist: newData
       })
     })
   },
   
   onLoad: function (options) {
     this.getData();
+  },
+// 触底
+  onReachBottom:function(){
+    var page=this.data.datalist.length
+  this.getData(5,page)//5为每次刷新的次数
   },
 
   //下单的函数
