@@ -3,8 +3,8 @@
 
 <view class="class1">
   <view>
-    <button  class='smallButton' bindtap="getnumber" style="width: 350rpx;">点击获取手机号</button>
-    <button  class='smallButton' bindtap="picture1" style="width: 350rpx;">点击上传照片</button>
+    <button  class='smallButton' bindtap="getnumber" style="width: 350rpx;">{{numbertext}}</button>
+    <button  class='smallButton' bindtap="picture1" style="width: 350rpx;">{{phototext}}</button>
   </view>
   <image src="{{photopath}}" class="tupian" lazy-load="true" mode="aspectFill"></image>
 </view>
