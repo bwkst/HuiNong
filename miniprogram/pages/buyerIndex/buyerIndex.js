@@ -31,6 +31,7 @@ Page({
 
   //下单的函数
   clickToOrder: function (e) {
+    console.log(e);
     var orderId = e.currentTarget.id;
     getApp().globalData.orderCloudId = orderId;
     console.log(getApp().globalData.orderCloudId);

@@ -29,10 +29,10 @@
   <view class="buyerIndex" wx:for="{{datalist}}" wx:key="index">
     <view class="beyond">
       <view class="wenben">
-        <view class="jibenxinxi">产品:{{item.goodsname}}</view>
-        <view class="jibenxinxi">数量:{{item.amount}}吨</view>
-        <view class="jibenxinxi">价格:{{item.price}}元/公斤</view>
-        <view class="jibenxinxi">地址:{{item.address}}</view>
+        <view class="jibenxinxi">产品：{{item.goodsname}}</view>
+        <view class="jibenxinxi">数量：{{item.amount}}吨</view>
+        <view class="jibenxinxi">价格：{{item.price}}元/公斤</view>
+        <view class="jibenxinxi">地址：{{item.address}}</view>
       </view>
       <image src='{{item.photoID}}' class="tupian" lazy-load="true" mode="aspectFill"></image>
     </view>

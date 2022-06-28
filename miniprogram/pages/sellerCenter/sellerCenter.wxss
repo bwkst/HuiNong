@@ -7,7 +7,7 @@
   border: 3rpx solid #FFD32F;
   margin-left: 7%;
   margin-right: 7%;
-  height: 347rpx;
+  height: 400rpx;
   margin-top: 60rpx;
   display: flex;
   border-radius: 10rpx 10rpx 10rpx 10rpx;
@@ -38,7 +38,7 @@
 /*每一行文本的样式*/
 .jibenxinxi {
   height: 50rpx;
-  margin-top: 20rpx;
+  margin-top: 30rpx;
   margin-left: 40rpx;
   font-size: 0.8rem;
 }
