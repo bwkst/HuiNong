@@ -159,6 +159,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    console.log("下面是传入的参数")
+    console.log(options.id)
 
   },
 

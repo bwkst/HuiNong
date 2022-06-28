@@ -42,14 +42,6 @@ Page({
         })
       }
     })
-    wx.cloud.callFunction({
-      name: "demogetlist"
-    }).then(res => {
-      console.log(res.result.data)
-      this.setData({
-        datalist: res.result.data
-      })
-    })
   },
 
   //点击发布商品按钮
@@ -93,7 +85,7 @@ Page({
   //修改信息的页面，包括传参
   change: function(e){
     wx.navigateTo({
-      url: '../dingdanxiugai/dingdanxiugai',
+      url: '../dingdanxiugai/dingdanxiugai？id=e.currentTarget.dataset.index',
     })
   },
 
