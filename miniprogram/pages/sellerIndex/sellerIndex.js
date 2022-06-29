@@ -42,6 +42,8 @@ onReachBottom: function () {
     })
   },
 
+  //点击填写快递单号
+
 info:function(){
   wx.showModal({
     title:'提示',
