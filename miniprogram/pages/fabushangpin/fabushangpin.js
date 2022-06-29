@@ -44,11 +44,8 @@ Page({
         number: res.data.phoneNumber,
       })
     })
-    //获取时间
-    console.log(new Date().toLocaleDateString())
-    console.log(new Date().toLocaleTimeString())
     this.setData({
-      time: new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString()
+      time: String(new Date().getFullYear()) + "/" + String(new Date().getMonth() + 1) + "/" + String(new Date().getDate()) + " - " + String(new Date().getHours()) + ":" + String(new Date().getMinutes()) + ":" + String(new Date().getSeconds())
     })
   },
 
