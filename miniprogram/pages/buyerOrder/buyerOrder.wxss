@@ -86,7 +86,7 @@
   width: 100%;
 }
 
-/*右边按钮的样式*/
+/*两边按钮的样式*/
 .button2 {
   background-color: #FFE996;
   width: 50%;

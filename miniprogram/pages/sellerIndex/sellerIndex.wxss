@@ -23,12 +23,12 @@
   border-radius: 0rpx 0rpx 10rpx 10rpx;
 }
 
-/*每一行文本的样式*/
+/*每一项文本的样式*/
 .jibenxinxi {
-  height: 35rpx;
-  margin-top: 10rpx;
-  margin-left: 20rpx;
+  width: 300rpx;
   font-size: 0.8rem;
+  display: flex;
+  align-items: center;
 }
 
 /*底部操作框的样式*/
@@ -39,19 +39,15 @@
   border-radius: 0rpx 0rpx 10rpx 10rpx;
 }
 
-/*文本样式*/
-.wenben {
-  display: flex;
-  flex-direction: column;
- 
-}
-
 /*文本组合样式*/
 .beyond {
+  margin-top: 2.5%;
+  margin-bottom: 2.5%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 90%;
   height: 80%;
+  justify-content:space-around;
 }
 
 /*填写快递单号的输入框*/
@@ -65,7 +61,10 @@
 /*左边按钮的样式*/
 .leftbutton {
   font-size: 0.8rem;
-  width: 75%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-top: 0%;
   margin-bottom: 0%;
   background-color: #FFDDBD;
@@ -75,9 +74,19 @@
 /*右边按钮的样式*/
 .rightbutton {
   font-size: 0.8rem;
-  width: 25%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-top: 0%;
   margin-bottom: 0%;
   background-color: #FFE996;
   border-radius: 0rpx 0rpx 10rpx 0rpx;
+}
+
+/*每个小横排的样式*/
+.henpai{
+  width: 600rpx;
+  display: flex;
+  height: fit-content;
 }
