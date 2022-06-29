@@ -147,7 +147,7 @@ Page({
 
   changeAmount: function (e) {
     var that = this;
-    if (Number(e.detail.value) <= Number(this.data.amount) && e.detail.value > 0 && !isNaN(e.detail.value)) {
+    if (Number(e.detail.value) <= Number(this.data.amount) && e.detail.value > 0) {
       that.checkAddress()
       if (that.data.addressWarning == "") {
         that.setData({
@@ -169,7 +169,7 @@ Page({
           }
         })
       };
-    } else if (e.detail.value == 0 || isNaN(e.detail.value)) {
+    } else if (e.detail.value == 0) {
       wx.showModal({
         title: '请输入有效数量',
         content: '请重新输入',

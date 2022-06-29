@@ -24,7 +24,7 @@
       <view class="changeInfo changeInfoTitle">产品： {{goodsname}}</view>
       <view class="changeInfo">
         <text class="changeInfoTitle">数量： </text>
-        <input class="changeInfoInput" value="{{orderAmount}}" bindconfirm="changeAmount" bindfocus="haveFocusNum" type="number"></input>
+        <input class="changeInfoInput" value="{{orderAmount}}" bindinput="changeAmount" bindfocus="haveFocusNum" type="number" confirm-type="done"></input>
       </view>
       <view class="changeInfo changeInfoTitle">付款金额： {{orderPrice}}</view>
       <view class="changeInfo changeInfoTitle">商户编号: {{showSellerNo}}</view>
