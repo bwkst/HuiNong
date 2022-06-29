@@ -16,7 +16,7 @@
 </view>
 
 <view class='inputForm'>
-  <input type="number" bindinput='chanpinjiage' placeholder='产品价格（元/斤）' placeholder-class="placeholderClass" confirm-type='done' class='inputContent' value="{{price}}"></input>
+  <input type="digit" bindinput='chanpinjiage' placeholder='产品价格（元/斤）' placeholder-class="placeholderClass" confirm-type='done' class='inputContent' value="{{price}}"></input>
 </view>
 
 <view class="inputForm">
