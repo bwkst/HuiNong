@@ -34,8 +34,8 @@
     <view class="jibenxinxi2">收货地址：{{item.orderDeliveryAddress}}</view>
     <view class="buttombutton">
       <button class="leftbutton" bindtap="getsellerNo" data-index="{{item._id}}">点击获取卖家电话</button>
-      <button class="rightbutton"  wx:if="{{item.orderExpressNo}}"bindtap="getNo">{{item.orderStatus}}</button>
-      <button class="rightbutton"  wx:else bindtap="getNo">{{item.orderStatus}}</button>
+      <button class="rightbutton" wx:if='{{item.orderStatus == "已发货"}}' bindtap="getDeliveryNo" id="{{item._id}}">点击复制快递单号</button>
+      <button class="rightbutton" wx:if='{{item.orderStatus == "未发货"}}'>{{item.orderStatus}}</button>
     </view>
   </view>
 
