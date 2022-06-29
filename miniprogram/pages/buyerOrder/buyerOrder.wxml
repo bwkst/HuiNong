@@ -3,6 +3,8 @@
   <button class="changeAddressButton" style="width: 215rpx;" bindtap="buyerAddress">修改地址</button>
 </view>
 
+<view class='check'>{{addressWarning}}</view>
+
 <view class="buyerAddress">
   <view class="beyond">
     <view class="wenben">

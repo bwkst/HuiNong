@@ -31,6 +31,21 @@ Page({
     orderBuyerPhoneNo: "",
     orderDeliveryPhoneNo: "",
     orderTime: "",
+
+    addressWarning: ""
+  },
+
+  checkAddress: function () {
+    var that = this;
+    if (this.data.deliveryName == "" || this.data.deliveryPhoneNo == "" || this.data.deliveryRegion == "" || this.data.deliverySheng == "" || this.data.deliveryShi == "" || this.data.deliveryQu == "" || this.data.deliveryAddress == "") {
+      that.setData({
+        addressWarning: "请使用有效地址下单"
+      })
+    } else {
+      that.setData({
+        addressWarning: ""
+      })
+    }
   },
 
   onLoad: function () {
@@ -79,6 +94,7 @@ Page({
       wx.hideLoading({
         success: () => {
           that.createOrder();
+          that.checkAddress();
         },
       })
     }, 2000);
@@ -122,11 +138,27 @@ Page({
   changeAmount: function (e) {
     var that = this;
     if (Number(e.detail.value) <= Number(this.data.amount) && e.detail.value > 0 && !isNaN(e.detail.value)) {
-      that.setData({
-        orderAmount: e.detail.value,
-        submitStatus: "可提交"
-      })
-      that.calPrice();
+      that.checkAddress()
+      if (that.data.addressWarning == "") {
+        that.setData({
+          orderAmount: e.detail.value,
+          submitStatus: "可提交"
+        })
+        that.calPrice();
+      } else {
+        wx.showModal({
+          title: "请使用有效地址下单",
+          content: '是否需要填写地址',
+          showCancel: true,
+          cancelText: "否",
+          confirmText: "是",
+          success: (res) => {
+            if (res.confirm) {
+              that.buyerAddress();
+            }
+          }
+        })
+      };
     } else if (e.detail.value == 0 || isNaN(e.detail.value)) {
       wx.showModal({
         title: '请输入有效数量',
@@ -202,7 +234,7 @@ Page({
     clearTimeout();
   },
 
-  addOrder: function(){
+  addOrder: function () {
     var that = this;
     console.log(that.data.orderSellerPhoneNo);
     console.log(that.data.orderGoodsName);
