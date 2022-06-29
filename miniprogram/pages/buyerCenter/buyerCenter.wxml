@@ -26,17 +26,19 @@
   <view class="sellerIndex" wx:for="{{dataList}}">
     <view class="beyond">
       <view class="wenben">
-        <view class="jibenxinxi">产品： {{item.orderGoodsName}}</view>
-        <view class="jibenxinxi">数量： {{item.orderAmount}}</view>
-        <view class="jibenxinxi">付款金额： {{item.orderPrice}}</view>
-        <view class="jibenxinxi">快递单号:{{item.orderExpressNo}}</view>
+        <view class="jibenxinxi">产品：{{item.orderGoodsName}}</view>
+        <view class="jibenxinxi">数量：{{item.orderAmount}}</view>
+        <view class="jibenxinxi">付款金额:{{item.orderPrice}}</view>
+        <view class="jibenxinxi">收货地址:{{item.orderDeliveryAddress}}</view>
       </view>
     </view>
-    <view class="buttombutton" bindtap="xiadan">
-      <view class="statusShown" bindtap="xiadan" style="width: 100%;">订单状态：{{zhuangtai}}</view>
+    <view class="buttombutton">
+      <view class="leftbutton" bindtap="getsellerNo" data-index="{{item._id}}">点击获取卖家电话</view>
+      <view class="rightbutton"  wx:if="{{item.orderExpressNo}}">快递单号:{{item.orderExpressNo}}</view>
+      <view class="rightbutton"  wx:else>当前暂未发货</view>
     </view>
-
   </view>
+
   <view style="height: 200rpx"></view>
 </scroll-view>
 
