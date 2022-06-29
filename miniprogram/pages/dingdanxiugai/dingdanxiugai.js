@@ -4,7 +4,7 @@ const todos = db.collection('orderform')
 var Nowamount = 0
 var Nowgoodsname = ''
 var Nowprice = ''
-var Nowaddress = new Array(3) 
+var Nowaddress = new Array(3)
 Page({
 
   /**
@@ -69,34 +69,34 @@ Page({
         Nowaddress[0] = that.data.address[0]
         Nowaddress[1] = that.data.address[1]
         Nowaddress[2] = that.data.address[2]
-        
+
         console.log(Nowgoodsname)
       }
     })
-    setTimeout(function(){
+    setTimeout(function () {
       console.log(Nowgoodsname)
-    wx.cloud.database().collection('orderform')
-    .where({
-      amount: Nowamount,
-      goodsname: Nowgoodsname,
-      price:Nowprice,
-      address:Nowaddress
-    })
-    .get()
-    .then(res=>{
-      console.log(res.data)
-      if(res.data.length==1){
-        that.setData({
-          judge: false
+      wx.cloud.database().collection('orderform')
+        .where({
+          amount: Nowamount,
+          goodsname: Nowgoodsname,
+          price: Nowprice,
+          address: Nowaddress
         })
-      }
-      else{
-        that.setData({
-          judge: true
+        .get()
+        .then(res => {
+          console.log(res.data)
+          if (res.data.length == 1) {
+            that.setData({
+              judge: false
+            })
+          }
+          else {
+            that.setData({
+              judge: true
+            })
+          }
         })
-      }
-    })
-  },2500)
+    }, 2500)
     var that = this;
     setTimeout(function () {
       wx.hideLoading({
@@ -111,9 +111,9 @@ Page({
     console.log(this.data.address)
     console.log('judge函数运行');
     if (this.data.goodsname != '' && this.data.amount != 0 && this.data.price != 0 && this.data.address[2] != '' && this.data.time != '' && this.data.number != '')
-  this.setData({
-    judge: true
-  })
+      this.setData({
+        judge: true
+      })
     else
       this.setData({
         judge: false
@@ -199,6 +199,9 @@ Page({
     this.shanchu();
     //上传照片到数据库
     if (this.data.photo1 == true) {
+      wx.showLoading({
+        title: '更新中',
+      })
       wx.cloud.uploadFile({
         filePath: this.data.photopath,
         name: this.data.number + Date.now(),
@@ -222,10 +225,17 @@ Page({
               },
               success: function (res) {
                 console.log('其他信息上传成功')
-                //跳转到卖家个人中心
-                wx.navigateBack({
-                  delta: 1
-                })
+                setTimeout(function () {
+                  wx.hideLoading({
+                    success: (res) => {
+                      //跳转到卖家个人中心
+                      wx.navigateBack({
+                        delta: 1
+                      })
+                    },
+                  })
+                }, 1000)
+                clearTimeout();
               }
             })
           //上传信息完毕

@@ -96,6 +96,9 @@ Page({
   post: function () {
     //上传照片到数据库
     if (this.data.photo1 == true) {
+      wx.showLoading({
+        title: '发布中',
+      })
       wx.cloud.uploadFile({
         filePath: this.data.photopath,
         name: this.data.number + Date.now(),
@@ -119,10 +122,17 @@ Page({
               },
               success: function (res) {
                 console.log('其他信息上传成功')
-                //跳转到卖家个人中心
-                wx.navigateBack({
-                  delta: 1
-                })
+                setTimeout(function () {
+                  wx.hideLoading({
+                    success: (res) => {
+                      //跳转到卖家个人中心
+                      wx.navigateBack({
+                        delta: 1
+                      })
+                    },
+                  })
+                }, 500)
+                clearTimeout();
               }
             })
           //上传信息完毕
