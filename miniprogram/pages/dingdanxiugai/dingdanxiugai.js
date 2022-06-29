@@ -55,7 +55,7 @@ Page({
           price: res.data.price,
           address: res.data.address,
           number: res.data.number,
-          time: new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
+          time: String(new Date().getFullYear()) + "/" + String(new Date().getMonth() + 1) + "/" + String(new Date().getDate()) + " - " + String(new Date().getHours()) + ":" + String(new Date().getMinutes()) + ":" + String(new Date().getSeconds()),
           photoID: res.data.photoID
         })
       }
@@ -184,8 +184,8 @@ Page({
               success: function (res) {
                 console.log('其他信息上传成功')
                 //跳转到卖家个人中心
-                wx.redirectTo({
-                  url: '/pages/sellerCenter/sellerCenter'
+                wx.navigateBack({
+                  delta: 1
                 })
               }
             })
