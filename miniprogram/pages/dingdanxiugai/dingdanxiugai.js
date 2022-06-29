@@ -184,8 +184,8 @@ Page({
               success: function (res) {
                 console.log('其他信息上传成功')
                 //跳转到卖家个人中心
-                wx.redirectTo({
-                  url: '/pages/sellerCenter/sellerCenter'
+                wx.navigateBack({
+                  delta: 1
                 })
               }
             })

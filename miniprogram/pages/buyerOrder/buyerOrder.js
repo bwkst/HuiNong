@@ -208,9 +208,9 @@ Page({
     this.onLoad();
   },
 
-  centerPage: function () {
-    wx.redirectTo({
-      url: '../buyerCenter/buyerCenter',
+  indexPage: function () {
+    wx.navigateBack({
+      delta: 1
     })
   },
 
@@ -279,7 +279,7 @@ Page({
         clearTimeout();
         wx.hideLoading({
           success: () => {
-            that.centerPage();
+            that.indexPage();
           },
         })
       })

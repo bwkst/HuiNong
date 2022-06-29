@@ -146,8 +146,8 @@ Page({
                 passwordSet: Nowpassword
               }
             })
-          wx.redirectTo({
-            url: '/pages/login/login'     //跳转到登录界面
+          wx.navigateBack({
+            delta: 1
           })
         }
       })
