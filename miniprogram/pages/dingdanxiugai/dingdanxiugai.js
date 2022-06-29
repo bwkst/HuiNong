@@ -196,6 +196,9 @@ Page({
 
   //确认发布的函数
   post: function () {
+    this.setData({
+      judge: false
+    })
     this.shanchu();
     //上传照片到数据库
     if (this.data.photo1 == true) {
