@@ -37,7 +37,7 @@
       <image src='{{item.photoID}}' class="tupian" lazy-load="true" mode="aspectFill"></image>
     </view>
     <view class="buttombutton">
-      <button class="leftbutton"bindtap="change"    data-index="{{item._id}}">修改信息</button>
+      <button class="leftbutton" bindtap="change" data-index="{{item._id}}">修改信息</button>
       <button class="rightbutton" bindtap="shanchu" data-index="{{item._id}}">删除</button>
     </view>
   </view>
