@@ -160,7 +160,7 @@ Page({
                         })
                         .then(res0 => {
                           wx.showLoading({
-                            content: '注册中',
+                            title: '注册中',
                           })
                           setTimeout(function(){
                             wx.hideLoading({
