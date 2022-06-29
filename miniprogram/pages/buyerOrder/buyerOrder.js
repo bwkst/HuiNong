@@ -133,7 +133,7 @@ Page({
   },
 
   calPrice: function () {
-    oPrice = this.data.orderAmount * this.data.price;
+    oPrice = (this.data.orderAmount * this.data.price).toFixed(2);
     this.setData({
       orderPrice: oPrice,
     })
