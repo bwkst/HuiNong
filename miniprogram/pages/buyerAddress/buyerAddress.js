@@ -203,7 +203,8 @@ Page({
       })
       .get()
       .then(res => {
-        id = res.data[num]._id;
+        console.log(res);
+        id = res.data[0]._id;
         console.log(id);
         wx.cloud.database().collection('buyerAddress')
           .doc(id)
