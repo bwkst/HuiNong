@@ -126,31 +126,59 @@ Page({
         judge3: false
       })
     }
+
   },
 
   //确认修改之后的函数
   sendPassword() {
-    if (this.data.judge1 && this.data.judge2 && this.data.judge3) {
-      //把重设的密码发送到云端
-      wx.showModal({
-        content: '确定修改？',
-        showCancel: true,
-        cancelText: "否",
-        confirmText: "是",
-        confirmColor: 'skyblue',
-        success: (res) => {
-          wx.cloud.database().collection('user')
-            .doc(id)
-            .update({
-              data: {
-                passwordSet: Nowpassword
-              }
+    wx.cloud.database().collection('user')
+    .doc(id)
+    .get()
+    .then(res=>{
+      if(this.data.judge1 && this.data.judge2 && this.data.judge3 && Nowpassword && Nowpassword == res.data.passwordSet){
+        wx.showModal({
+          title:'密码与旧密码一致',
+          content: '是否返回登录界面',
+          showCancel: true,
+          cancelText: "否",
+          confirmText: "是",
+          confirmColor: 'skyblue',
+          success: (res) => {
+            if(res.confirm){
+            wx.navigateBack({
+              delta: 1
             })
-          wx.navigateBack({
-            delta: 1
-          })
-        }
-      })
-    }
+          }
+          }
+        })
+      }
+      else if (this.data.judge1 && this.data.judge2 && this.data.judge3 && Nowpassword != res.data.passwordSet) {
+        //把重设的密码发送到云端
+        wx.showModal({
+          content: '确定修改？',
+          showCancel: true,
+          cancelText: "否",
+          confirmText: "是",
+          confirmColor: 'skyblue',
+          success: (res) => {
+
+            wx.cloud.database().collection('user')
+              .doc(id)
+              .update({
+                data: {
+                  passwordSet: Nowpassword
+                }
+              })
+              console.log(Nowpassword)
+              if(res.confirm){
+            wx.navigateBack({
+              delta: 1
+            })
+          }
+          }
+        })
+      }
+    })
+
   }
 })
