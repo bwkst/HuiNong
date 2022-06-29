@@ -1,5 +1,5 @@
 <scroll-view scroll-y="true">
-  <view class="buyerIndex" wx:for="{{datalist}}"wx:key="index">
+  <view class="buyerIndex" wx:for="{{datalist}}" wx:key="index">
     <view class="beyond">
       <view class="wenben">
         <view class="jibenxinxi">产品： {{item.goodsname}}</view>

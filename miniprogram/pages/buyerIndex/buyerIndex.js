@@ -3,30 +3,30 @@ Page({
     datalist: [],
   },
 
-  getData(num=5,page=0) {
+  getData(num = 5, page = 0) {
     wx.cloud.callFunction({
       name: "demogetlist",
-      data:{
-        num:num,
-        page:page
+      data: {
+        num: num,
+        page: page
       }
     }).then(res => {
-      var oldData=this.data.datalist
-      var newData=oldData.concat(res.result.data);
+      var oldData = this.data.datalist
+      var newData = oldData.concat(res.result.data);
       console.log(res.result.data)
       this.setData({
         datalist: newData
       })
     })
   },
-  
+
   onLoad: function (options) {
     this.getData();
   },
-// 触底
-  onReachBottom:function(){
-    var page=this.data.datalist.length
-  this.getData(5,page)//5为每次刷新的次数
+  // 触底
+  onReachBottom: function () {
+    var page = this.data.datalist.length
+    this.getData(5, page)//5为每次刷新的次数
   },
 
   //下单的函数
@@ -46,8 +46,10 @@ Page({
     console.log(e.currentTarget)
     wx.showModal({
       title: '卖家的联系方式',
-      content: sellPhoneNum,
+      content: '是否复制到剪贴板',
       showCancel: true,
+      cancelText: "否",
+      confirmText: "是",
       success(res) {
         if (res.confirm) {
           console.log('用户点击确定')
