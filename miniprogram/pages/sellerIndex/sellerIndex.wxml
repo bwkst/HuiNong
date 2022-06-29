@@ -1,28 +1,28 @@
 <scroll-view scroll-y="true">
-  <view class="sellerIndex" wx:for="{{datalist}}" wx:key="index">
+  <view class="sellerIndex" wx:for="{{datalist}}" wx:key="index" wx:if="{{index<length}}">
     <view class="beyond">
         <view class='henpai'>
-          <view class="jibenxinxi">产品： {{item.orderGoodsName}}</view>
+          <view class="jibenxinxi" style="width: 100%;">产品： {{item.orderGoodsName}}</view>
         </view>
         <view class='henpai'>
-          <view class="jibenxinxi">付款金额： {{item.orderPrice}}元</view>
-          <view class="jibenxinxi">数量： {{item.orderAmount}}斤</view>
+          <view class="jibenxinxi">付款金额：{{item.orderPrice}}元</view>
+          <view class="jibenxinxi">数量：{{item.orderAmount}}斤</view>
         </view>
-        <view class='henpai' style="width: 600rpx;">
-          <view class="jibenxinxi" wx:if="{{item.orderExpressNo}}">快递单号:{{item.orderExpressNo}}</view>
-          <view class="jibenxinxi" wx:else="">快递单号：暂无</view>
+        <view class='henpai' >
+          <view class="jibenxinxi" wx:if="{{item.orderExpressNo}}" style="width: 100%;">快递单号：{{item.orderExpressNo}}</view>
+          <view class="jibenxinxi" wx:else="" style="width: 100%;">快递单号：暂无</view>
         </view>
-        <view class='henpai' style="width: 600rpx;">
-          <view class="jibenxinxi" style="width: 100%;">买家号码： {{item.orderBuyerPhoneNo}}
+        <view class='henpai' >
+          <view class="jibenxinxi" style="width: 100%;">买家号码：{{item.orderBuyerPhoneNo}}
             <icon  type="info_circle" size="12" bindtap="info"></icon>
           </view>
         </view>
-        <view class='henpai' style="width: 600rpx;">
-          <view class="jibenxinxi" style="width: 100%;">运货地址:{{item.orderDeliveryAddress}}</view>
+        <view class='henpai' >
+          <view class="jibenxinxi" style="width: 100%;">运货地址：{{item.orderDeliveryAddress}}</view>
         </view>
     </view>
     <view class="buttombutton">
-      <view class="leftbutton" bindtap="chakan" data-index="{{item._id}}" wx:if="{{item.orderExpressNo}}">已寄出(点击查看快递单号)</view>
+      <view class="leftbutton" wx:if="{{item.orderExpressNo}}">{{item.orderStatus}}</view>
       <view class="leftbutton" bindtap="tianxie" data-index="{{item._id}}" wx:else>未发货(点击填写快递单号)</view>
       <view class="rightbutton" bindtap="delete"data-index="{{item._id}}">打回订单</view>
     </view>
