@@ -231,6 +231,9 @@ Page({
   },
 
   submitOrder: function () {
+    this.setData({
+      submitStatus: "不可提交"
+    })
     var that = this;
     that.getTime();
     wx.showLoading({
