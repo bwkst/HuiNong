@@ -1,6 +1,6 @@
 <scroll-view scroll-y="true">
   <view class="title">你好，</view>
-  <view class="subtitle" style="font-size: 1.65rem;">欢迎来到邮惠农</view>
+  <view class="subtitle" style="font-size: 1.65rem;">欢迎来到云惠农</view>
 
   <view class='check'>{{warning1}}{{warning2}}{{warning3}}</view>
 

@@ -17,7 +17,7 @@
 <!--选择“我的发布”-->
 <view class="centerStatusChange" wx:if='{{status=="我的发布"}}'>
   <button class="centerStatusChoose">我的发布</button>
-  <button class="centerStatusNotChoose" bindtap="changeStatusAboutHuiNong">关于惠农</button>
+  <button class="centerStatusNotChoose" bindtap="changeStatusAboutHuiNong">关于云惠农</button>
 </view>
 
 <view class="buttonRow" wx:if='{{status=="我的发布"}}'>
@@ -44,15 +44,15 @@
   <view style="height: 200rpx"></view>
 </scroll-view>
 
-<!--选择“关于惠农”-->
-<view class="centerStatusChange" wx:if='{{status=="关于惠农"}}'>
+<!--选择“关于云惠农”-->
+<view class="centerStatusChange" wx:if='{{status=="关于云惠农"}}'>
   <button class="centerStatusNotChoose" bindtap="changeStatusMine">我的发布</button>
-  <button class="centerStatusChoose">关于惠农</button>
+  <button class="centerStatusChoose">关于云惠农</button>
 </view>
 
-<!-- 关于惠农 -->
-<view class="aboutHuiNong" wx:if='{{status=="关于惠农"}}'>
-  <view class="HuiNongContent">关于惠农</view>
+<!-- 关于云惠农 -->
+<view class="aboutHuiNong" wx:if='{{status=="关于云惠农"}}'>
+  <view class="HuiNongContent">关于云惠农</view>
   <view class="HuiNongContent">近年疫情反复，部分批发市场关闭/限制人流</view>
   <view class="HuiNongContent">餐厅不知从何处拿货；农民也无法销售</view>
   <view class="HuiNongContent">农产品市场价格在上涨；同时也有滞销产品</view>
@@ -60,11 +60,11 @@
   <view class="HuiNongContent" style="font-weight: bold;">将您的农产品推送给距离最近的买方</view>
 </view>
 
-<view class="submitButton_row" wx:if='{{status=="关于惠农"}}'>
+<view class="submitButton_row" wx:if='{{status=="关于云惠农"}}'>
   <button class="submitButton" style="width: 250rpx;" open-type="feedback">点我反馈</button>
   <button class="submitButton" style="width: 250rpx;" bindtap="updateUserInfo">更新授权</button>
 </view>
-<button class="submitButton" wx:if='{{status=="关于惠农"}}' style="margin-top: 20rpx;" bindtap="loginPage">退出登录</button>
+<button class="submitButton" wx:if='{{status=="关于云惠农"}}' style="margin-top: 20rpx;" bindtap="loginPage">退出登录</button>
 
 <view class="navigationBar">
   <button class="navigationButton" style="width: 375rpx;" bindtap="sellerIndexPage">

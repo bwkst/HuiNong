@@ -90,10 +90,10 @@ Page({
     })
   },
 
-  //跳转到关于惠农界面
+  //跳转到关于云惠农界面
   changeStatusAboutHuiNong: function () {
     this.setData({
-      status: "关于惠农"
+      status: "关于云惠农"
     })
   },
 

@@ -85,7 +85,7 @@ Page({
 
   changeStatusAboutHuiNong: function () {
     this.setData({
-      status: "关于惠农"
+      status: "关于云惠农"
     })
   },
 

@@ -1,5 +1,5 @@
 <scroll-view scroll-y="true">
-  <view class='title'>欢迎选择惠农</view>
+  <view class='title'>欢迎选择云惠农</view>
   <view class='subtitle'>助力农人交流</view>
 
   <view class='check'>
