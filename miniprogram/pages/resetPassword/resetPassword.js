@@ -126,31 +126,74 @@ Page({
         judge3: false
       })
     }
+
   },
 
   //确认修改之后的函数
   sendPassword() {
-    if (this.data.judge1 && this.data.judge2 && this.data.judge3) {
-      //把重设的密码发送到云端
-      wx.showModal({
-        content: '确定修改？',
-        showCancel: true,
-        cancelText: "否",
-        confirmText: "是",
-        confirmColor: 'skyblue',
-        success: (res) => {
-          wx.cloud.database().collection('user')
-            .doc(id)
-            .update({
-              data: {
-                passwordSet: Nowpassword
-              }
+    var that = this
+    wx.cloud.database().collection('user')
+    .doc(id)
+    .get()
+    .then(res=>{
+      if(this.data.judge1 && this.data.judge2 && this.data.judge3 && Nowpassword && Nowpassword == res.data.passwordSet){
+        wx.showModal({
+          title:'密码与旧密码一致',
+          content: '是否返回登录界面',
+          showCancel: true,
+          cancelText: "否",
+          confirmText: "是",
+          confirmColor: 'skyblue',
+          success: (res) => {
+            if(res.confirm){
+            wx.navigateBack({
+              delta: 1
             })
-          wx.navigateBack({
-            delta: 1
-          })
-        }
-      })
-    }
+          }
+          }
+        })
+      }
+      else if (this.data.judge1 && this.data.judge2 && this.data.judge3 && Nowpassword != res.data.passwordSet) {
+        //把重设的密码发送到云端
+        wx.showModal({
+          content: '确定修改？',
+          showCancel: true,
+          cancelText: "否",
+          confirmText: "是",
+          confirmColor: 'skyblue',
+          success: (res) => {
+
+            wx.cloud.database().collection('user')
+              .doc(id)
+              .update({
+                data: {
+                  passwordSet: Nowpassword
+                }
+              })
+              .then(res0 => {
+                wx.showLoading({
+                  title: '重设密码中',
+                })
+                setTimeout(function(){
+                  wx.hideLoading({
+                    success: (res) => {
+                      console.log('添加成功')
+                      that.loginPage();
+                    },
+                  })
+                }, 2000)
+                clearTimeout();
+              })
+              console.log(Nowpassword)
+              if(res.confirm){
+            wx.navigateBack({
+              delta: 1
+            })
+          }
+          }
+        })
+      }
+    })
+
   }
 })
