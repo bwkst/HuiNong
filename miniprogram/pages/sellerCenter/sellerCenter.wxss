@@ -2,12 +2,12 @@
 /*买家主页和卖家个人中心的样式*/
 .buyerIndex {
   background-color: rgba(255, 255, 255, 100);
-  width: 86%;
-  align-items: center;
+  width: 88%;
+  
   border: 3rpx solid #FFD32F;
-  margin-left: 7%;
-  margin-right: 7%;
-  height: 400rpx;
+  margin-left: 6%;
+  margin-right: 6%;
+  height: fit-content;
   margin-top: 60rpx;
   display: flex;
   border-radius: 10rpx 10rpx 10rpx 10rpx;
@@ -18,7 +18,6 @@
 /*左边按钮的样式*/
 .leftbutton {
   font-size: 0.8rem;
-  width: 43%;
   margin-top: 0%;
   margin-bottom: 0%;
   background-color: #FFDDBD;
@@ -28,7 +27,6 @@
 /*右边按钮的样式*/
 .rightbutton {
   font-size: 0.8rem;
-  width: 43%;
   margin-top: 0%;
   margin-bottom: 0%;
   background-color: #FFE996;
@@ -37,10 +35,16 @@
 
 /*每一行文本的样式*/
 .jibenxinxi {
-  height: 50rpx;
-  margin-top: 30rpx;
+  height: 40rpx;
+  margin-top: 25rpx;
   margin-left: 40rpx;
   font-size: 0.8rem;
+}
+.jibenxinxi2 {
+  margin-top: 25rpx;
+  margin-left: 40rpx;
+  font-size: 0.8rem;
+  margin-bottom: 25rpx;
 }
 
 /*双按钮样式*/
@@ -66,11 +70,11 @@
 
 /*图片样式*/
 .tupian {
-  height: 180rpx;
-  width: 180rpx;
+  height: 160rpx;
+  width: 160rpx;
   position: relative;
-  left: 5%;
-  top: 15%;
+  left: 8%;
+  margin-top: 5%;
   border-radius: 10rpx 10rpx 10rpx 10rpx;
 }
 

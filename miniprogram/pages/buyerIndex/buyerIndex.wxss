@@ -17,7 +17,6 @@
 /*左边按钮的样式*/
 .leftbutton {
   font-size: 0.8rem;
-  width: 43%;
   margin-top: 0%;
   margin-bottom: 0%;
   background-color: #FFDDBD;
@@ -27,7 +26,6 @@
 /*右边按钮的样式*/
 .rightbutton {
   font-size: 0.8rem;
-  width: 43%;
   margin-top: 0%;
   margin-bottom: 0%;
   background-color: #FFE996;

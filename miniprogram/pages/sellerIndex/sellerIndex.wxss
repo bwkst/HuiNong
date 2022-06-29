@@ -61,7 +61,7 @@
 /*左边按钮的样式*/
 .leftbutton {
   font-size: 0.8rem;
-  width: 50%;
+  width: 70%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,7 +74,7 @@
 /*右边按钮的样式*/
 .rightbutton {
   font-size: 0.8rem;
-  width: 50%;
+  width: 30%;
   display: flex;
   align-items: center;
   justify-content: center;

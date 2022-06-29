@@ -2,7 +2,7 @@
   <view class="sellerIndex" wx:for="{{datalist}}" wx:key="index" wx:if="{{index<length}}">
     <view class="beyond">
         <view class='henpai'>
-          <view class="jibenxinxi" style="width: 100%;">产品： {{item.orderGoodsName}}</view>
+          <view class="jibenxinxi" style="width: 100%;">产品：{{item.orderGoodsName}}</view>
         </view>
         <view class='henpai'>
           <view class="jibenxinxi">付款金额：{{item.orderPrice}}元</view>
@@ -22,9 +22,9 @@
         </view>
     </view>
     <view class="buttombutton">
-      <view class="leftbutton" wx:if="{{item.orderExpressNo}}">{{item.orderStatus}}</view>
-      <view class="leftbutton" bindtap="tianxie" data-index="{{item._id}}" wx:else>未发货(点击填写快递单号)</view>
-      <view class="rightbutton" bindtap="delete"data-index="{{item._id}}">打回订单</view>
+      <button class="leftbutton" wx:if="{{item.orderExpressNo}}">{{item.orderStatus}}</button>
+      <button class="leftbutton" bindtap="tianxie" data-index="{{item._id}}" wx:else>未发货(点击填写快递单号)</button>
+      <button class="rightbutton" bindtap="delete"data-index="{{item._id}}">打回订单</button>
     </view>
   </view>
 </scroll-view>
