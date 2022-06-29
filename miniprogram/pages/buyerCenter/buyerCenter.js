@@ -2,11 +2,11 @@ var id;
 const db = wx.cloud.database()
 Page({
   data: {
-    nickName: "微信昵称",
-    phoneNo: "11111111111",
-    address: "北京市昌平区",
-    status: "我的订单",
-    List: 7,//实例展示
+    nickName: "",
+    phoneNo: "",
+    address: "",
+    status: "",
+    dataList: 7,//装数据
     zhuangtai: "未寄出",
     iconURL: "",
   },
