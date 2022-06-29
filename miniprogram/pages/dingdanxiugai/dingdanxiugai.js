@@ -54,8 +54,8 @@ Page({
           amount: res.data.amount,
           price: res.data.price,
           address: res.data.address,
-          time: res.data.time,
           number: res.data.number,
+          time: new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
           photoID: res.data.photoID
         })
       }

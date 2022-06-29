@@ -23,13 +23,13 @@
 
 <!-- 我的 -->
 <scroll-view scroll-y="true" wx:if='{{status=="我的订单"}}'>
-  <view class="sellerIndex" wx:for="{{List}}">
+  <view class="sellerIndex" wx:for="{{dataList}}">
     <view class="beyond">
       <view class="wenben">
-        <view class="jibenxinxi">产品： {{data}}</view>
-        <view class="jibenxinxi">数量： {{data}}</view>
-        <view class="jibenxinxi">付款金额： {{data}}</view>
-        <view class="jibenxinxi">快递单号:{{data}}</view>
+        <view class="jibenxinxi">产品： {{item.orderGoodsName}}</view>
+        <view class="jibenxinxi">数量： {{item.orderAmount}}</view>
+        <view class="jibenxinxi">付款金额： {{item.orderPrice}}</view>
+        <view class="jibenxinxi">快递单号:{{item.orderExpressNo}}</view>
       </view>
     </view>
     <view class="buttombutton" bindtap="xiadan">
