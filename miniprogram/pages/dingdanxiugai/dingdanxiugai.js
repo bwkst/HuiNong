@@ -64,31 +64,39 @@ Page({
         })
         console.log(that.data.goodsname)
         Nowgoodsname = that.data.goodsname
+        Nowamount = that.data.amount
+        Nowprice = that.data.price
+        Nowaddress[0] = that.data.address[0]
+        Nowaddress[1] = that.data.address[1]
+        Nowaddress[2] = that.data.address[2]
+        
         console.log(Nowgoodsname)
       }
     })
-    console.log(Nowgoodsname)
+    setTimeout(function(){
+      console.log(Nowgoodsname)
     wx.cloud.database().collection('orderform')
     .where({
       amount: Nowamount,
       goodsname: Nowgoodsname,
       price:Nowprice,
-    //  address:Nowaddress
+      address:Nowaddress
     })
     .get()
     .then(res=>{
       console.log(res.data)
       if(res.data.length==1){
-        this.setData({
+        that.setData({
           judge: false
         })
       }
       else{
-        this.setData({
+        that.setData({
           judge: true
         })
       }
     })
+  },2500)
     var that = this;
     setTimeout(function () {
       wx.hideLoading({
