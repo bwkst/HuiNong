@@ -6,7 +6,7 @@
   border: 3rpx solid #FFD32F;
   margin-left: 7%;
   margin-right: 7%;
-  height: 347rpx;
+  height: 380rpx;
   margin-top: 60rpx;
   display: flex;
   border-radius: 10rpx 10rpx 10rpx 10rpx;
@@ -17,7 +17,7 @@
 /*每一行文本的样式*/
 .jibenxinxi {
   height: 40rpx;
-  margin-top: 25rpx;
+  margin-top: 30rpx;
   margin-left: 20rpx;
   font-size: 0.8rem;
 }
@@ -48,7 +48,7 @@
 /*左边按钮的样式*/
 .leftbutton {
   font-size: 0.8rem;
-  width: 40%;
+  width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,7 +61,7 @@
 /*右边按钮的样式*/
 .rightbutton {
   font-size: 0.8rem;
-  width: 60%;
+  width: 50%;
   margin-top: 0%;
   margin-bottom: 0%;
   display: flex;
