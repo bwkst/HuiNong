@@ -88,6 +88,44 @@ Page({
     })
   },
 
+  getNo:function(e){
+    var that=this
+    console.log('订单ID是下面的数据：')
+    console.log(e.currentTarget.dataset.index)
+    db.collection('buyerOrder').doc(e.currentTarget.dataset.index).get().then(res => {
+      // res.data 包含该记录的数据
+      console.log(res)
+      that.setData({
+        expressNo:res.data.orderExpressNo,
+      })
+      //展示提示框
+      wx.showModal({
+        title: '快递单号',
+        content: '是否复制到剪贴板',
+        showCancel: true,
+        cancelText: "否",
+        confirmText: "是",
+        success(res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+            wx.setClipboardData({
+              data: that.data.expressNo,   //云数据库中该订单的卖家手机号
+              success: (res) => {
+                wx.showModal({
+                  title: '快递单号已复制到剪贴板中',
+                  content: '',
+                  showCancel: false,
+                })
+              }
+            })
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
+    })
+  },
+
   //跳转到关于惠农界面
   changeStatusAboutHuiNong: function () {
     this.setData({

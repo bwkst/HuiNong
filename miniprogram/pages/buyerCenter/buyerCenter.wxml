@@ -23,7 +23,7 @@
 
 <!-- 我的 -->
 <scroll-view scroll-y="true" wx:if='{{status=="我的订单"}}'>
-  <view class="sellerIndex" wx:for="{{dataList}}">
+  <view class="sellerIndex" wx:for="{{dataList}}" wx:key="index">
     <view class="beyond">
       <view class="wenben">
         <view class="jibenxinxi">产品：{{item.orderGoodsName}}</view>
@@ -34,8 +34,8 @@
     </view>
     <view class="buttombutton">
       <view class="leftbutton" bindtap="getsellerNo" data-index="{{item._id}}">点击获取卖家电话</view>
-      <view class="rightbutton"  wx:if="{{item.orderExpressNo}}">快递单号:{{item.orderExpressNo}}</view>
-      <view class="rightbutton"  wx:else>当前暂未发货</view>
+      <view class="rightbutton"  wx:if="{{item.orderExpressNo}}"bindtap="getNo">{{item.orderStatus}}</view>
+      <view class="rightbutton"  wx:else>{{item.orderStatus}}</view>
     </view>
   </view>
 

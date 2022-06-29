@@ -2,12 +2,11 @@
 /*买家主页和卖家个人中心的样式*/
 .buyerIndex {
   background-color: rgba(255, 255, 255, 100);
-  width: 86%;
-  align-items: center;
+  width: 88%;
   border: 3rpx solid #FFD32F;
-  margin-left: 7%;
-  margin-right: 7%;
-  height: 347rpx;
+  margin-left: 6%;
+  margin-right: 6%;
+  height: fit-content; 
   margin-top: 60rpx;
   display: flex;
   border-radius: 10rpx 10rpx 10rpx 10rpx;
@@ -42,6 +41,12 @@
   margin-left: 40rpx;
   font-size: 0.8rem;
 }
+.jibenxinxi2 {
+  margin-top: 25rpx;
+  margin-left: 40rpx;
+  margin-bottom: 20rpx;
+  font-size: 0.8rem;
+}
 
 /*双按钮样式*/
 .buttombutton {
@@ -53,6 +58,7 @@
 .wenben {
   display: flex;
   flex-direction: column;
+  width:60%;
 }
 
 /*图片和文本组合样式*/
@@ -69,6 +75,6 @@
   width: 160rpx;
   position: relative;
   left: 8%;
-  top: 15%;
+  margin-top: 5%;
   border-radius: 10rpx 10rpx 10rpx 10rpx;
 }
