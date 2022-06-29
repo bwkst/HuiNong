@@ -81,6 +81,7 @@ Page({
 
   //点击打回按钮
   delete: function (e) {
+    var that = this;
     wx.showModal({
       title: '打回订单',
       content: '是否打回订单',
@@ -92,7 +93,6 @@ Page({
           console.log('用户点击确定')
           console.log('删除函数运行')
           console.log(e.currentTarget.dataset.index)
-          var that = this;
           db.collection('buyerOrder').doc(e.currentTarget.dataset.index).remove({
             success: function (res) {
               that.getData1();
