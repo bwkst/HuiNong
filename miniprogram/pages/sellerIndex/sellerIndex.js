@@ -71,14 +71,36 @@ Page({
     this.getData1();
   },
 
+  deleteFail: function () {
+    wx.showModal({
+      title: "打回失败",
+      content: '已发货的订单无法打回',
+      showCancel: false
+    })
+  },
+
   //点击打回按钮
   delete: function (e) {
-    console.log('删除函数运行')
-    console.log(e.currentTarget.dataset.index)
-    var that = this;
-    db.collection('buyerOrder').doc(e.currentTarget.dataset.index).remove({
-      success: function (res) {
-        that.getData1();
+    wx.showModal({
+      title: '打回订单',
+      content: '是否打回订单',
+      showCancel: true,
+      cancelText: "否",
+      confirmText: "是",
+      success(res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+          console.log('删除函数运行')
+          console.log(e.currentTarget.dataset.index)
+          var that = this;
+          db.collection('buyerOrder').doc(e.currentTarget.dataset.index).remove({
+            success: function (res) {
+              that.getData1();
+            }
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
       }
     })
   },
@@ -106,6 +128,10 @@ Page({
         })
       }
     })
+  },
+
+  onShow: function () {
+    this.onLoad();
   },
 
   getBuyerPhoneNo: function (e) {

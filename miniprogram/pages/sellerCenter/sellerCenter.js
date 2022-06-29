@@ -89,6 +89,10 @@ Page({
     })
   },
 
+  onShow: function(){
+    this.onLoad();
+  },
+
   changeStatusMine: function () {
     this.setData({
       status: "我的发布"

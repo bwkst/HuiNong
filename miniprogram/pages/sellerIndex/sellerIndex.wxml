@@ -14,7 +14,7 @@
       </view>
       <view class='henpai'>
         <view class="jibenxinxi" style="width: 100%;">买家号码：{{item.orderBuyerPhoneNo}}
-          <icon type="info_circle" size="12" bindtap="info" id="{{item._id}}"></icon>
+          <icon type="info_circle" size="12" bindtap="info" id="{{item._id}}" />
         </view>
       </view>
       <view class='henpai'>
@@ -24,7 +24,8 @@
     <view class="buttombutton">
       <button class="leftbutton" wx:if="{{item.orderExpressNo}}">{{item.orderStatus}}</button>
       <button class="leftbutton" bindtap="tianxie" data-index="{{item._id}}" wx:else>点击填写快递单号</button>
-      <button class="rightbutton" bindtap="delete" data-index="{{item._id}}">打回订单</button>
+      <button class="rightbutton" wx:if='{{item.orderStatus=="未发货"}}' bindtap="delete" data-index="{{item._id}}">打回订单</button>
+      <button class="rightbutton" bindtap="deleteFail" wx:if='{{item.orderStatus=="已发货"}}'>打回订单</button>
     </view>
   </view>
 </scroll-view>
