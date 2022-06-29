@@ -110,6 +110,7 @@ Page({
 
   //确认修改之后的函数
   regist() {
+    var that = this;
     var phoneNumber = this.data.phoneNumber
     var identity = this.data.identity
     if (this.data.judge1 && this.data.judge2 && this.data.judge3 && this.data.judge4) {
@@ -158,16 +159,23 @@ Page({
                           }
                         })
                         .then(res0 => {
-                          console.log('添加成功')
+                          wx.showLoading({
+                            content: '注册中',
+                          })
+                          setTimeout(function(){
+                            wx.hideLoading({
+                              success: (res) => {
+                                console.log('添加成功')
+                                that.loginPage();
+                              },
+                            })
+                          }, 2000)
+                          clearTimeout();
                         })
                     })
                     .catch(err => {
                       console.log('添加失败', err)
                     })
-
-                  wx.redirectTo({
-                    url: '/pages/login/login'     //跳转到登录界面
-                  })
                 }
                 else {
                   console.log("号码重复不能注册")
@@ -193,8 +201,8 @@ Page({
   },
 
   loginPage: function (e) {
-    wx.redirectTo({
-      url: '/pages/login/login',
+    wx.navigateBack({
+      delta: 1
     })
   }
 })
