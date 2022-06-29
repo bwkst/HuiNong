@@ -1,16 +1,20 @@
 <scroll-view scroll-y="true">
-  <view class="sellerIndex" wx:for="{{List}}">
+  <view class="sellerIndex" wx:for="{{datalist}}" wx:key="index">
     <view class="beyond">
       <view class="wenben">
-        <view class="jibenxinxi">产品： {{data}}</view>
-        <view class="jibenxinxi">数量： {{data}}</view>
-        <view class="jibenxinxi">付款金额： {{data}}</view>
-        <view class="jibenxinxi">快递单号:{{data}}</view>
+        <view class="jibenxinxi">产品： {{item.orderGoodsName}}</view>
+        <view class="jibenxinxi">数量： {{item.orderAmount}}斤</view>
+        <view class="jibenxinxi">付款金额： {{item.orderPrice}}元</view>
+        <view class="jibenxinxi">快递单号:{{item.orderExpressNo}}</view>
+        <view class="jibenxinxi">买家号码： {{item.orderBuyerPhoneNo}}
+          <icon  type="info_circle" size="12" bindtap="info"></icon>
+        </view>
+        <view class="jibenxinxi">运货地址:{{item.orderDeliveryAddress}}</view>
       </view>
     </view>
-    <view class="buttombutton" bindtap="xiadan">
-      <button wx:if='{{zhuangtai!="weijichu"}}' class="button" bindtap="xiadan" style="width: 100%;">（快递状态）{{zhuangtai1}}</button>
-      <input wx:if="{{zhuangtai=='weijichu'}}" class="danhao" placeholder='未寄出（点击填写快递单号）' placeholder-class="placeholderClass" placeholder-style="text-align: center;" bindinput="kuaididanhao"></input>
+    <view class="buttombutton">
+      <button class="leftbutton" bindtap="status" data-index="{{item._id}}">{{item.orderStatus}}</button>
+      <button class="rightbutton" bindtap="delete"data-index="{{item._id}}">打回订单</button>
     </view>
   </view>
 </scroll-view>
