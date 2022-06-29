@@ -24,7 +24,7 @@ Page({
       db.collection('user').doc(getApp().globalData.userCloudId).get().then(res => {
         // res.data 包含该记录的数据
         that.setData({
-          phoneNo:res.data.phoneNumber,
+          phoneNo:res.data.phoneNumber
         })
         that.getData();
       })
@@ -42,7 +42,7 @@ Page({
         console.log('now');
         console.log(res.data);
         that.setData({
-          dataList:res.data,
+          dataList:res.data.reverse(),
         })
         console.log(dataList);
       }
