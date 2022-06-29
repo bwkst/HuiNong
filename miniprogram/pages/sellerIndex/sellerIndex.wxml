@@ -23,7 +23,7 @@
     </view>
     <view class="buttombutton">
       <button class="leftbutton" wx:if="{{item.orderExpressNo}}">{{item.orderStatus}}</button>
-      <button class="leftbutton" bindtap="tianxie" data-index="{{item._id}}" wx:else>未发货(点击填写快递单号)</button>
+      <button class="leftbutton" bindtap="tianxie" data-index="{{item._id}}" wx:else>点击填写快递单号</button>
       <button class="rightbutton" bindtap="delete" data-index="{{item._id}}">打回订单</button>
     </view>
   </view>
