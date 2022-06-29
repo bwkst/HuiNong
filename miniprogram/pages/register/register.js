@@ -193,7 +193,7 @@ Page({
   },
 
   loginPage: function (e) {
-    wx.navigateTo({
+    wx.redirectTo({
       url: '/pages/login/login',
     })
   }
