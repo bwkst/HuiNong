@@ -1,5 +1,4 @@
 var id;
-var num;
 
 Page({
   data: {
@@ -38,7 +37,6 @@ Page({
       .then(res => {
         for (let index = 0; index < res.data.length; index++) {
           if (res.data[index].identifyPhoneNo == getApp().globalData.phonenumber) {
-            num = index;
             this.setData({
               deliveryName: res.data[index].deliveryName,
               deliveryPhoneNo: res.data[index].deliveryPhoneNo,
@@ -223,7 +221,7 @@ Page({
         this.setData({
           status: "显示"
         })
-        setTimeout(function(){
+        setTimeout(function () {
           that.onLoad();
         }, 2000);
         clearTimeout();
