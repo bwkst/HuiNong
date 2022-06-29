@@ -131,7 +131,6 @@ Page({
 
   //确认修改之后的函数
   sendPassword() {
-    var that = this
     wx.cloud.database().collection('user')
     .doc(id)
     .get()
@@ -169,20 +168,6 @@ Page({
                 data: {
                   passwordSet: Nowpassword
                 }
-              })
-              .then(res0 => {
-                wx.showLoading({
-                  title: '重设密码中',
-                })
-                setTimeout(function(){
-                  wx.hideLoading({
-                    success: (res) => {
-                      console.log('添加成功')
-                      that.loginPage();
-                    },
-                  })
-                }, 2000)
-                clearTimeout();
               })
               console.log(Nowpassword)
               if(res.confirm){
