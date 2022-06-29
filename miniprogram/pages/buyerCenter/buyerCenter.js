@@ -51,10 +51,6 @@ Page({
       })
   },
 
-  onShow: function(){
-    this.onLoad();
-  },
-
   //点击获取卖家号码
   getsellerNo: function (e) {
     var that = this

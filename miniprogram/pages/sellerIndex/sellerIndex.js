@@ -130,10 +130,6 @@ Page({
     })
   },
 
-  onShow: function () {
-    this.onLoad();
-  },
-
   getBuyerPhoneNo: function (e) {
     db.collection('buyerOrder').doc(e.currentTarget.id).get().then(res => {
       buyerPhoneNo = res.data.orderBuyerPhoneNo

@@ -20,10 +20,6 @@ Page({
     })
   },
 
-  onShow: function(){
-    this.onLoad();
-  },
-
   onLoad: function (options) {
     this.getData();
   },
