@@ -1,6 +1,10 @@
 // pages/fabushangpin/fabushangpin.js
 const db = wx.cloud.database()
 const todos = db.collection('orderform')
+var Nowamount = 0
+var Nowgoodsname = ''
+var Nowprice = ''
+var Nowaddress = new Array(3) 
 Page({
 
   /**
@@ -58,6 +62,31 @@ Page({
           time: String(new Date().getFullYear()) + "/" + String(new Date().getMonth() + 1) + "/" + String(new Date().getDate()) + " - " + String(new Date().getHours()) + ":" + String(new Date().getMinutes()) + ":" + String(new Date().getSeconds()),
           photoID: res.data.photoID
         })
+        console.log(that.data.goodsname)
+        Nowgoodsname = that.data.goodsname
+        console.log(Nowgoodsname)
+      }
+    })
+    console.log(Nowgoodsname)
+    wx.cloud.database().collection('orderform')
+    .where({
+      amount: Nowamount,
+      goodsname: Nowgoodsname,
+      price:Nowprice,
+    //  address:Nowaddress
+    })
+    .get()
+    .then(res=>{
+      console.log(res.data)
+      if(res.data.length==1){
+        this.setData({
+          judge: false
+        })
+      }
+      else{
+        this.setData({
+          judge: true
+        })
       }
     })
     var that = this;
@@ -70,11 +99,13 @@ Page({
 
   //判断信息是否输入完毕
   judge1: function () {
+    var that = this
+    console.log(this.data.address)
     console.log('judge函数运行');
     if (this.data.goodsname != '' && this.data.amount != 0 && this.data.price != 0 && this.data.address[2] != '' && this.data.time != '' && this.data.number != '')
-      this.setData({
-        judge: true
-      })
+  this.setData({
+    judge: true
+  })
     else
       this.setData({
         judge: false
