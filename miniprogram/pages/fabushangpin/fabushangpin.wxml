@@ -3,9 +3,9 @@
 
 <view class="class1">
   <view>
-    <button  class='smallButton' bindtap="picture1" style="width: 350rpx;">{{phototext}}</button>
+    <button class='smallButton' bindtap="picture1" style="width: 350rpx;">{{phototext}}</button>
     <view class='sinputForm'>
-       <input type="text" bindinput='chanpinmingcheng' placeholder='产品名称' placeholder-class="placeholderClass" confirm-type='done'     class='sinputContent'></input>
+      <input type="text" bindinput='chanpinmingcheng' placeholder='产品名称' placeholder-class="placeholderClass" confirm-type='done' class='sinputContent'></input>
     </view>
   </view>
   <image src="{{photopath}}" class="tupian" lazy-load="true" mode="aspectFill"></image>
@@ -23,5 +23,5 @@
   <picker class="inputContent" bindchange="addressinput" style="font-size: 0.9rem;" mode="region">地址： {{address[0]}} {{address[1]}} {{address[2]}}</picker>
 </view>
 
-  <button wx:if='{{judge == true}}' class='submitButton' bindtap="post">确认发布</button>
-  <button wx:else class='submitButton' style="background-color: #DFDFDF; color: white;">确认发布</button>
+<button wx:if='{{judge == true}}' class='submitButton' bindtap="post">确认发布</button>
+<button wx:else class='submitButton' style="background-color: #DFDFDF; color: white;">确认发布</button>

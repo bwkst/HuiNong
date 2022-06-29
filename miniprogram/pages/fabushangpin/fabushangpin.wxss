@@ -1,6 +1,6 @@
 /* pages/fabushangpin/fabushangpin.wxss */
 /*两个按钮和图片的组合形式*/
-.class1{
+.class1 {
   margin-bottom: 70rpx;
   display: flex;
   flex-direction: row;
@@ -8,7 +8,7 @@
   height: 220rpx;
   margin-left: 75rpx;
   margin-right: 75rpx;
-  justify-content:space-between;
+  justify-content: space-between;
 }
 
 /*图片样式*/
@@ -35,6 +35,7 @@
   background-color: #ffe173;
   color: black;
 }
+
 /*小输入框的格式*/
 .sinputForm {
   width: 350rpx;
@@ -45,6 +46,7 @@
   border-radius: 7rpx 7rpx 7rpx 7rpx;
   background-color: #FFFFFF;
 }
+
 .sinputContent {
   font-size: 1rem;
   position: relative;

@@ -60,7 +60,7 @@ Page({
   passwordSetRegist(e) {
     var that = this;
     this.data.passwordSet = e.detail.value;
- 
+
     if (this.data.passwordSet == this.data.passwordConfirm) {
       that.setData({
         warning3: ' ',
@@ -119,70 +119,70 @@ Page({
         cancelText: "否",
         confirmText: "是",
         confirmColor: 'skyblue',
-        success:  (res)=> {
+        success: (res) => {
           if (res.confirm) {
             //点击取消,默认隐藏弹框
             console.log('用户点击确定')
             wx.cloud.database().collection('user')
-            .where({
-              phoneNumber: phoneNumber
-            })
-            .get().then(res=>{ 
-              console.log(res.data.length)
-                if(res.data.length == 0){
+              .where({
+                phoneNumber: phoneNumber
+              })
+              .get().then(res => {
+                console.log(res.data.length)
+                if (res.data.length == 0) {
                   console.log("可以注册")
                   wx.cloud.database().collection('user')
-                  .add({
-                    data:{
-                      identity:this.data.identity,
-                      phoneNumber:this.data.phoneNumber,
-                      passwordSet:this.data.passwordSet,
-                      IDNumber:this.data.IDNumber, //为什么数据库里不是number类型而是string？？？
-                      nickName: getApp().globalData.userInfo.nickName,
-                      iconURL: getApp().globalData.userInfo.avatarUrl
-                    }
-                  })
-                  .then(res=>{ 
-                    console.log('添加成功')
-                    wx.cloud.database().collection('buyerAddress')
                     .add({
-                      data:{
-                        identifyPhoneNo:this.data.phoneNumber,
-                        deliveryName:'',
-                        deliveryAddress:'',
-                        deliverySheng:'',
-                        deliveryShi:'',
-                        deliveryQu:'',
-                        deliveryPhoneNo:'',
-                        deliveryRegion:''
+                      data: {
+                        identity: this.data.identity,
+                        phoneNumber: this.data.phoneNumber,
+                        passwordSet: this.data.passwordSet,
+                        IDNumber: this.data.IDNumber, //为什么数据库里不是number类型而是string？？？
+                        nickName: getApp().globalData.userInfo.nickName,
+                        iconURL: getApp().globalData.userInfo.avatarUrl
                       }
                     })
-                    .then(res0=>{
+                    .then(res => {
                       console.log('添加成功')
+                      wx.cloud.database().collection('buyerAddress')
+                        .add({
+                          data: {
+                            identifyPhoneNo: this.data.phoneNumber,
+                            deliveryName: '',
+                            deliveryAddress: '',
+                            deliverySheng: '',
+                            deliveryShi: '',
+                            deliveryQu: '',
+                            deliveryPhoneNo: '',
+                            deliveryRegion: ''
+                          }
+                        })
+                        .then(res0 => {
+                          console.log('添加成功')
+                        })
                     })
-                  })
-                  .catch(err=>{
-                    console.log('添加失败',err)
-                  })
+                    .catch(err => {
+                      console.log('添加失败', err)
+                    })
 
                   wx.redirectTo({
                     url: '/pages/login/login'     //跳转到登录界面
                   })
                 }
-                else{
-                 console.log("号码重复不能注册")
-                 wx.showToast({
-                   title: '号码重复',
-                   icon:'none'
-                 })
+                else {
+                  console.log("号码重复不能注册")
+                  wx.showToast({
+                    title: '号码重复',
+                    icon: 'none'
+                  })
                 }
               })
-            .catch(err=>{
-                  console.log(err)
-            })
+              .catch(err => {
+                console.log(err)
+              })
             //把重设的密码发送到云端
-          }  
-          if (res.cancel){
+          }
+          if (res.cancel) {
             console.log('用户点击取消')
           }
         }

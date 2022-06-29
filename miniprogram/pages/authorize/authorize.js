@@ -8,9 +8,9 @@ Page({
       title: '加载中',
     }),
 
-    //如果以前获取过用户身份信息，从本地Storage直接赋值给全局变量
-    //用户在不删除小程序前，Storage理论上一直在
-    getApp().globalData.userInfo = wx.getStorageSync('userInfo');
+      //如果以前获取过用户身份信息，从本地Storage直接赋值给全局变量
+      //用户在不删除小程序前，Storage理论上一直在
+      getApp().globalData.userInfo = wx.getStorageSync('userInfo');
     console.log(getApp().globalData.userInfo);  //调试用
     //如果以前获取过权限，就跳转页面
     //如果本地Storage没有则不跳转
