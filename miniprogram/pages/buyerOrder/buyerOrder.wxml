@@ -27,7 +27,7 @@
         <input class="changeInfoInput" value="{{orderAmount}}" bindconfirm="changeAmount" bindfocus="haveFocusNum"></input>
       </view>
       <view class="changeInfo changeInfoTitle">付款金额： {{orderPrice}}</view>
-      <view class="changeInfo changeInfoTitle">商户编号: {{number}}</view>
+      <view class="changeInfo changeInfoTitle">商户编号: {{showSellerNo}}</view>
     </view>
   </view>
 </view>

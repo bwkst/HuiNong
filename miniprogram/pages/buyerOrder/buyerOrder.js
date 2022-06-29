@@ -7,6 +7,8 @@ Page({
   data: {
     submitStatus: "不可提交",
 
+    showSellerNo: "",
+
     deliveryName: "",
     deliveryPhoneNo: "",
     deliveryRegion: "",
@@ -95,10 +97,18 @@ Page({
         success: () => {
           that.createOrder();
           that.checkAddress();
+          that.getSellerNo();
         },
       })
     }, 2000);
     clearTimeout();
+  },
+
+  getSellerNo: function () {
+    var getSellerNumber = this.data.number.replace(/(\d{3})\d*(\d{4})/, "$1****$2");
+    this.setData({
+      showSellerNo: getSellerNumber
+    })
   },
 
   createOrder: function () {
