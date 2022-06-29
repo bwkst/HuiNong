@@ -27,8 +27,8 @@
     <view class="beyond">
       <view class="wenben">
         <view class="jibenxinxi">产品：{{item.orderGoodsName}}</view>
-        <view class="jibenxinxi">数量：{{item.orderAmount}}</view>
-        <view class="jibenxinxi">付款金额:{{item.orderPrice}}</view>
+        <view class="jibenxinxi">数量：{{item.orderAmount}}斤</view>
+        <view class="jibenxinxi">付款金额:{{item.orderPrice}}元</view>
         <view class="jibenxinxi">收货地址:{{item.orderDeliveryAddress}}</view>
       </view>
     </view>
